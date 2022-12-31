@@ -11,10 +11,9 @@
     <title>{{ config('app.name', 'Laravel Livewire') }}</title>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('js/jquery.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,41 +21,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
-    <style>
-        .livewire-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            z-index: 100000;
-            opacity: 0.9;
-        }
-
-        .livewire-table-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 999;
-            opacity: 0.9;
-        }
-
-        .navbar-nav .show>.nav-link,
-        .navbar-nav .nav-link.active {
-            color: green !important;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('plugins/sweetalert2/sweetalert2.min.css')}}">
     @livewireStyles
 
 </head>
@@ -158,6 +125,37 @@
             });
     </script>
 
+    <script>
+        function deleteConfirmation(listner = null, id = null, type = null) {
+            if (listner && id) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "If deleted, you will not be able to recover this record.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (type) {
+                            window.livewire.emit(listner, id, type);
+                        } else {
+                            window.livewire.emit(listner, id);
+                        }
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('swal:modal', event => {
+            swal.fire({
+                title: event.detail.title,
+                text: event.detail.text,
+                icon: event.detail.type,
+            });
+        });
+    </script>
 </body>
 
 </html>

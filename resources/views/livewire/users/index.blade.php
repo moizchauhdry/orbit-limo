@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    @include('livewire.update')
+    @include('livewire.users.update')
     @include('livewire.loader')
 
 </div>

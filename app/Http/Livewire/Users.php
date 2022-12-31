@@ -17,9 +17,16 @@ class Users extends Component
     protected $paginationTheme = 'bootstrap';
     public $name, $email, $password, $password_confirmation, $user_id, $search;
 
+    protected $listeners = [
+        'delete-user' => 'delete',
+        'reset-input-fields' => 'resetInputFields',
+        'set-role-name' => 'setRoleName',
+        'set-searchRole' => 'setSearchRole'
+    ];
+
     public function render()
     {
-        return view('livewire.users', [
+        return view('livewire.users.index', [
             'users' => User::where('name', 'like', '%' . $this->search . '%')->paginate(10),
         ]);
     }
@@ -30,6 +37,7 @@ class Users extends Component
         $this->email = '';
         $this->password = '';
         $this->password_confirmation = '';
+        $this->resetValidation();
     }
 
     public function store()
@@ -46,7 +54,7 @@ class Users extends Component
             'password' => Hash::make($data['password']),
         ]);
 
-        session()->flash('message', 'Users Created Successfully.');
+        $this->alert('Created!', 'The user have been created successfully.');
 
         $this->resetInputFields();
 
@@ -82,7 +90,7 @@ class Users extends Component
                 'email' => $this->email,
             ]);
             $this->updateMode = false;
-            session()->flash('message', 'Users Updated Successfully.');
+            $this->alert('Updated!', 'The user have been updated successfully.');
             $this->resetInputFields();
             $this->emit('userStore');
         }
@@ -90,9 +98,27 @@ class Users extends Component
 
     public function delete($id)
     {
-        if ($id) {
-            User::where('id', $id)->delete();
-            session()->flash('message', 'Users Deleted Successfully.');
-        }
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        $this->alert('Deleted!', 'The user have been deleted successfully.');
+    }
+
+    public function alertConfirm()
+    {
+        $this->dispatchBrowserEvent('swal:confirm', [
+            'type' => 'warning',
+            'message' => 'Are you sure?',
+            'text' => 'If deleted, you will not be able to recover this imaginary file!'
+        ]);
+    }
+
+    public function alert($title, $text)
+    {
+        $this->dispatchBrowserEvent('swal:modal', [
+            'type' => 'success',
+            'title' => $title,
+            'text' =>  $text
+        ]);
     }
 }
