@@ -11,6 +11,9 @@
     <title>{{ config('app.name', 'Laravel Livewire') }}</title>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -32,7 +35,7 @@
             align-items: center;
             justify-content: center;
             background-color: white;
-            z-index: 999;
+            z-index: 100000;
             opacity: 0.9;
         }
 
@@ -48,6 +51,11 @@
             z-index: 999;
             opacity: 0.9;
         }
+
+        .navbar-nav .show>.nav-link,
+        .navbar-nav .nav-link.active {
+            color: green !important;
+        }
     </style>
     @livewireStyles
 
@@ -59,7 +67,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel Livewire') }}
+                    {{-- {{ config('app.name', 'Laravel Livewire') }} --}}
+                    ORBIT LIMO
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -89,10 +98,33 @@
                         </li>
                         @endif
                         @else
+
+                        <li class="nav-item">
+                            <a class="nav-link {{(Route::currentRouteName() == 'home') ? 'active' : ''}}"
+                                href="{{ route('home') }}">{{ __('Dashboard')}}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.users') ? 'active' : ''}}"
+                                href="{{ route('admin.users') }}">{{ __('Manage Users')}}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ __('Manage Permissions')}}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ __('Manage Drivers')}}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ __('Configuratios')}}</a>
+                        </li>
+
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="btn btn-outline-dark dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                <i class="bi bi-person me-1"></i>{{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -106,6 +138,7 @@
                                 </form>
                             </div>
                         </li>
+
                         @endguest
                     </ul>
                 </div>
@@ -118,6 +151,12 @@
     </div>
 
     @livewireScripts
+
+    <script type="text/javascript">
+        window.livewire.on('userStore', () => {
+                $('#user_modal').modal('hide');
+            });
+    </script>
 
 </body>
 

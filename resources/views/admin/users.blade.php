@@ -2,6 +2,6 @@
 
 @section('content')
 
-@livewire('users.index')
+@livewire('users')
 
 @endsection

@@ -20,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', function () {
-    return view('admin.users');
+Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
+    Route::get('/users', function () {
+        return view('admin.users');
+    })->name('users');
 });
