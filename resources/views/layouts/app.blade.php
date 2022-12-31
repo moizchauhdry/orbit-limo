@@ -88,7 +88,7 @@
                             <a class="nav-link" href="#">{{ __('Configuratios')}}</a>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown ms-md-4">
                             <a id="navbarDropdown" class="btn btn-outline-dark dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="bi bi-person me-1"></i>{{ Auth::user()->name }}

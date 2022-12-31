@@ -13,11 +13,29 @@
                         <label for="name">Name</label>
                         @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
+
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" wire:model="email" id="email"
                             placeholder="Enter Email">
-                        <label for="email">Email address</label>
+                        <label for="email">Email</label>
                         @error('email') <span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+
+                    <div class="form-floating mb-2">
+                        <input type="phone" class="form-control" wire:model="phone" id="phone"
+                            placeholder="Enter phone">
+                        <label for="phone">Phone</label>
+                        @error('phone') <span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+
+                    <div class="form-floating mb-2">
+                        <select wire:model.defer="role" class="form-select" id="role"
+                            aria-label="Floating label select example">
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="operator">Operator</option>
+                        </select>
+                        <label for="role">Role</label>
                     </div>
 
                     @if (!$updateMode)
@@ -30,7 +48,7 @@
                     <div class="form-floating mb-2">
                         <input type="password" class="form-control" id="password_confirmation"
                             placeholder="Enter Password Confirmation" wire:model="password_confirmation">
-                        <label for="password">Password Confirmation</label>
+                        <label for="password">Confirm Password</label>
                         @error('password_confirmation') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     @endif

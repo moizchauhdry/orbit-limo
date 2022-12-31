@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -15,19 +16,22 @@ class Users extends Component
     public $updateMode = false;
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
-    public $name, $email, $password, $password_confirmation, $user_id, $search;
+    public $user_id, $name, $email, $phone, $role, $password, $password_confirmation, $search;
 
     protected $listeners = [
         'delete-user' => 'delete',
-        'reset-input-fields' => 'resetInputFields',
-        'set-role-name' => 'setRoleName',
-        'set-searchRole' => 'setSearchRole'
     ];
 
     public function render()
     {
+        $user = Auth::user();
+
         return view('livewire.users.index', [
-            'users' => User::where('name', 'like', '%' . $this->search . '%')->paginate(10),
+            'users' => User::query()
+                ->where('id', '!=', 1)
+                ->where('id', '!=', $user->id)
+                ->where('name', 'like', '%' . $this->search . '%')
+                ->paginate(10),
         ]);
     }
 
@@ -37,6 +41,8 @@ class Users extends Component
         $this->email = '';
         $this->password = '';
         $this->password_confirmation = '';
+        $this->phone = '';
+        $this->role = '';
         $this->resetValidation();
     }
 
@@ -45,12 +51,16 @@ class Users extends Component
         $data = $this->validate([
             'name' => ['required', 'string', 'min:5', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['nullable', 'unique:users'],
+            'role' => ['required', 'in:admin,manager,operator'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => $data['role'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
 
@@ -68,6 +78,8 @@ class Users extends Component
         $this->user_id = $id;
         $this->name = $user->name;
         $this->email = $user->email;
+        $this->phone = $user->phone;
+        $this->role = $user->role;
     }
 
     public function cancel()
@@ -81,6 +93,8 @@ class Users extends Component
         $data = $this->validate([
             'name' => ['required', 'string', 'min:5', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this->user_id, 'id')],
+            'phone' => ['nullable', 'unique:users', 'regex:/(3)[0-9]{9}/'],
+            'role' => ['required', 'in:1,2,3'],
         ]);
 
         if ($this->user_id) {
@@ -88,6 +102,8 @@ class Users extends Component
             $user->update([
                 'name' => $this->name,
                 'email' => $this->email,
+                'phone' => $this->phone,
+                'role' => $this->role,
             ]);
             $this->updateMode = false;
             $this->alert('Updated!', 'The user have been updated successfully.');

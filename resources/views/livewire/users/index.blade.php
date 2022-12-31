@@ -21,12 +21,14 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table table-bordered mt-2">
+        <table class="table table-bordered text-center">
             <thead class="bg-success text-white">
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
                     <th width="150px">Action</th>
                 </tr>
             </thead>
@@ -36,6 +38,9 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td class="text-capitalize">{{ $user->role }}</td>
+                    <td class="text-capitalize"><span class="badge text-bg-{{$user->status ? 'success' :
+                            'danger'}}">{{ $user->status ? 'Active' : 'Inactive' }}</span></td>
                     <td>
                         <button wire:click="edit({{ $user->id }})" class="btn btn-primary btn-sm my-1"
                             data-bs-toggle="modal" data-bs-target="#user_modal">
