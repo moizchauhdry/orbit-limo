@@ -22,6 +22,10 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/register', function () {
+    return redirect()->route('login');
+});
+
 Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
     Route::get('/users', function () {
         return view('admin.users');
