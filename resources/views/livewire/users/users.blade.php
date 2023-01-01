@@ -53,7 +53,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="4" class="text-center">There are no users found yet.</td>
+                    <td colspan="6" class="text-center">There are no users found yet.</td>
                 </tr>
                 @endforelse
             </tbody>
@@ -62,7 +62,8 @@
 
     <div class="row">
         <div class="col-lg-6">
-            Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of total
+            Showing {{ $users->firstItem() ? $users->firstItem() : 0 }} to {{ $users->lastItem() ?
+            $users->lastItem() : 0}} of total
             {{ $users->total() }} entries
         </div>
         <div class="col-lg-6">

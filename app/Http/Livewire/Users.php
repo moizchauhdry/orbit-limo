@@ -26,7 +26,7 @@ class Users extends Component
     {
         $user = Auth::user();
 
-        return view('livewire.users.index', [
+        return view('livewire.users.users', [
             'users' => User::query()
                 ->where('id', '!=', 1)
                 ->where('id', '!=', $user->id)
@@ -64,7 +64,7 @@ class Users extends Component
             'password' => Hash::make($data['password']),
         ]);
 
-        $this->alert('Created!', 'The user have been created successfully.');
+        $this->alert('User Created!', 'The user have been created successfully.');
 
         $this->resetInputFields();
 
@@ -93,8 +93,8 @@ class Users extends Component
         $data = $this->validate([
             'name' => ['required', 'string', 'min:5', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this->user_id, 'id')],
-            'phone' => ['nullable', 'unique:users', 'regex:/(3)[0-9]{9}/'],
-            'role' => ['required', 'in:1,2,3'],
+            'phone' => ['nullable', Rule::unique('users')->ignore($this->user_id, 'id')],
+            'role' => ['required', 'in:admin,manager,operator'],
         ]);
 
         if ($this->user_id) {
@@ -106,7 +106,7 @@ class Users extends Component
                 'role' => $this->role,
             ]);
             $this->updateMode = false;
-            $this->alert('Updated!', 'The user have been updated successfully.');
+            $this->alert('User Updated!', 'The user have been updated successfully.');
             $this->resetInputFields();
             $this->emit('userStore');
         }
@@ -117,7 +117,7 @@ class Users extends Component
         $user = User::findOrFail($id);
         $user->delete();
 
-        $this->alert('Deleted!', 'The user have been deleted successfully.');
+        $this->alert('User Deleted!', 'The user have been deleted successfully.');
     }
 
     public function alertConfirm()
