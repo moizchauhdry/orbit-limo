@@ -81,7 +81,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Manage Drivers')}}</a>
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.drivers') ? 'active' : ''}}"
+                                href="{{ route('admin.drivers') }}">{{ __('Manage Drivers')}}</a>
                         </li>
 
                         <li class="nav-item">
@@ -121,8 +122,11 @@
 
     <script type="text/javascript">
         window.livewire.on('userStore', () => {
-                $('#user_modal').modal('hide');
-            });
+            $('#user_modal').modal('hide');
+        });
+        window.livewire.on('driverStore', () => {
+            $('#driver_modal').modal('hide');
+        });
     </script>
 
     <script>
