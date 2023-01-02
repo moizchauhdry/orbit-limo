@@ -6,6 +6,7 @@
     </div>
     @endif
 
+    @can('driver-create')
     <div class="row">
         <div class="col-md-12">
             <button type="button" class="btn btn-success float-end my-1" data-bs-toggle="modal"
@@ -13,6 +14,7 @@
             </button>
         </div>
     </div>
+    @endcan
 
     <div class="row">
         <div class="col-md-3">
@@ -41,16 +43,23 @@
                     <td>{{ $driver->email }}</td>
                     <td class="text-capitalize">{{ $driver->phone }}</td>
                     <td class="text-capitalize">{{ $driver->category }}</td>
-                    <td class="text-capitalize"><span class="badge text-bg-{{$driver->status ? 'success' :
-                            'danger'}}">{{ $driver->status ? 'Active' : 'Inactive' }}</span></td>
+                    <td class="text-capitalize">
+                        <span class="badge text-bg-{{$driver->status ? 'success' : 'danger'}}">
+                            {{ $driver->status ? 'Active' : 'Inactive' }}
+                        </span>
+                    </td>
                     <td>
+                        @can('driver-edit')
                         <button wire:click="edit({{ $driver->id }})" class="btn btn-primary btn-sm my-1"
                             data-bs-toggle="modal" data-bs-target="#driver_modal">
                             <i class="bi bi-pencil-square me-1"></i>Edit</button>
+                        @endcan
 
+                        @can('driver-delete')
                         <button onclick="deleteConfirmation('delete-driver','{{$driver->id}}')"
                             class="btn btn-danger btn-sm my-1">
                             <i class="bi bi-trash me-1"></i>Delete</button>
+                        @endcan
                     </td>
                 </tr>
                 @empty
@@ -75,7 +84,10 @@
         </div>
     </div>
 
+    @can('driver-edit')
     @include('livewire.drivers.update')
+    @endcan
+
     @include('livewire.loader')
 
 </div>

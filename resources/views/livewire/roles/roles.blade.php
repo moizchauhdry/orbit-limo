@@ -6,6 +6,7 @@
     </div>
     @endif
 
+    @can('role-create')
     <div class="row">
         <div class="col-md-12">
             <button type="button" class="btn btn-success float-end my-1" data-bs-toggle="modal"
@@ -13,6 +14,7 @@
             </button>
         </div>
     </div>
+    @endcan
 
     <div class="row">
         <div class="col-md-3">
@@ -35,13 +37,11 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $role->name }}</td>
                     <td>
+                        @can('role-edit')
                         <button wire:click="edit({{ $role->id }})" class="btn btn-primary btn-sm my-1"
                             data-bs-toggle="modal" data-bs-target="#role_modal">
                             <i class="bi bi-pencil-square me-1"></i>Edit</button>
-
-                        <button onclick="deleteConfirmation('delete-role','{{$role->id}}')"
-                            class="btn btn-danger btn-sm my-1">
-                            <i class="bi bi-trash me-1"></i>Delete</button>
+                        @endcan
                     </td>
                 </tr>
                 @empty
@@ -66,7 +66,10 @@
         </div>
     </div>
 
+    @can('role-edit')
     @include('livewire.roles.update')
+    @endcan
+
     @include('livewire.loader')
 
 </div>

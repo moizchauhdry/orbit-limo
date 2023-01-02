@@ -29,10 +29,12 @@ Route::get('/register', function () {
 Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
     Route::get('/users', function () {
         return view('admin.users');
-    })->name('users');
+    })->name('users')->middleware('permission:user-list');
+
     Route::get('/roles', function () {
         return view('admin.roles');
-    })->name('roles');
+    })->name('roles')->middleware('permission:role-list');
+
     Route::get('/drivers', function () {
         return view('admin.drivers');
     })->name('drivers')->middleware('permission:driver-list');

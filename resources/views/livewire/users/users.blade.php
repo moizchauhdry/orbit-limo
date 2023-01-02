@@ -6,6 +6,7 @@
     </div>
     @endif
 
+    @can('user-create')
     <div class="row">
         <div class="col-md-12">
             <button type="button" class="btn btn-success float-end my-1" data-bs-toggle="modal"
@@ -13,6 +14,7 @@
             </button>
         </div>
     </div>
+    @endcan
 
     <div class="row">
         <div class="col-md-3">
@@ -42,13 +44,17 @@
                     <td class="text-capitalize"><span class="badge text-bg-{{$user->status ? 'success' :
                             'danger'}}">{{ $user->status ? 'Active' : 'Inactive' }}</span></td>
                     <td>
+                        @can('user-edit')
                         <button wire:click="edit({{ $user->id }})" class="btn btn-primary btn-sm my-1"
                             data-bs-toggle="modal" data-bs-target="#user_modal">
                             <i class="bi bi-pencil-square me-1"></i>Edit</button>
+                        @endcan
 
+                        @can('user-delete')
                         <button onclick="deleteConfirmation('delete-user','{{$user->id}}')"
                             class="btn btn-danger btn-sm my-1">
                             <i class="bi bi-trash me-1"></i>Delete</button>
+                        @endcan
                     </td>
                 </tr>
                 @empty
@@ -73,7 +79,10 @@
         </div>
     </div>
 
+    @can('user-edit')
     @include('livewire.users.update')
+    @endcan
+
     @include('livewire.loader')
 
 </div>
