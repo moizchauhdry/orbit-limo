@@ -14,15 +14,17 @@
                         @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
 
-                    <div class="form-group">
-                        @foreach ($permissions as $permission)
-                        <div>
-                            <input wire:model.defer="permission" type="checkbox" name="permission"
-                                value="{{$permission->id}}">
-                            <span for="permission">{{$permission->name}}</span>
+                    <div class="card p-3">
+                        <div class="form-group">
+                            @foreach ($permissions as $permission)
+                            <div>
+                                <input wire:model.defer="permission" type="checkbox" name="permission"
+                                    value="{{$permission->id}}">
+                                <span for="permission" class="text-uppercase">{{clean_string($permission->name)}}</span>
+                            </div>
+                            @endforeach
+                            @error('permission') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
-                        @endforeach
-                        @error('permission') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
 
                 </form>
