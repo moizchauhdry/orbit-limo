@@ -31,9 +31,9 @@
                     <div class="form-floating mb-2">
                         <select wire:model.defer="role" class="form-select" id="role"
                             aria-label="Floating label select example">
-                            <option value="admin">Admin</option>
-                            <option value="manager">Manager</option>
-                            <option value="operator">Operator</option>
+                            @foreach ($roles as $role)
+                            <option value="{{$role->id}}">{{$role->name}}</option>
+                            @endforeach
                         </select>
                         <label for="role">Role</label>
                     </div>

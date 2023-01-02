@@ -30,7 +30,10 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
     Route::get('/users', function () {
         return view('admin.users');
     })->name('users');
+    Route::get('/roles', function () {
+        return view('admin.roles');
+    })->name('roles');
     Route::get('/drivers', function () {
         return view('admin.drivers');
-    })->name('drivers');
+    })->name('drivers')->middleware('permission:driver-list');
 });

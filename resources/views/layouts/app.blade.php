@@ -34,8 +34,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{-- {{ config('app.name', 'Laravel Livewire') }} --}}
-                    ORBIT LIMO
+                    {{ config('app.name', 'Laravel Livewire') }}
+                    {{-- ORBIT LIMO --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -71,19 +71,27 @@
                                 href="{{ route('home') }}">{{ __('Dashboard')}}</a>
                         </li>
 
+                        @can('user-list')
                         <li class="nav-item">
                             <a class="nav-link {{(Route::currentRouteName() == 'admin.users') ? 'active' : ''}}"
                                 href="{{ route('admin.users') }}">{{ __('Manage Users')}}</a>
                         </li>
+                        @endcan
 
+                        @can('role-list')
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Manage Permissions')}}</a>
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.roles') ? 'active' : ''}}"
+                                href="{{ route('admin.roles') }}">{{ __('Manage Roles')}}</a>
                         </li>
+                        @endcan
 
+                        @can('driver-list')
                         <li class="nav-item">
                             <a class="nav-link {{(Route::currentRouteName() == 'admin.drivers') ? 'active' : ''}}"
                                 href="{{ route('admin.drivers') }}">{{ __('Manage Drivers')}}</a>
                         </li>
+                        @endcan
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ __('Configuratios')}}</a>
@@ -126,6 +134,9 @@
         });
         window.livewire.on('driverStore', () => {
             $('#driver_modal').modal('hide');
+        });
+        window.livewire.on('role_modal_hide', () => {
+            $('#role_modal').modal('hide');
         });
     </script>
 

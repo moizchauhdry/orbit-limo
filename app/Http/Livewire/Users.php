@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 
 class Users extends Component
 {
@@ -26,12 +27,17 @@ class Users extends Component
     {
         $user = Auth::user();
 
+        $users = User::query()
+            ->where('id', '!=', 1)
+            ->where('id', '!=', $user->id)
+            ->where('name', 'like', '%' . $this->search . '%')
+            ->paginate(10);
+
+        $roles = Role::get();
+
         return view('livewire.users.users', [
-            'users' => User::query()
-                ->where('id', '!=', 1)
-                ->where('id', '!=', $user->id)
-                ->where('name', 'like', '%' . $this->search . '%')
-                ->paginate(10),
+            'users' => $users,
+            'roles' => $roles,
         ]);
     }
 
@@ -52,22 +58,21 @@ class Users extends Component
             'name' => ['required', 'string', 'min:5', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['nullable', 'unique:users'],
-            'role' => ['required', 'in:admin,manager,operator'],
+            'role' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'role' => $data['role'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
 
-        $this->alert('User Created!', 'The user have been created successfully.');
-
+        $user->assignRole($data['role']);
         $this->resetInputFields();
 
+        $this->alert('User Created!', 'The user have been created successfully.');
         $this->emit('userStore');
     }
 
@@ -79,7 +84,7 @@ class Users extends Component
         $this->name = $user->name;
         $this->email = $user->email;
         $this->phone = $user->phone;
-        $this->role = $user->role;
+        $this->role = $user->roles[0]->id;
     }
 
     public function cancel()
@@ -94,7 +99,7 @@ class Users extends Component
             'name' => ['required', 'string', 'min:5', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this->user_id, 'id')],
             'phone' => ['nullable', Rule::unique('users')->ignore($this->user_id, 'id')],
-            'role' => ['required', 'in:admin,manager,operator'],
+            'role' => ['required'],
         ]);
 
         if ($this->user_id) {
@@ -103,11 +108,13 @@ class Users extends Component
                 'name' => $this->name,
                 'email' => $this->email,
                 'phone' => $this->phone,
-                'role' => $this->role,
             ]);
+
+            $user->assignRole($this->role);
             $this->updateMode = false;
-            $this->alert('User Updated!', 'The user have been updated successfully.');
             $this->resetInputFields();
+
+            $this->alert('User Updated!', 'The user have been updated successfully.');
             $this->emit('userStore');
         }
     }

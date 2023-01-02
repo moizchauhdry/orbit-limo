@@ -35,7 +35,6 @@ class Drivers extends Component
         $this->email = '';
         $this->phone = '';
         $this->category = '';
-        $this->status = '';
         $this->resetValidation();
     }
 
