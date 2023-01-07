@@ -6,11 +6,11 @@
     </div>
     @endif
 
-    @can('booking-create')
+    @can('vehicle-create')
     <div class="row">
         <div class="col-md-12">
             <button type="button" class="btn btn-success float-end my-1" data-bs-toggle="modal"
-                data-bs-target="#booking_modal"><i class="bi bi-plus-lg me-1"></i>Add Booking
+                data-bs-target="#vehicle_modal"><i class="bi bi-plus-lg me-1"></i>Add Vehicle
             </button>
         </div>
     </div>
@@ -28,39 +28,29 @@
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Vehicle</th>
-                    <th>Pickup</th>
-                    <th>Drop-off</th>
                     <th>Status</th>
                     <th width="150px">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse($bookings as $booking)
+                @forelse($vehicles as $vehicle)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $booking->first_name }}</td>
-                    <td>{{ $booking->email }}</td>
-                    <td class="text-capitalize">{{ $booking->phone }}</td>
-                    <td class="text-capitalize">{{ $booking->vehicle_id ?? '' }}</td>
-                    <td class="text-capitalize">{{ $booking->pickup_location }}</td>
-                    <td class="text-capitalize">{{ $booking->drop_location }}</td>
+                    <td>{{ $vehicle->name }}</td>
                     <td class="text-capitalize">
-                        <span class="badge text-bg-{{$booking->status ? 'success' : 'danger'}}">
-                            {{ $booking->status ? 'Active' : 'Inactive' }}
+                        <span class="badge text-bg-{{$vehicle->status ? 'success' : 'danger'}}">
+                            {{ $vehicle->status ? 'Active' : 'Inactive' }}
                         </span>
                     </td>
                     <td>
-                        @can('booking-edit')
-                        <button wire:click="edit({{ $booking->id }})" class="btn btn-primary btn-sm my-1"
-                            data-bs-toggle="modal" data-bs-target="#booking_modal">
+                        @can('vehicle-edit')
+                        <button wire:click="edit({{ $vehicle->id }})" class="btn btn-primary btn-sm my-1"
+                            data-bs-toggle="modal" data-bs-target="#vehicle_modal">
                             <i class="bi bi-pencil-square me-1"></i>Edit</button>
                         @endcan
 
-                        @can('booking-delete')
-                        <button onclick="deleteConfirmation('delete-booking','{{$booking->id}}')"
+                        @can('vehicle-delete')
+                        <button onclick="deleteConfirmation('delete-vehicle','{{$vehicle->id}}')"
                             class="btn btn-danger btn-sm my-1">
                             <i class="bi bi-trash me-1"></i>Delete</button>
                         @endcan
@@ -68,7 +58,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="7" class="text-center">There are no bookings added yet.</td>
+                    <td colspan="7" class="text-center">There are no vehicles added yet.</td>
                 </tr>
                 @endforelse
             </tbody>
@@ -77,19 +67,19 @@
 
     <div class="row">
         <div class="col-lg-6">
-            Showing {{ $bookings->firstItem() ? $bookings->firstItem() : 0 }} to {{ $bookings->lastItem() ?
-            $bookings->lastItem() : 0}} of total
-            {{ $bookings->total() }} entries
+            Showing {{ $vehicles->firstItem() ? $vehicles->firstItem() : 0 }} to {{ $vehicles->lastItem() ?
+            $vehicles->lastItem() : 0}} of total
+            {{ $vehicles->total() }} entries
         </div>
         <div class="col-lg-6">
             <div class="d-flex justify-content-end px-2 mx-2 my-2">
-                {{ $bookings->links() }}
+                {{ $vehicles->links() }}
             </div>
         </div>
     </div>
 
-    @can('booking-edit')
-    @include('livewire.bookings.update')
+    @can('vehicle-edit')
+    @include('livewire.vehicles.update')
     @endcan
 
     @include('livewire.loader')

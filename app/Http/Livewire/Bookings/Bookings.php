@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Bookings;
 
 use Livewire\Component;
 use App\Models\Booking;
+use App\Models\Vehicle;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 
@@ -38,10 +39,15 @@ class Bookings extends Component
 
     public function render()
     {
+        $bookings = Booking::query()
+            // ->where('name', 'like', '%' . $this->search . '%')
+            ->paginate(10);
+
+        $vehicles = Vehicle::get();
+
         return view('livewire.bookings.bookings', [
-            'bookings' => Booking::query()
-                // ->where('name', 'like', '%' . $this->search . '%')
-                ->paginate(10),
+            'bookings' => $bookings,
+            'vehicles' => $vehicles
         ]);
     }
 
@@ -67,20 +73,20 @@ class Bookings extends Component
     public function store()
     {
         $data = $this->validate([
-            'pickup_date' => ['required', 'string', 'min:5', 'max:255'],
-            'pickup_time' => ['required', 'string', 'min:5', 'max:255'],
-            'pickup_location' => ['required', 'string', 'min:5', 'max:255'],
-            'drop_location' => ['required', 'string', 'min:5', 'max:255'],
-            'total_distance' => ['required', 'string', 'min:5', 'max:255'],
-            'total_time' => ['required', 'string', 'min:5', 'max:255'],
-            'vehicle_id' => ['required', 'string', 'min:5', 'max:255'],
-            'passenger' => ['required', 'string', 'min:5', 'max:255'],
-            'suitcase' => ['required', 'string', 'min:5', 'max:255'],
-            'first_name' => ['required', 'string', 'min:5', 'max:255'],
-            'last_name' => ['required', 'string', 'min:5', 'max:255'],
-            'email' => ['required', 'string', 'min:5', 'max:255'],
-            'phone' => ['required', 'string', 'min:5', 'max:255'],
-            'comments' => ['required', 'string', 'min:5', 'max:255'],
+            'pickup_date' => ['required'],
+            'pickup_time' => ['required'],
+            'pickup_location' => ['required'],
+            'drop_location' => ['required'],
+            'total_distance' => ['required'],
+            'total_time' => ['required'],
+            'vehicle_id' => ['required'],
+            'passenger' => ['required'],
+            'suitcase' => ['required'],
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email' => ['required'],
+            'phone' => ['required'],
+            'comments' => ['nullable'],
         ]);
 
         Booking::create([
@@ -135,20 +141,20 @@ class Bookings extends Component
     public function update()
     {
         $this->validate([
-            'pickup_date' => ['required', 'string', 'min:5', 'max:255'],
-            'pickup_time' => ['required', 'string', 'min:5', 'max:255'],
-            'pickup_location' => ['required', 'string', 'min:5', 'max:255'],
-            'drop_location' => ['required', 'string', 'min:5', 'max:255'],
-            'total_distance' => ['required', 'string', 'min:5', 'max:255'],
-            'total_time' => ['required', 'string', 'min:5', 'max:255'],
-            'vehicle_id' => ['required', 'string', 'min:5', 'max:255'],
-            'passenger' => ['required', 'string', 'min:5', 'max:255'],
-            'suitcase' => ['required', 'string', 'min:5', 'max:255'],
-            'first_name' => ['required', 'string', 'min:5', 'max:255'],
-            'last_name' => ['required', 'string', 'min:5', 'max:255'],
-            'email' => ['required', 'string', 'min:5', 'max:255'],
-            'phone' => ['required', 'string', 'min:5', 'max:255'],
-            'comments' => ['required', 'string', 'min:5', 'max:255'],
+            'pickup_date' => ['required'],
+            'pickup_time' => ['required'],
+            'pickup_location' => ['required'],
+            'drop_location' => ['required'],
+            'total_distance' => ['required'],
+            'total_time' => ['required'],
+            'vehicle_id' => ['required'],
+            'passenger' => ['required'],
+            'suitcase' => ['required'],
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email' => ['required'],
+            'phone' => ['required'],
+            'comments' => ['nullable'],
         ]);
 
         if ($this->booking_id) {

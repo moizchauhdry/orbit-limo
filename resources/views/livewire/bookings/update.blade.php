@@ -49,8 +49,10 @@
                             <label for="vehicle_id"><strong>Vehicle</strong></label>
                             <select wire:model.defer="vehicle_id" class="form-select" id="vehicle_id"
                                 aria-label="Floating label select example">
-                                <option value="1">Sedan</option>
-                                <option value="2">SUV</option>
+                                <option value="" selected>--Select Vehicle--</option>
+                                @foreach ($vehicles as $vehicle)
+                                <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-3 form-group mb-2">

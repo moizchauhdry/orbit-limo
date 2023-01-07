@@ -164,6 +164,9 @@
         window.livewire.on('booking_modal_hide', () => {
             $('#booking_modal').modal('hide');
         });
+        window.livewire.on('vehicle_modal_hide', () => {
+            $('#vehicle_modal').modal('hide');
+        });
     </script>
 
     <script>
