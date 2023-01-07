@@ -167,6 +167,9 @@
         window.livewire.on('vehicle_modal_hide', () => {
             $('#vehicle_modal').modal('hide');
         });
+        window.livewire.on('coupon_modal_hide', () => {
+            $('#coupon_modal').modal('hide');
+        });
     </script>
 
     <script>
