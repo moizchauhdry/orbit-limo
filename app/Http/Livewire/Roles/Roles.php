@@ -24,7 +24,7 @@ class Roles extends Component
 
     public function render()
     {
-        $roles = Role::where('name', 'like', '%' . $this->search . '%')->paginate(10);
+        $roles = Role::whereNotIn('id', ['1', '2'])->where('name', 'like', '%' . $this->search . '%')->paginate(10);
         $permissions = Permission::get();
 
         return view('livewire.roles.roles', [
