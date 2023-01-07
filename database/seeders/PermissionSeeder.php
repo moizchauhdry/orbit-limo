@@ -18,14 +18,36 @@ class PermissionSeeder extends Seeder
             'role-list',
             'role-create',
             'role-edit',
+
             'user-list',
             'user-create',
             'user-edit',
             'user-delete',
+
             'driver-list',
             'driver-create',
             'driver-edit',
             'driver-delete',
+
+            'booking-list',
+            'booking-create',
+            'booking-edit',
+            'booking-delete',
+
+            'customer-list',
+            'customer-create',
+            'customer-edit',
+            'customer-delete',
+
+            'vehicle-list',
+            'vehicle-create',
+            'vehicle-edit',
+            'vehicle-delete',
+
+            'coupon-list',
+            'coupon-create',
+            'coupon-edit',
+            'coupon-delete',
         ];
 
         foreach ($permissions as $permission) {

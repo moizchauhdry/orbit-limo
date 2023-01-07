@@ -38,4 +38,20 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
     Route::get('/drivers', function () {
         return view('admin.drivers');
     })->name('drivers')->middleware('permission:driver-list');
+
+    Route::get('/bookings', function () {
+        return view('admin.bookings');
+    })->name('bookings')->middleware('permission:booking-list');
+
+    Route::get('/customers', function () {
+        return view('admin.customers');
+    })->name('customers')->middleware('permission:customer-list');
+
+    Route::get('/coupons', function () {
+        return view('admin.coupons');
+    })->name('coupons')->middleware('permission:coupon-list');
+
+    Route::get('/vehicles', function () {
+        return view('admin.vehicles');
+    })->name('vehicles')->middleware('permission:vehicle-list');
 });

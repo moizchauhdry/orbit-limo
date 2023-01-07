@@ -74,28 +74,51 @@
                         @can('user-list')
                         <li class="nav-item">
                             <a class="nav-link {{(Route::currentRouteName() == 'admin.users') ? 'active' : ''}}"
-                                href="{{ route('admin.users') }}">{{ __('Manage Users')}}</a>
+                                href="{{ route('admin.users') }}">{{ __('Users')}}</a>
                         </li>
                         @endcan
 
                         @can('role-list')
                         <li class="nav-item">
                             <a class="nav-link {{(Route::currentRouteName() == 'admin.roles') ? 'active' : ''}}"
-                                href="{{ route('admin.roles') }}">{{ __('Manage Roles')}}</a>
+                                href="{{ route('admin.roles') }}">{{ __('Roles')}}</a>
                         </li>
                         @endcan
 
                         @can('driver-list')
                         <li class="nav-item">
                             <a class="nav-link {{(Route::currentRouteName() == 'admin.drivers') ? 'active' : ''}}"
-                                href="{{ route('admin.drivers') }}">{{ __('Manage Drivers')}}</a>
+                                href="{{ route('admin.drivers') }}">{{ __('Drivers')}}</a>
                         </li>
                         @endcan
 
-
+                        @can('booking-list')
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Configuratios')}}</a>
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.bookings') ? 'active' : ''}}"
+                                href="{{ route('admin.bookings') }}">{{ __('Bookings')}}</a>
                         </li>
+                        @endcan
+
+                        @can('vehicle-list')
+                        <li class="nav-item">
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.vehicles') ? 'active' : ''}}"
+                                href="{{ route('admin.vehicles') }}">{{ __('Vehicles')}}</a>
+                        </li>
+                        @endcan
+
+                        @can('coupon-list')
+                        <li class="nav-item">
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.coupons') ? 'active' : ''}}"
+                                href="{{ route('admin.coupons') }}">{{ __('Coupons')}}</a>
+                        </li>
+                        @endcan
+
+                        @can('customer-list')
+                        <li class="nav-item">
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.customers') ? 'active' : ''}}"
+                                href="{{ route('admin.customers') }}">{{ __('Customers')}}</a>
+                        </li>
+                        @endcan
 
                         <li class="nav-item dropdown ms-md-4">
                             <a id="navbarDropdown" class="btn btn-outline-dark dropdown-toggle" href="#" role="button"
@@ -137,6 +160,9 @@
         });
         window.livewire.on('role_modal_hide', () => {
             $('#role_modal').modal('hide');
+        });
+        window.livewire.on('booking_modal_hide', () => {
+            $('#booking_modal').modal('hide');
         });
     </script>
 
