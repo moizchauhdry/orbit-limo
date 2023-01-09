@@ -54,4 +54,8 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
     Route::get('/vehicles', function () {
         return view('admin.vehicles');
     })->name('vehicles')->middleware('permission:vehicle-list');
+
+    Route::get('/booking-extras', function () {
+        return view('admin.booking-extras');
+    })->name('booking-extras')->middleware('permission:booking-extra-list');
 });

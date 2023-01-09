@@ -35,7 +35,6 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel Livewire') }}
-                    {{-- ORBIT LIMO --}}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -120,6 +119,13 @@
                         </li>
                         @endcan
 
+                        @can('booking-extra-list')
+                        <li class="nav-item">
+                            <a class="nav-link {{(Route::currentRouteName() == 'admin.booking-extras') ? 'active' : ''}}"
+                                href="{{ route('admin.booking-extras') }}">{{ __('Booking Extras')}}</a>
+                        </li>
+                        @endcan
+
                         <li class="nav-item dropdown ms-md-4">
                             <a id="navbarDropdown" class="btn btn-outline-dark dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -169,6 +175,9 @@
         });
         window.livewire.on('coupon_modal_hide', () => {
             $('#coupon_modal').modal('hide');
+        });
+        window.livewire.on('booking_extra_modal_hide', () => {
+            $('#booking_extra_modal').modal('hide');
         });
     </script>
 

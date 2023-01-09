@@ -48,6 +48,11 @@ class PermissionSeeder extends Seeder
             'coupon-create',
             'coupon-edit',
             'coupon-delete',
+
+            'booking-extra-list',
+            'booking-extra-create',
+            'booking-extra-edit',
+            'booking-extra-delete',
         ];
 
         foreach ($permissions as $permission) {
