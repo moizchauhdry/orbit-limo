@@ -55,7 +55,6 @@ class Vehicles extends Component
         $data = $this->validate([
             'name' => ['required'],
             'image' => ['nullable'],
-            'status' => ['nullable'],
             'ptp_min_amount' => ['required', 'numeric'],
             'ptp_min_distance' => ['required', 'numeric'],
             'ptp_adt_amount_per_km' => ['required', 'numeric'],
@@ -71,7 +70,6 @@ class Vehicles extends Component
         Vehicle::create([
             'name' => $data['name'],
             'image' => $data['image'],
-            'status' => $data['status'],
             'ptp_min_amount' => $data['ptp_min_amount'],
             'ptp_min_distance' => $data['ptp_min_distance'],
             'ptp_adt_amount_per_km' => $data['ptp_adt_amount_per_km'],
@@ -96,7 +94,6 @@ class Vehicles extends Component
         $this->vehicle_id = $id;
         $this->name = $vehicle->name;
         $this->image = $vehicle->image;
-        $this->status = $vehicle->status;
         $this->ptp_min_amount = $vehicle->ptp_min_amount;
         $this->ptp_min_distance = $vehicle->ptp_min_distance;
         $this->ptp_adt_amount_per_km = $vehicle->ptp_adt_amount_per_km;
@@ -120,7 +117,6 @@ class Vehicles extends Component
         $data = $this->validate([
             'name' => ['required'],
             'image' => ['nullable'],
-            'status' => ['nullable'],
             'ptp_min_amount' => ['required', 'numeric'],
             'ptp_min_distance' => ['required', 'numeric'],
             'ptp_adt_amount_per_km' => ['required', 'numeric'],
@@ -138,7 +134,6 @@ class Vehicles extends Component
             $vehicle->update([
                 'name' => $this->name,
                 'image' => $this->image,
-                'status' => $this->status,
                 'ptp_min_amount' => $this->ptp_min_amount,
                 'ptp_min_distance' => $this->ptp_min_distance,
                 'ptp_adt_amount_per_km' => $this->ptp_adt_amount_per_km,
