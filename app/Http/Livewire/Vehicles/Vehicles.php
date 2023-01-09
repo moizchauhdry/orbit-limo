@@ -14,7 +14,22 @@ class Vehicles extends Component
     public $updateMode = false;
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
-    public $vehicle_id, $search, $name;
+    public
+        $vehicle_id,
+        $search,
+        $name,
+        $image,
+        $status,
+        $ptp_min_amount,
+        $ptp_min_distance,
+        $ptp_adt_amount_per_km,
+        $ptp_amount_peak_hrs,
+        $ptp_peak_hrs,
+        $ptp_amount_per_stop,
+        $hrly_min_amount,
+        $hrly_min_hour,
+        $hrly_adt_amount_per_hour,
+        $hrly_amount_per_km_allowed;
 
     protected $listeners = [
         'delete-vehicle' => 'delete',
@@ -38,11 +53,35 @@ class Vehicles extends Component
     public function store()
     {
         $data = $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'name' => ['required'],
+            'image' => ['nullable'],
+            'status' => ['nullable'],
+            'ptp_min_amount' => ['required', 'numeric'],
+            'ptp_min_distance' => ['required', 'numeric'],
+            'ptp_adt_amount_per_km' => ['required', 'numeric'],
+            'ptp_amount_peak_hrs' => ['required', 'numeric'],
+            'ptp_peak_hrs' => ['required', 'string'],
+            'ptp_amount_per_stop' => ['required', 'numeric'],
+            'hrly_min_amount' => ['required', 'numeric'],
+            'hrly_min_hour' => ['required', 'numeric'],
+            'hrly_adt_amount_per_hour' => ['required', 'numeric'],
+            'hrly_amount_per_km_allowed' => ['required', 'numeric'],
         ]);
 
         Vehicle::create([
             'name' => $data['name'],
+            'image' => $data['image'],
+            'status' => $data['status'],
+            'ptp_min_amount' => $data['ptp_min_amount'],
+            'ptp_min_distance' => $data['ptp_min_distance'],
+            'ptp_adt_amount_per_km' => $data['ptp_adt_amount_per_km'],
+            'ptp_amount_peak_hrs' => $data['ptp_amount_peak_hrs'],
+            'ptp_peak_hrs' => $data['ptp_peak_hrs'],
+            'ptp_amount_per_stop' => $data['ptp_amount_per_stop'],
+            'hrly_min_amount' => $data['hrly_min_amount'],
+            'hrly_min_hour' => $data['hrly_min_hour'],
+            'hrly_adt_amount_per_hour' => $data['hrly_adt_amount_per_hour'],
+            'hrly_amount_per_km_allowed' => $data['hrly_amount_per_km_allowed'],
         ]);
 
         $this->alert('Vehicle Added!', 'The vehicle have been created successfully.');
@@ -56,6 +95,18 @@ class Vehicles extends Component
         $vehicle = Vehicle::where('id', $id)->first();
         $this->vehicle_id = $id;
         $this->name = $vehicle->name;
+        $this->image = $vehicle->image;
+        $this->status = $vehicle->status;
+        $this->ptp_min_amount = $vehicle->ptp_min_amount;
+        $this->ptp_min_distance = $vehicle->ptp_min_distance;
+        $this->ptp_adt_amount_per_km = $vehicle->ptp_adt_amount_per_km;
+        $this->ptp_amount_peak_hrs = $vehicle->ptp_amount_peak_hrs;
+        $this->ptp_peak_hrs = $vehicle->ptp_peak_hrs;
+        $this->ptp_amount_per_stop = $vehicle->ptp_amount_per_stop;
+        $this->hrly_min_amount = $vehicle->hrly_min_amount;
+        $this->hrly_min_hour = $vehicle->hrly_min_hour;
+        $this->hrly_adt_amount_per_hour = $vehicle->hrly_adt_amount_per_hour;
+        $this->hrly_amount_per_km_allowed = $vehicle->hrly_amount_per_km_allowed;
     }
 
     public function cancel()
@@ -67,13 +118,37 @@ class Vehicles extends Component
     public function update()
     {
         $data = $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'name' => ['required'],
+            'image' => ['nullable'],
+            'status' => ['nullable'],
+            'ptp_min_amount' => ['required', 'numeric'],
+            'ptp_min_distance' => ['required', 'numeric'],
+            'ptp_adt_amount_per_km' => ['required', 'numeric'],
+            'ptp_amount_peak_hrs' => ['required', 'numeric'],
+            'ptp_peak_hrs' => ['required', 'string'],
+            'ptp_amount_per_stop' => ['required', 'numeric'],
+            'hrly_min_amount' => ['required', 'numeric'],
+            'hrly_min_hour' => ['required', 'numeric'],
+            'hrly_adt_amount_per_hour' => ['required', 'numeric'],
+            'hrly_amount_per_km_allowed' => ['required', 'numeric'],
         ]);
 
         if ($this->vehicle_id) {
             $vehicle = Vehicle::find($this->vehicle_id);
             $vehicle->update([
                 'name' => $this->name,
+                'image' => $this->image,
+                'status' => $this->status,
+                'ptp_min_amount' => $this->ptp_min_amount,
+                'ptp_min_distance' => $this->ptp_min_distance,
+                'ptp_adt_amount_per_km' => $this->ptp_adt_amount_per_km,
+                'ptp_amount_peak_hrs' => $this->ptp_amount_peak_hrs,
+                'ptp_peak_hrs' => $this->ptp_peak_hrs,
+                'ptp_amount_per_stop' => $this->ptp_amount_per_stop,
+                'hrly_min_amount' => $this->hrly_min_amount,
+                'hrly_min_hour' => $this->hrly_min_hour,
+                'hrly_adt_amount_per_hour' => $this->hrly_adt_amount_per_hour,
+                'hrly_amount_per_km_allowed' => $this->hrly_amount_per_km_allowed,
             ]);
             $this->updateMode = false;
             $this->alert('Vehicle Updated!', 'The vehicle have been updated successfully.');
