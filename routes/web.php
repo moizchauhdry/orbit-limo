@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -59,3 +60,8 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
         return view('admin.booking-extras');
     })->name('booking-extras')->middleware('permission:booking-extra-list');
 });
+
+
+
+Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
+Route::post('/bookings/store', [BookingController::class, 'store'])->name('bookings.store');
