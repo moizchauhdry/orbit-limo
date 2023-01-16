@@ -44,6 +44,10 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
         return view('admin.bookings');
     })->name('bookings')->middleware('permission:booking-list');
 
+    Route::get('/bookings/create', function () {
+        return view('admin.bookings.create');
+    })->name('bookings.create')->middleware('permission:booking-list');
+
     Route::get('/customers', function () {
         return view('admin.customers');
     })->name('customers')->middleware('permission:customer-list');
@@ -63,5 +67,5 @@ Route::group(['middleware' => ['auth'], 'as' => 'admin.'], function () {
 
 
 
-Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
-Route::post('/bookings/store', [BookingController::class, 'store'])->name('bookings.store');
+// Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
+// Route::post('/bookings/store', [BookingController::class, 'store'])->name('bookings.store');

@@ -9,9 +9,12 @@
     @can('booking-create')
     <div class="row">
         <div class="col-md-12">
-            <button type="button" class="btn btn-success float-end my-1" data-bs-toggle="modal"
+            <a href="{{route('admin.bookings.create')}}" class="btn btn-success float-end my-1">
+                <i class="bi bi-plus-lg me-1"></i>Add Booking
+            </a>
+            {{-- <button type="button" class="btn btn-success float-end my-1" data-bs-toggle="modal"
                 data-bs-target="#booking_modal"><i class="bi bi-plus-lg me-1"></i>Add Booking
-            </button>
+            </button> --}}
         </div>
     </div>
     @endcan
@@ -44,7 +47,7 @@
                     <td>{{ $booking->first_name }}</td>
                     <td>{{ $booking->email }}</td>
                     <td class="text-capitalize">{{ $booking->phone }}</td>
-                    <td class="text-capitalize">{{ $booking->vehicle_id ?? '' }}</td>
+                    <td class="text-capitalize">{{ $booking->vehicle->name ?? '' }}</td>
                     <td class="text-capitalize">{{ $booking->pickup_location }}</td>
                     <td class="text-capitalize">{{ $booking->drop_location }}</td>
                     <td class="text-capitalize">
@@ -53,11 +56,11 @@
                         </span>
                     </td>
                     <td>
-                        @can('booking-edit')
+                        {{-- @can('booking-edit')
                         <button wire:click="edit({{ $booking->id }})" class="btn btn-primary btn-sm my-1"
                             data-bs-toggle="modal" data-bs-target="#booking_modal">
                             <i class="bi bi-pencil-square me-1"></i>Edit</button>
-                        @endcan
+                        @endcan --}}
 
                         @can('booking-delete')
                         <button onclick="deleteConfirmation('delete-booking','{{$booking->id}}')"
@@ -88,9 +91,9 @@
         </div>
     </div>
 
-    @can('booking-edit')
+    {{-- @can('booking-edit')
     @include('livewire.bookings.update')
-    @endcan
+    @endcan --}}
 
     @include('livewire.loader')
 

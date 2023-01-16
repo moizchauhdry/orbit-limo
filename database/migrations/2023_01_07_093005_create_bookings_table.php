@@ -19,7 +19,7 @@ class CreateBookingsTable extends Migration
             $table->time('pickup_time');
             $table->string('pickup_location');
             $table->string('drop_location');
-            $table->float('total_distance');
+            $table->string('total_distance');
             $table->string('total_time');
             $table->unsignedBigInteger('vehicle_id');
             $table->tinyInteger('passenger');

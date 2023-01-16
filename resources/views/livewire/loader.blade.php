@@ -1,4 +1,4 @@
-<div wire:loading wire:target="store,edit,update,delete,cancel,previousPage,nextPage,gotoPage">
+<div wire:loading>
     {{-- <div class="livewire-loader livewire-loader-bg">
         <img src="{{asset('images/loader.gif')}}" style="width:50px;height:50px">
     </div> --}}
