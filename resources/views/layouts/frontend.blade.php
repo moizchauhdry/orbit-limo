@@ -74,6 +74,7 @@
     </style>
 
     <script src="{{ asset('js/jquery.js') }}" defer></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" id="google-font-open-sans-css"
         href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C700&amp;ver=4.9.22" type="text/css" media="all">
     <link rel="stylesheet" id="google-font-lato-css"

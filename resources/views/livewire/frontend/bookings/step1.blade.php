@@ -1,7 +1,7 @@
 @if ($current_step == 1)
 <div class="chbs-main-content-step-1">
-    <div class="chbs-layout-50x50 chbs-clear-fix">
-        <div class="chbs-layout-column-left">
+    <div class="row">
+        <div class="col-md-6">
             <div class="chbs-tab chbs-box-shadow">
                 {{-- <ul>
                     <li data-id="1"><a href="#panel-1">Distance</a></li>
@@ -150,26 +150,26 @@
                 </div> --}}
             </div>
         </div>
-        <div class="chbs-layout-column-right">
-            <div class="chbs-google-map">
+        <div class="col-md-6">
+            <div class="chbs-google-map" wire:ignore>
                 <div style="display: none">
                     <div id="mode-selector" class="controls">
                         <input type="radio" name="type" id="changemode-driving" checked="checked" />
                         <label for="changemode-driving">Driving</label>
                     </div>
                 </div>
-                <div id="map" wire:ignore></div>
+                <div id="map"></div>
             </div>
             <div class="chbs-ride-info chbs-box-shadow">
                 <div>
                     <span class="chbs-meta-icon-route"></span>
                     <span>Total distance</span>
-                    <span style="font-size: 20px">{{$total_distance?? '0 Km'}}</span>
+                    <span style="font-size: 18px">{{$total_distance?? '0 Km'}}</span>
                 </div>
                 <div>
                     <span class="chbs-meta-icon-clock"></span>
                     <span>Total time</span>
-                    <span style="font-size: 20px">{{$total_time ?? '0 h'}}</span>
+                    <span style="font-size: 18px">{{$total_time ?? '0 h'}}</span>
                 </div>
             </div>
         </div>
