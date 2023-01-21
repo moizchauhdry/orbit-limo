@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/online-booking', function () {
+    return view('frontend.pages.index');
+});
 
 Auth::routes();
 

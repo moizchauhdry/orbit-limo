@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Chauffeur Booking System for WordPress |   Page not found</title>
+		<!--meta-->
+		<meta charset="UTF-8" />
+		<meta name="generator" content="WordPress 4.9.22" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="Just another Wordpress Plugins Sites site" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--style-->
+		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/feed/" />
+		<link rel="pingback" href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/xmlrpc.php" />
+		<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/quanticalabs.com\/wp_plugins\/chauffeur-booking-system\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.22"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55358,56760,9792,65039],[55358,56760,8203,9792,65039])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='main-style-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/themes/live_preview/style.css?ver=4.9.22' type='text/css' media='all' />
+<style id='main-style-inline-css' type='text/css'>
+.header,
+.footer,
+.footer_container .main
+{
+width:1280px;
+}
+
+.theme_page,
+.theme_page_header
+{
+width:1220px;
+}
+
+div.footer div.widget
+{
+width:297px;
+}
+
+.header_left a
+{
+margin-bottom:10px;
+} 
+</style>
+<link rel='stylesheet' id='responsive-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/themes/live_preview/responsive.css?ver=4.9.22' type='text/css' media='all' />
+<style id='responsive-inline-css' type='text/css'>
+@media screen and (min-width:1010px) and (max-width:1298px)
+{
+.header,
+.footer,
+.footer_container .main
+{
+width:990px;
+}
+    
+.theme_page,
+.theme_page_header
+{
+width:930px;
+}
+
+div.footer div.widget
+{
+width:225px;
+}
+
+}
+</style>
+<link rel='stylesheet' id='google-font-open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C700&#038;ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='google-font-lato-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700&#038;subset=latin-ext&#038;ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-ui-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/style/jquery.ui.min.css?ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-qtip-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/style/jquery.qtip.min.css?ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-timepicker-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/style/jquery.timepicker.min.css?ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-fancybox-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/style/fancybox/jquery.fancybox.css?ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='jquery-intlTelInput-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/style/intlTelInput.min.css?ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='chbs-public-css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/style/public.css?ver=4.9.22' type='text/css' media='all' />
+<link rel='stylesheet' id='chbs-public-booking-form--css'  href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/multisite/15/style.css?ver=4.9.22' type='text/css' media='all' />
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/themes/live_preview/js/main.js?ver=4.9.22'></script>
+<link rel='https://api.w.org/' href='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.22" />
+		<style type="text/css" id="wp-custom-css">
+			html .page-id-10008 #menu-main-menu
+{
+	display:none;
+}		</style>
+		</head>
+	<body class="error404">
+		<div class="header_container">
+			<div class="header clearfix">
+				<div class="header_left">
+					<a href="https://quanticalabs.com" title="QuanticaLabs">
+						<img src="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/themes/live_preview/images/logo2.png" alt="">
+					</a>
+				</div>
+				<div class="menu-main-menu-container"><ul id="menu-main-menu" class="sf-menu header_right"><li id="menu-item-21224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-21224"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/">01</a></li>
+<li id="menu-item-21232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21232"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-02/">02</a></li>
+<li id="menu-item-21226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21226"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-03/">03</a></li>
+<li id="menu-item-21227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21227"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-04/">04</a></li>
+<li id="menu-item-21233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21233"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-05/">05</a></li>
+<li id="menu-item-21234" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21234"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-06/">06</a></li>
+<li id="menu-item-21235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21235"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-07/">07</a></li>
+<li id="menu-item-21243" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21243"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-08/?d=rtl">08</a></li>
+<li id="menu-item-21228" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21228"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-09/">09</a></li>
+<li id="menu-item-21229" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21229"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-10/">10</a></li>
+<li id="menu-item-21230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21230"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-11/">11</a></li>
+<li id="menu-item-21231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21231"><a href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-12/">12</a></li>
+</ul></div><div class="mobile_menu"><select><option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-21224">01</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-02/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21232">02</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-03/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21226">03</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-04/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21227">04</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-05/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21233">05</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-06/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21234">06</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-07/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21235">07</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-08/?d=rtl" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21243">08</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-09/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21228">09</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-10/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21229">10</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-11/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21230">11</option>
+<option value="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/chauffeur-booking-system-example-12/" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21231">12</option>
+</select></div>			</div>
+		</div>
+		<div class="theme_page_header relative">
+						<h1>Chauffeur Booking System for WordPress</h1>
+			<a class="purchase_button" href="https://1.envato.market/chauffeur-booking-system-for-wordpress" target="_blank">Purchase</a>
+		</div>		<div class="footer_container">
+			<div class="footer">
+				<div id="text-2" class="widget widget_text footer_box"><h4 class="widget-header">Free Aftersales Support</h4>			<div class="textwidget"><p class="top-0">We offer 100% free after sales support. Once you purchase you can use our <a href="http://support.quanticalabs.com/" class="target-blank">Support Forum</a> backed by professionals who are available to help our customers.</p>
+<div style="border-bottom-width:1px;border-style:none;padding-top:12px;margin-bottom:12px;" class="divider clear-fix "></div>
+<p><a class="button button-medium button-style-1 target-blank" href="http://support.quanticalabs.com"><span class=""><span class="">Visit Support Forum</span></span></a></p>
+</div>
+		</div><div id="text-3" class="widget widget_text footer_box"><h4 class="widget-header">Customization Services</h4>			<div class="textwidget"><p class="top-0">We provide WordPress customization services some of which are:</p>
+<div style="border-bottom-width:1px;border-style:none;padding-top:5px;margin-bottom:5px;" class="divider clear-fix "></div>
+<ul class="clear-fix layout-p-100 list list-bullet-bullet_1-png">
+<li class="column-left paragraph">
+<div class="paragraph">Theme install and set-up</div>
+</li>
+<li class="column-left paragraph">
+<div class="paragraph">Responsive development</div>
+</li>
+<li class="column-left paragraph">
+<div class="paragraph">Custom page templates</div>
+</li>
+<li class="column-left paragraph">
+<div class="paragraph">Custom plugin development</div>
+</li>
+<li class="column-left paragraph">
+<div class="paragraph">Custom theme and icons design</div>
+</li>
+</ul>
+</div>
+		</div><div id="text-4" class="widget widget_text footer_box"><h4 class="widget-header">Blog Categories</h4>			<div class="textwidget"><ul class="list-0 clear-fix category-list ">
+<li class="cat-item cat-item-70"><a title="View all posts filed under New Releases" href="http://quanticalabs.com/home/category/new-releases/">New Releases</a>
+</li>
+<li class="cat-item cat-item-69"><a title="View all posts filed under Update Info" href="http://quanticalabs.com/home/category/update-info/">Update Info</a>
+</li>
+</ul>
+</div>
+		</div><div id="text-5" class="widget widget_text footer_box"><h4 class="widget-header">Explore Our Items</h4>			<div class="textwidget"><ul class="list-0 clear-fix category-list ">
+<li><a href="http://quanticalabs.com/home/portfolio-category/css3-solutions/">CSS3 Solutions</a></li>
+<li><a href="http://quanticalabs.com/home/portfolio-category/icon-sets/">Icon Sets</a></li>
+<li><a href="http://quanticalabs.com/home/portfolio-category/php-scripts/">PHP Scripts</a></li>
+<li><a href="http://quanticalabs.com/home/portfolio-category/site-templates/">Site Templates</a></li>
+<li><a href="http://quanticalabs.com/home/portfolio-category/wordpress-plugins/">WordPress Plugins</a></li>
+<li><a href="http://quanticalabs.com/home/portfolio-category/wordpress-themes/">WordPress Themes</a></li>
+</ul>
+</div>
+		</div>			</div>
+			<div class="main box-center clearfix footer-bottom">
+				<div><div class="layout-p-50x50 clear-fix "><div class="column-left paragraph">Copyright &copy; 2023 QuanticaLabs</div><div class="column-right paragraph"><a href="#" class="button-go-to-top">&nbsp;</a></div></div></div>
+			</div>
+		</div>
+		<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/selectmenu.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/wp-a11y.min.js?ver=4.9.22'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.actual.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.timepicker.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.qtip.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/ResizeSensor.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.theia-sticky-sidebar.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.fancybox.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.fancybox-media.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.fancybox-buttons.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/intlTelInput.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/intlTelInputUtil.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.scrollTo.min.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/CHBS.Helper.class.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-content/plugins/chauffeur-booking-system/script/jquery.chauffeurBookingForm.js?ver=4.9.22'></script>
+<script type='text/javascript' src='https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-includes/js/wp-embed.min.js?ver=4.9.22'></script>
+	</body>
+</html>
