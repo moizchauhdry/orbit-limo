@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
 
 @section('content')
-@livewire('frontend.bookings')
+@livewire('frontend.booking-component')
 @endsection

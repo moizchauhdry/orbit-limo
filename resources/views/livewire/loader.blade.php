@@ -1,7 +1,4 @@
 <div wire:loading>
-    {{-- <div class="livewire-loader livewire-loader-bg">
-        <img src="{{asset('images/loader.gif')}}" style="width:50px;height:50px">
-    </div> --}}
     <div wire:loading id="wireLoadingBar">
         <div class="lds-roller">
             <div></div>
