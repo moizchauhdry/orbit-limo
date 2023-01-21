@@ -72,6 +72,8 @@
             }
         }
     </style>
+
+    <script src="{{ asset('js/jquery.js') }}" defer></script>
     <link rel="stylesheet" id="google-font-open-sans-css"
         href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C700&amp;ver=4.9.22" type="text/css" media="all">
     <link rel="stylesheet" id="google-font-lato-css"
@@ -268,6 +270,7 @@
     <script type="text/javascript" src="{{asset('frontend/js/script-jquery.chauffeurBookingForm.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/js-wp-embed.min.js')}}"></script> --}}
 
+    @stack('js')
     @livewireScripts
 </body>
 

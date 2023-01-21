@@ -25,7 +25,7 @@
                     </div>
                     <div class="chbs-summary-field">
                         <div class="chbs-summary-field-name">Pickup date, time</div>
-                        <div class="chbs-summary-field-value">27-01-2023, 7:00</div>
+                        <div class="chbs-summary-field-value">{{$pickup_date}}, {{$pickup_time}}</div>
                     </div>
                     <div class="chbs-summary-field">
                         <div class="chbs-summary-field-name">Extra time</div>
@@ -35,11 +35,11 @@
                         <div class="chbs-layout-50x50 chbs-clear-fix">
                             <div class="chbs-layout-column-left">
                                 <div class="chbs-summary-field-name">Total distance</div>
-                                <div class="chbs-summary-field-value">0 km</div>
+                                <div class="chbs-summary-field-value">{{$total_distance}}</div>
                             </div>
                             <div class="chbs-layout-column-right">
                                 <div class="chbs-summary-field-name">Total time</div>
-                                <div class="chbs-summary-field-value">1 h 0 m</div>
+                                <div class="chbs-summary-field-value">{{$total_time}}</div>
                             </div>
                         </div>
                     </div>
@@ -47,11 +47,11 @@
                 <div class="chbs-summary-price-element">
                     <div class="chbs-summary-price-element-total">
                         <span>Total</span>
-                        <span>$0.00</span>
+                        <span>${{$subtotal ?? 0}}</span>
                     </div>
                     <div class="chbs-summary-price-element-pay">
                         <span>To pay <span>(30% deposit)</span></span>
-                        <span>$0.00</span>
+                        <span>${{$grand_total ?? 0}}</span>
                     </div>
                 </div>
                 <div class="resize-sensor"
@@ -84,13 +84,6 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
                     </select>
                     {{-- <span class="ui-selectmenu-button ui-widget ui-state-default ui-corner-all" tabindex="0"
                         id="ui-id-44-button" role="combobox" aria-expanded="false" aria-autocomplete="list"
@@ -109,11 +102,6 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
                     </select>
                     {{-- <span class="ui-selectmenu-button ui-widget ui-state-default ui-corner-all" tabindex="0"
                         id="ui-id-12-button" role="combobox" aria-expanded="false" aria-autocomplete="list"
@@ -126,13 +114,10 @@
                         Type <span class="chbs-tooltip chbs-meta-icon-question" data-hasqtip="37"
                             oldtitle="Vehicle Type." title=""></span>
                     </label>
-                    <select name="chbs_vehicle_category" id="ui-id-13">
+                    <select name="chbs_vehicle_category" id="ui-id-13" disabled>
                         <option value="0">- All vehicles -</option>
-                        <option value="4">Limousine</option>
-                        <option value="3">Sedan</option>
-                        <option value="5">Stretch Limousine</option>
-                        <option value="6">SUV</option>
-                        <option value="7">Van</option>
+                        <option value="1">Sedan</option>
+                        <option value="2">SUV</option>
                     </select>
                     {{-- <span class="ui-selectmenu-button ui-widget ui-state-default ui-corner-all" tabindex="0"
                         id="ui-id-13-button" role="combobox" aria-expanded="false" aria-autocomplete="list"
@@ -143,23 +128,26 @@
             </div>
             <div class="chbs-vehicle-list">
                 <ul class="chbs-list-reset">
+                    @foreach ($vehicles as $vehicle)
                     <li>
                         <div class="chbs-vehicle chbs-clear-fix" data-id="10111" data-base_location_cooridnate_lat=""
                             data-base_location_cooridnate_lng="">
                             <div class="chbs-vehicle-image" style="opacity: 1;"><img
                                     src="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/files/2017/11/image_11.jpg"
-                                    alt=""></div>
+                                    alt="">
+                            </div>
                             <div class="chbs-vehicle-content">
                                 <div class="chbs-vehicle-content-header">
-                                    <span>Ford Tourneo</span>
-                                    <a href="#" class="chbs-button chbs-button-style-2 ">
+                                    <span>{{$vehicle->name}}</span>
+                                    <button wire:click="selectVehicle({{$vehicle->id}})" type="button"
+                                        class="chbs-button chbs-button-style-1">
                                         Select
                                         <span class="chbs-meta-icon-tick"></span>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div class="chbs-vehicle-content-price">
                                     <span>
-                                        <span>$0.00</span>
+                                        <span>${{$vehicle->ptp_min_amount}}</span>
                                     </span>
                                 </div>
                                 <div class="chbs-vehicle-content-meta">
@@ -183,6 +171,7 @@
                             </div>
                         </div>
                     </li>
+                    @endforeach
                 </ul>
                 <div class="chbs-booking-extra">
                     <h4 class="chbs-booking-extra-header">
@@ -192,14 +181,15 @@
                     <div class="chbs-state-open">
                         <div class="chbs-booking-extra-list">
                             <ul class="chbs-list-reset">
+                                @foreach ($extras as $extra)
                                 <li class="chbs-booking-extra-list-item-quantity-enable">
                                     <div class="chbs-column-1">
                                         <div class="chbs-column-1-right">
                                             <span class="chbs-booking-form-extra-name">
-                                                Child Seat
+                                                {{$extra->name}}
                                             </span>
                                             <span class="chbs-booking-form-extra-price">
-                                                $5.00
+                                                ${{$extra->price}}
                                             </span>
                                             <span class="chbs-booking-form-extra-description">
                                                 Baby car seat for children aged 0-36 months
@@ -208,11 +198,11 @@
                                     </div>
                                     <div class="chbs-column-2">
                                         <div class="chbs-form-field">
-                                            <label>Number</label>
+                                            <label>Quantity</label>
                                             <div class="chbs-quantity-section">
                                                 <span class="chbs-quantity-section-button chbs-meta-icon-minus"
                                                     data-step="-1"></span>
-                                                <input type="text" name="chbs_booking_extra_10075_quantity" value="1"
+                                                <input type="text" wire:model.defer="booking_extra_qty" value="1"
                                                     data-quantity-max="2">
                                                 <span class="chbs-quantity-section-button chbs-meta-icon-plus"
                                                     data-step="1"></span>
@@ -220,12 +210,13 @@
                                         </div>
                                     </div>
                                     <div class="chbs-column-3">
-                                        <a href="#" class="chbs-button chbs-button-style-2" data-value="10075">
-                                            Select
+                                        <button type="button" class="chbs-button chbs-button-style-1"
+                                            wire:click="selectBookingExtra({{$extra->id}})">Select
                                             <span class="chbs-meta-icon-tick"></span>
-                                        </a>
+                                        </button>
                                     </div>
                                 </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

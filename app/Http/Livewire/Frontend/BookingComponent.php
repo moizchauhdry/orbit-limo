@@ -3,13 +3,25 @@
 namespace App\Http\Livewire\Frontend;
 
 use App\Models\Booking;
+use App\Models\BookingExtra;
+use App\Models\BookingItem;
+use App\Models\Vehicle;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class BookingComponent extends Component
 {
     public $current_step = 1;
+    protected $listeners = [
+        'setGoogleMapPlaces' => 'setGoogleMapPlaces',
+        'successGoogleMap' => 'successGoogleMap',
+        'failedGoogleMap' => 'failedGoogleMap',
+    ];
+
     public $updateMode = false;
+    public $successGoogleMap = false;
+    public $booking_extras = [];
+    public $booking_extra_qty = 1;
     public
         $booking_id,
         $pickup_date,
@@ -25,11 +37,19 @@ class BookingComponent extends Component
         $last_name,
         $email,
         $phone,
-        $comments;
+        $comments,
+        $subtotal,
+        $grand_total;
 
     public function render()
     {
-        return view('livewire.frontend.booking-component');
+        $vehicles = Vehicle::orderBy('id', 'asc')->get();
+        $extras = BookingExtra::orderBy('name', 'asc')->get();
+
+        return view('livewire.frontend.booking-component', [
+            'vehicles' => $vehicles,
+            'extras' => $extras,
+        ]);
     }
 
     public function submitStep1()
@@ -43,12 +63,13 @@ class BookingComponent extends Component
             // 'total_time' => ['nullable'],
         ]);
 
-        $booking = new Booking();
-        $booking->fill($data);
-        Session::put('booking', $booking);
-        Session::get('booking');
+        // $booking = new Booking();
+        // $booking->fill($data);
+        // Session::put('booking', $booking);
+        // Session::get('booking');
 
         $this->current_step = 2;
+        $this->emit('google_map_hide');
     }
 
     public function submitStep2()
@@ -71,5 +92,84 @@ class BookingComponent extends Component
     {
         $this->current_step = $step;
         $this->render();
+    }
+
+    public function setGoogleMapPlaces($origin, $destination)
+    {
+        try {
+            $this->pickup_location = $origin;
+            $this->drop_location = $destination;
+
+            $ch = curl_init();
+
+            $url = "https://maps.googleapis.com/maps/api/distancematrix/json";
+            $data_array = [
+                'destinations' => $this->drop_location,
+                'origins' => $this->pickup_location,
+                'units' => 'imperial',
+                'key' => 'AIzaSyBXl5k0hdaecdpWF7AcfhkXv4TN6MvQn6g',
+            ];
+
+            $data = http_build_query($data_array);
+
+            $getUrl = $url . "?" . $data;
+
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            curl_setopt($ch, CURLOPT_URL, $getUrl);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 80);
+
+            $response = curl_exec($ch);
+
+            $response = json_decode($response, true);
+            $distance = $response['rows'][0]['elements'][0]['distance']['text'] ?? '';
+            $duration = $response['rows'][0]['elements'][0]['duration']['text'] ?? '';
+
+            $this->total_distance = $distance;
+            $this->total_time = $duration;
+
+            $this->dispatchBrowserEvent('google-map-updated', [
+                'distance' => $distance,
+                'duration' => $duration,
+            ]);
+
+
+            curl_close($ch);
+        } catch (\Throwable $th) {
+            $this->successGoogleMap = false;
+        }
+    }
+
+    public function changeOrigin()
+    {
+        $this->successGoogleMap = false;
+    }
+
+    public function changeDestination()
+    {
+        $this->successGoogleMap = false;
+    }
+
+    public function successGoogleMap()
+    {
+        $this->successGoogleMap = true;
+    }
+
+    public function selectVehicle($vehicle_id)
+    {
+        $this->vehicle_id = $vehicle_id;
+
+        $vehicle = Vehicle::find($vehicle_id);
+        $this->subtotal = $vehicle->ptp_min_amount;
+        $this->grand_total = (($vehicle->ptp_min_amount * 30) / 100) + $this->subtotal;
+    }
+
+    public function selectBookingExtra($booking_extra_id)
+    {
+        $cart = array();
+        $booking_extras[] = array_push($cart, $booking_extra_id);
+
+        dd($booking_extras);
     }
 }

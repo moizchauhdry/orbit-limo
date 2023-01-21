@@ -42,7 +42,7 @@
                             <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will start."></span>
                         </label>
-                        <input type="text" wire:model.defer="pickup_location">
+                        <input type="text" wire:model.defer="pickup_location" id="origin-input">
                         {{-- <span class="chbs-location-add chbs-meta-icon-plus"></span> --}}
                     </div>
                     <div class="chbs-form-field chbs-form-field-location-autocomplete">
@@ -50,7 +50,7 @@
                             Drop-off location <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will end."></span>
                         </label>
-                        <input type="text" wire:model.defer="drop_location">
+                        <input type="text" wire:model.defer="drop_location" id="destination-input">
                     </div>
 
                     <label class="chbs-form-label-group">Extra options</label>
@@ -152,29 +152,24 @@
         </div>
         <div class="chbs-layout-column-right">
             <div class="chbs-google-map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26361583.702499364!2d-113.76176406825141!3d36.24030141306171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2s!4v1673883383006!5m2!1sen!2s"
-                    width="590" height="390" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div style="display: none">
+                    <div id="mode-selector" class="controls">
+                        <input type="radio" name="type" id="changemode-driving" checked="checked" />
+                        <label for="changemode-driving">Driving</label>
+                    </div>
+                </div>
+                <div id="map" wire:ignore></div>
             </div>
             <div class="chbs-ride-info chbs-box-shadow">
                 <div>
                     <span class="chbs-meta-icon-route"></span>
                     <span>Total distance</span>
-                    <span>
-                        <span>0</span>
-                        <span>km</span>
-                    </span>
+                    <span style="font-size: 20px">{{$total_distance?? '0 Km'}}</span>
                 </div>
                 <div>
                     <span class="chbs-meta-icon-clock"></span>
                     <span>Total time</span>
-                    <span>
-                        <span>0</span>
-                        <span>h</span>
-                        <span>0</span>
-                        <span>m</span>
-                    </span>
+                    <span style="font-size: 20px">{{$total_time ?? '0 h'}}</span>
                 </div>
             </div>
         </div>
@@ -186,3 +181,136 @@
     </div>
 </div>
 @endif
+
+@push('js')
+<style>
+    #map {
+        height: 500px;
+        width: 100%
+    }
+</style>
+
+<script>
+    function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    mapTypeControl: false,
+                    center: { lat: -33.8688, lng: 151.2195 },
+                    zoom: 13,
+                });
+
+                new AutocompleteDirectionsHandler(map);
+            }
+
+            class AutocompleteDirectionsHandler {
+                map;
+                originPlaceId;
+                destinationPlaceId;
+                travelMode;
+                directionsService;
+                directionsRenderer;
+                constructor(map) {
+                    this.map = map;
+                    this.originPlaceId = "";
+                    this.destinationPlaceId = "";
+                    this.travelMode = google.maps.TravelMode.DRIVING;
+                    this.directionsService = new google.maps.DirectionsService();
+                    this.directionsRenderer = new google.maps.DirectionsRenderer();
+                    this.directionsRenderer.setMap(map);
+
+                    const originInput = document.getElementById("origin-input");
+                    const destinationInput = document.getElementById("destination-input");
+
+                    const modeSelector = document.getElementById("mode-selector");
+                    // Specify just the place data fields that you need.
+                    const originAutocomplete = new google.maps.places.Autocomplete(
+                        originInput,
+                        { fields: ["place_id"] }
+                    );
+                    // Specify just the place data fields that you need.
+                    const destinationAutocomplete = new google.maps.places.Autocomplete(
+                        destinationInput,
+                        { fields: ["place_id"] }
+                    );
+
+                    this.setupClickListener(
+                        "changemode-driving",
+                        google.maps.TravelMode.DRIVING
+                    );
+                    this.setupPlaceChangedListener(originAutocomplete, "ORIG");
+                    this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
+                    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+                    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+                    //     destinationInput
+                    // );
+                    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+                }
+                // Sets a listener on a radio button to change the filter type on Places
+                // Autocomplete.
+                setupClickListener(id, mode) {
+                    const radioButton = document.getElementById(id);
+
+                    radioButton.addEventListener("click", () => {
+                        this.travelMode = mode;
+                        this.route();
+                    });
+                }
+                setupPlaceChangedListener(autocomplete, mode) {
+                    autocomplete.bindTo("bounds", this.map);
+                    autocomplete.addListener("place_changed", () => {
+                        const place = autocomplete.getPlace();
+
+                        if (!place.place_id) {
+                            window.alert("Please select an option from the dropdown list.");
+                            return;
+                        }
+
+                        if (mode === "ORIG") {
+                            this.originPlaceId = place.place_id;
+                        } else {
+                            this.destinationPlaceId = place.place_id;
+                        }
+
+                        this.route();
+
+                        Livewire.emit('setGoogleMapPlaces', $("#origin-input").val(), $("#destination-input").val());
+                    });
+                }
+                route() {
+                    if (!this.originPlaceId || !this.destinationPlaceId) {
+                        return;
+                    }
+
+                    const me = this;
+
+                    this.directionsService.route(
+                        {
+                            origin: { placeId: this.originPlaceId },
+                            destination: { placeId: this.destinationPlaceId },
+                            travelMode: this.travelMode,
+                        },
+                        (response, status) => {
+                            if (status === "OK") {
+                                me.directionsRenderer.setDirections(response);
+                                Livewire.emit('successGoogleMap');
+                            } else {
+                                window.alert("Directions request failed due to " + status);
+                            }
+                        }
+                    );
+                }
+            }
+
+            window.initMap = initMap;
+</script>
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXl5k0hdaecdpWF7AcfhkXv4TN6MvQn6g&callback=initMap&libraries=places&v=weekly"
+    defer></script>
+
+<script>
+    window.addEventListener('google-map-updated', event => {
+            $("#set-distance").val(event.detail.distance);
+            $("#set-duration").val(event.detail.duration);
+        })
+</script>
+@endpush
