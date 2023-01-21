@@ -91,16 +91,20 @@
         media="all">
     <link rel="stylesheet" id="chbs-public-booking-form--css" href="{{asset('frontend/css/15-style.css')}}"
         type="text/css" media="all">
-    <script type="text/javascript" src="{{asset('frontend/js/jquery-jquery.js')}}"></script>
+    {{-- <script type="text/javascript" src="{{asset('frontend/js/jquery-jquery.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/jquery-jquery-migrate.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/js-main.js')}}"></script>
-    <link rel="https://api.w.org/" href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-json/">
+    <link rel="https://api.w.org/" href="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/wp-json/"> --}}
+
+    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+
+    @livewireStyles
 </head>
 
 <body class="home page-template-default page page-id-10008">
     @yield('content')
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         jQuery(document).ready(function($)
          {
          	var bookingForm=$('#chbs_booking_form_EFB988B2FD6587455A08E5A9DFCEFB82').chauffeurBookingForm(
@@ -254,15 +258,17 @@
          		is_autoride_theme:0			   });
             bookingForm.setup();
          });
-    </script>
+    </script> --}}
 
-    <script type="text/javascript" src="{{asset('frontend/js/ui-core.min.js')}}"></script>
+    {{-- <script type="text/javascript" src="{{asset('frontend/js/ui-core.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/ui-widget.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/ui-tabs.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/script-jquery.actual.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/script-CHBS.Helper.class.js')}}"></script>
     <script type="text/javascript" src="{{asset('frontend/js/script-jquery.chauffeurBookingForm.js')}}"></script>
-    <script type="text/javascript" src="{{asset('frontend/js/js-wp-embed.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('frontend/js/js-wp-embed.min.js')}}"></script> --}}
+
+    @livewireScripts
 </body>
 
 </html>
