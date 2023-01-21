@@ -101,6 +101,12 @@
 
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
     @livewireStyles
 </head>
 
@@ -273,6 +279,15 @@
 
     @stack('js')
     @livewireScripts
+
+    <script>
+        window.livewire.on('google_map_hide', () => {
+            $("#map").addClass('hide');
+                });
+        window.livewire.on('google_map_show', () => {
+            $("#map").removeClass('hide');
+                });
+    </script>
 </body>
 
 </html>

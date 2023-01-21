@@ -43,6 +43,9 @@ class BookingComponent extends Component
 
     public function render()
     {
+        if ($this->current_step == 1) {
+            $this->emit('google_map_show');
+        }
         $vehicles = Vehicle::orderBy('id', 'asc')->get();
         $extras = BookingExtra::orderBy('name', 'asc')->get();
 
@@ -55,7 +58,7 @@ class BookingComponent extends Component
     public function submitStep1()
     {
         $data = $this->validate([
-            'pickup_date' => ['nullable'],
+            'pickup_date' => ['required'],
             'pickup_time' => ['nullable'],
             'pickup_location' => ['nullable'],
             'drop_location' => ['nullable'],

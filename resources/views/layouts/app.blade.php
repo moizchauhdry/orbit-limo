@@ -179,10 +179,6 @@
         window.livewire.on('booking_extra_modal_hide', () => {
             $('#booking_extra_modal').modal('hide');
         });
-        window.livewire.on('google_map_hide', () => {
-            alert('map hide ... ')
-            $("#map").addClass('hide');
-        });
     </script>
 
     <script>
