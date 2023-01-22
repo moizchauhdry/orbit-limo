@@ -15,6 +15,16 @@
                             <input type="text" class="form-control" wire:model="name" id="name">
                             @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
+                        <div class="col-md-6 form-group mb-2">
+                            <label for="photo">Image</label>
+                            <input type="file" class="form-control" wire:model="image" id="image">
+                            @if ($image)
+                            <div class="m-2">
+                                <img src="{{ $image->temporaryUrl() }}" class="w-25">
+                            </div>
+                            @endif
+                            @error('image') <span class="text-danger">{{ $message }}</span>@enderror
+                        </div>
                     </div>
                     <h5 class="text-center"><strong><u>Point To Point</u></strong></h5>
                     <div class="row">

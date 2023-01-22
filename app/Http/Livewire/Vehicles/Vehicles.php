@@ -6,14 +6,17 @@ use App\Models\Vehicle;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 
 class Vehicles extends Component
 {
     use WithPagination;
+    use WithFileUploads;
 
     public $updateMode = false;
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
+    public $vehicle_image;
     public
         $vehicle_id,
         $search,
@@ -67,9 +70,8 @@ class Vehicles extends Component
             'hrly_amount_per_km_allowed' => ['required', 'numeric'],
         ]);
 
-        Vehicle::create([
+        $vehicle = Vehicle::create([
             'name' => $data['name'],
-            'image' => $data['image'],
             'ptp_min_amount' => $data['ptp_min_amount'],
             'ptp_min_distance' => $data['ptp_min_distance'],
             'ptp_adt_amount_per_km' => $data['ptp_adt_amount_per_km'],
@@ -81,6 +83,9 @@ class Vehicles extends Component
             'hrly_adt_amount_per_hour' => $data['hrly_adt_amount_per_hour'],
             'hrly_amount_per_km_allowed' => $data['hrly_amount_per_km_allowed'],
         ]);
+
+        $this->image->storePublicly('vehicle-images');
+        $vehicle->update(['image' => $this->image->storePublicly('vehicle-images')]);
 
         $this->alert('Vehicle Added!', 'The vehicle have been created successfully.');
         $this->resetInputFields();

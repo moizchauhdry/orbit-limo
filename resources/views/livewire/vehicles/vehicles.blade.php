@@ -28,6 +28,7 @@
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
+                    <th>Image</th>
                     <th>Status</th>
                     <th width="150px">Action</th>
                 </tr>
@@ -36,7 +37,10 @@
                 @forelse($vehicles as $vehicle)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $vehicle->name }}</td>
+                    <td>{{ $vehicle->image }}</td>
+                    <td>
+                        <img src="{{asset('storage/app/'.$vehicle->image)}}" alt="image">
+                    </td>
                     <td class="text-capitalize">
                         <span class="badge text-bg-{{$vehicle->status ? 'success' : 'danger'}}">
                             {{ $vehicle->status ? 'Active' : 'Inactive' }}
