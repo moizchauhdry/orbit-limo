@@ -57,20 +57,21 @@
                     Choose payment method
                 </h4>
                 <ul class="chbs-payment chbs-list-reset">
-                    <li>
+                    {{-- <li>
                         <a href="#" data-payment-id="1" class="chbs-payment-type-1">
                             <span class="chbs-meta-icon-wallet"></span>
                             <span class="chbs-payment-name">Cash</span>
                             <span class="chbs-meta-icon-tick"></span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="#" data-payment-id="2" class="chbs-payment-type-2">
+                        <a href="#" class="chbs-payment-type-2">
                             <span class="chbs-meta-icon-tick"></span>
                         </a>
                     </li>
                     <li>
                         <a href="#" data-payment-id="3" class="chbs-payment-type-3">
+                            <i class="bi bi-check-circle mb-2 text-success fs-2"></i>
                             <span class="chbs-meta-icon-tick"></span>
                         </a>
                     </li>

@@ -205,24 +205,26 @@ class BookingComponent extends Component
 
     public function cartDecrement($row)
     {
-        $this->booking_extra_qty[$row] =  $this->booking_extra_qty[$row] - 1;
+        if ($this->booking_extra_qty[$row] > 0) {
+            $this->booking_extra_qty[$row] =  $this->booking_extra_qty[$row] - 1;
 
-        $result = 0;
-        $booking_extra_array = [];
-        foreach ($this->booking_extra_qty as $key => $value) {
-            $booking_extra = BookingExtra::find($this->booking_extra_id[$key]);
-            $booking_extra_array[] = [
-                'booking_extra_id'    => $this->booking_extra_id[$key],
-                'booking_extra_qty'   => $this->booking_extra_qty[$key],
-                'booking_extra_price'   => $booking_extra->price,
-                'booking_extra_sum'   => $booking_extra->price * $this->booking_extra_qty[$key],
-            ];
+            $result = 0;
+            $booking_extra_array = [];
+            foreach ($this->booking_extra_qty as $key => $value) {
+                $booking_extra = BookingExtra::find($this->booking_extra_id[$key]);
+                $booking_extra_array[] = [
+                    'booking_extra_id'    => $this->booking_extra_id[$key],
+                    'booking_extra_qty'   => $this->booking_extra_qty[$key],
+                    'booking_extra_price'   => $booking_extra->price,
+                    'booking_extra_sum'   => $booking_extra->price * $this->booking_extra_qty[$key],
+                ];
 
-            $result = $result + $booking_extra_array[$key]['booking_extra_sum'];
+                $result = $result + $booking_extra_array[$key]['booking_extra_sum'];
+            }
+
+            $this->booking_extra_total = $result;
+            $this->calculateGrandTotal();
         }
-
-        $this->booking_extra_total = $result;
-        $this->calculateGrandTotal();
     }
 
     public function calculateGrandTotal()

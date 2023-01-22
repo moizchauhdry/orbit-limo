@@ -18,11 +18,12 @@
                         <div class="col-md-6 form-group mb-2">
                             <label for="photo">Image</label>
                             <input type="file" class="form-control" wire:model="image" id="image">
-                            @if ($image)
+
+                            {{-- @if ($image)
                             <div class="m-2">
-                                <img src="{{ $image->temporaryUrl() }}" class="w-25">
+                                <img src="{{ $image->temporaryUrl() }}" class="img-preview">
                             </div>
-                            @endif
+                            @endif --}}
                             @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
                     </div>

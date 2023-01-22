@@ -5,6 +5,7 @@
             @include('livewire.frontend.bookings.summary-bar')
         </div>
         <div class="chbs-layout-column-right">
+            <div></div>
             <div class="chbs-vehicle-filter chbs-box-shadow chbs-clear-fix">
                 <label class="chbs-form-label-group">Vehicles filter</label>
                 <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
@@ -19,11 +20,6 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    {{-- <span class="ui-selectmenu-button ui-widget ui-state-default ui-corner-all" tabindex="0"
-                        id="ui-id-44-button" role="combobox" aria-expanded="false" aria-autocomplete="list"
-                        aria-owns="ui-id-44-menu" aria-haspopup="true" style="width: 77px;"><span
-                            class="chbs-meta-icon-arrow-vertical-large"></span><span
-                            class="ui-selectmenu-text">1</span></span> --}}
                 </div>
                 <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
                     <label>
@@ -37,11 +33,6 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    {{-- <span class="ui-selectmenu-button ui-widget ui-state-default ui-corner-all" tabindex="0"
-                        id="ui-id-12-button" role="combobox" aria-expanded="false" aria-autocomplete="list"
-                        aria-owns="ui-id-12-menu" aria-haspopup="true" style="width: 0px;"><span
-                            class="chbs-meta-icon-arrow-vertical-large"></span><span
-                            class="ui-selectmenu-text">1</span></span> --}}
                 </div>
                 <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
                     <label>
@@ -53,30 +44,24 @@
                         <option value="1">Sedan</option>
                         <option value="2">SUV</option>
                     </select>
-                    {{-- <span class="ui-selectmenu-button ui-widget ui-state-default ui-corner-all" tabindex="0"
-                        id="ui-id-13-button" role="combobox" aria-expanded="false" aria-autocomplete="list"
-                        aria-owns="ui-id-13-menu" aria-haspopup="true" style="width: 0px;"><span
-                            class="chbs-meta-icon-arrow-vertical-large"></span><span class="ui-selectmenu-text">- All
-                            vehicles -</span></span> --}}
                 </div>
             </div>
             <div class="chbs-vehicle-list">
                 <ul class="chbs-list-reset">
                     @foreach ($vehicles as $vehicle)
                     <li>
-                        <div class="chbs-vehicle chbs-clear-fix" data-id="10111" data-base_location_cooridnate_lat=""
-                            data-base_location_cooridnate_lng="">
+                        <div class="chbs-vehicle chbs-clear-fix">
                             <div class="chbs-vehicle-image" style="opacity: 1;"><img
-                                    src="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/files/2017/11/image_11.jpg"
-                                    alt="">
+                                    src="{{asset('storage/'.$vehicle->image)}}" alt="">
                             </div>
                             <div class="chbs-vehicle-content">
                                 <div class="chbs-vehicle-content-header">
                                     <span>{{$vehicle->name}}</span>
                                     <button wire:click="selectVehicle({{$vehicle->id}})" type="button"
-                                        class="chbs-button chbs-button-style-1">
-                                        Select
-                                        <span class="chbs-meta-icon-tick"></span>
+                                        class="chbs-button {{$vehicle->id == $vehicle_id ? 'chbs-button-style-1' : 'chbs-button-style-2'}}">
+                                        @if ($vehicle->id == $vehicle_id)
+                                        Selected <i class="bi bi-check-circle ms-1"></i>
+                                        @else Select @endif
                                     </button>
                                 </div>
                                 <div class="chbs-vehicle-content-price">
@@ -144,10 +129,13 @@
                                         </div>
                                     </div>
                                     <div class="chbs-column-3">
-                                        <button type="button" class="chbs-button chbs-button-style-1"
-                                            wire:click="cart({{$extra->id}})">Select
-                                            <span class="chbs-meta-icon-tick"></span>
-                                        </button>
+                                        @if ($booking_extra_qty[$key] > 0)
+                                        <button type="button" class="chbs-button chbs-button-style-1">
+                                            Selected <i class="bi bi-check-circle ms-1"></i></button>
+                                        @else
+                                        <button type="button" class="chbs-button chbs-button-style-2"
+                                            wire:click="cartIncrement({{$key}})">Select</button>
+                                        @endif
                                     </div>
                                 </li>
                                 @endforeach

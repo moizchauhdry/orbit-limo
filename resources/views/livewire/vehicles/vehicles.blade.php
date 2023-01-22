@@ -37,9 +37,9 @@
                 @forelse($vehicles as $vehicle)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $vehicle->image }}</td>
+                    <td>{{ $vehicle->name }}</td>
                     <td>
-                        <img src="{{asset('storage/'.$vehicle->image)}}" alt="image">
+                        <img src="{{asset('storage/'.$vehicle->image)}}" alt="" class="img-preview">
                     </td>
                     <td class="text-capitalize">
                         <span class="badge text-bg-{{$vehicle->status ? 'success' : 'danger'}}">

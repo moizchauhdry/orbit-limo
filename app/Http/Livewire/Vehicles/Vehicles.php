@@ -57,7 +57,7 @@ class Vehicles extends Component
     {
         $data = $this->validate([
             'name' => ['required'],
-            'image' => ['nullable'],
+            'image' => ['required'],
             'ptp_min_amount' => ['required', 'numeric'],
             'ptp_min_distance' => ['required', 'numeric'],
             'ptp_adt_amount_per_km' => ['required', 'numeric'],
@@ -84,8 +84,8 @@ class Vehicles extends Component
             'hrly_amount_per_km_allowed' => $data['hrly_amount_per_km_allowed'],
         ]);
 
-        $this->image->storePublicly('vehicle-images');
-        $vehicle->update(['image' => $this->image->storePublicly('vehicle-images')]);
+        $this->image->store('vehicle-images');
+        $vehicle->update(['image' => $this->image->store('vehicle-images')]);
 
         $this->alert('Vehicle Added!', 'The vehicle have been created successfully.');
         $this->resetInputFields();
@@ -121,7 +121,7 @@ class Vehicles extends Component
     {
         $data = $this->validate([
             'name' => ['required'],
-            'image' => ['nullable'],
+            'image' => ['required'],
             'ptp_min_amount' => ['required', 'numeric'],
             'ptp_min_distance' => ['required', 'numeric'],
             'ptp_adt_amount_per_km' => ['required', 'numeric'],
@@ -138,7 +138,6 @@ class Vehicles extends Component
             $vehicle = Vehicle::find($this->vehicle_id);
             $vehicle->update([
                 'name' => $this->name,
-                'image' => $this->image,
                 'ptp_min_amount' => $this->ptp_min_amount,
                 'ptp_min_distance' => $this->ptp_min_distance,
                 'ptp_adt_amount_per_km' => $this->ptp_adt_amount_per_km,
@@ -150,6 +149,11 @@ class Vehicles extends Component
                 'hrly_adt_amount_per_hour' => $this->hrly_adt_amount_per_hour,
                 'hrly_amount_per_km_allowed' => $this->hrly_amount_per_km_allowed,
             ]);
+
+
+            $this->image->store('vehicle-images');
+            $vehicle->update(['image' => $this->image->store('vehicle-images')]);
+
             $this->updateMode = false;
             $this->alert('Vehicle Updated!', 'The vehicle have been updated successfully.');
             $this->resetInputFields();
