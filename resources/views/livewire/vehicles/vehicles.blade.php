@@ -39,7 +39,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $vehicle->image }}</td>
                     <td>
-                        <img src="{{asset('storage/app/'.$vehicle->image)}}" alt="image">
+                        <img src="{{asset('storage/'.$vehicle->image)}}" alt="image">
                     </td>
                     <td class="text-capitalize">
                         <span class="badge text-bg-{{$vehicle->status ? 'success' : 'danger'}}">
