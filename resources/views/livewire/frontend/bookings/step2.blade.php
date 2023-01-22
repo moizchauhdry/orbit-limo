@@ -2,73 +2,7 @@
 <div class="chbs-main-content-step-2">
     <div class="chbs-layout-25x75 chbs-clear-fix">
         <div class="chbs-layout-column-left">
-            <div class="theiaStickySidebar">
-                <div class="chbs-summary">
-                    <div class="chbs-summary-header">
-                        <h4>Summary</h4>
-                    </div>
-                    <div class="chbs-summary-field">
-                        <div class="chbs-summary-field-name">Service type</div>
-                        <div class="chbs-summary-field-value">Distance</div>
-                    </div>
-                    <div class="chbs-summary-field">
-                        <div class="chbs-summary-field-name">Transfer type</div>
-                        <div class="chbs-summary-field-value">One Way</div>
-                    </div>
-                    <div class="chbs-summary-field">
-                        <div class="chbs-summary-field-name">Pickup location</div>
-                        <div class="chbs-summary-field-value">{{$pickup_location}}</div>
-                    </div>
-                    <div class="chbs-summary-field">
-                        <div class="chbs-summary-field-name">Drop off location</div>
-                        <div class="chbs-summary-field-value">{{$drop_location}}</div>
-                    </div>
-                    <div class="chbs-summary-field">
-                        <div class="chbs-summary-field-name">Pickup date, time</div>
-                        <div class="chbs-summary-field-value">{{$pickup_date}}, {{$pickup_time}}</div>
-                    </div>
-                    <div class="chbs-summary-field">
-                        <div class="chbs-summary-field-name">Extra time</div>
-                        <div class="chbs-summary-field-value">1 hours</div>
-                    </div>
-                    <div class="chbs-summary-field">
-                        <div class="chbs-layout-50x50 chbs-clear-fix">
-                            <div class="chbs-layout-column-left">
-                                <div class="chbs-summary-field-name">Total distance</div>
-                                <div class="chbs-summary-field-value">{{$total_distance}}</div>
-                            </div>
-                            <div class="chbs-layout-column-right">
-                                <div class="chbs-summary-field-name">Total time</div>
-                                <div class="chbs-summary-field-value">{{$total_time}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="chbs-summary-price-element">
-                    <div class="chbs-summary-price-element-total">
-                        <span>Total</span>
-                        <span>${{$subtotal ?? 0}}</span>
-                    </div>
-                    <div class="chbs-summary-price-element-pay">
-                        <span>To pay <span>(30% deposit)</span></span>
-                        <span>${{$grand_total ?? 0}}</span>
-                    </div>
-                </div>
-                <div class="resize-sensor"
-                    style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden;">
-                    <div class="resize-sensor-expand"
-                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
-                        <div
-                            style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 285px; height: 830px;">
-                        </div>
-                    </div>
-                    <div class="resize-sensor-shrink"
-                        style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;">
-                        <div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('livewire.frontend.bookings.summary-bar')
         </div>
         <div class="chbs-layout-column-right">
             <div class="chbs-vehicle-filter chbs-box-shadow chbs-clear-fix">
@@ -181,7 +115,7 @@
                     <div class="chbs-state-open">
                         <div class="chbs-booking-extra-list">
                             <ul class="chbs-list-reset">
-                                @foreach ($extras as $extra)
+                                @foreach ($extras as $key => $extra)
                                 <li class="chbs-booking-extra-list-item-quantity-enable">
                                     <div class="chbs-column-1">
                                         <div class="chbs-column-1-right">
@@ -201,17 +135,17 @@
                                             <label>Quantity</label>
                                             <div class="chbs-quantity-section">
                                                 <span class="chbs-quantity-section-button chbs-meta-icon-minus"
-                                                    data-step="-1"></span>
-                                                <input type="text" wire:model.defer="booking_extra_qty" value="1"
-                                                    data-quantity-max="2">
+                                                    wire:click="cartDecrement({{$key}})"></span>
+                                                <input type="hidden" wire:model.defer="booking_extra_id.{{$key}}">
+                                                <input type="text" wire:model.defer="booking_extra_qty.{{$key}}">
                                                 <span class="chbs-quantity-section-button chbs-meta-icon-plus"
-                                                    data-step="1"></span>
+                                                    wire:click="cartIncrement({{$key}})"></span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="chbs-column-3">
                                         <button type="button" class="chbs-button chbs-button-style-1"
-                                            wire:click="selectBookingExtra({{$extra->id}})">Select
+                                            wire:click="cart({{$extra->id}})">Select
                                             <span class="chbs-meta-icon-tick"></span>
                                         </button>
                                     </div>

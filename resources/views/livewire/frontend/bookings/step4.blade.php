@@ -11,17 +11,17 @@
                     <div class="chbs-layout-50x50 chbs-clear-fix">
                         <div class="chbs-layout-column-left">
                             <div class="chbs-summary-field-name">First name</div>
-                            <div class="chbs-summary-field-value">ahmer</div>
+                            <div class="chbs-summary-field-value">{{$first_name}}</div>
                         </div>
                         <div class="chbs-layout-column-right">
                             <div class="chbs-summary-field-name">Last name</div>
-                            <div class="chbs-summary-field-value">bilal</div>
+                            <div class="chbs-summary-field-value">{{$last_name}}</div>
                         </div>
                     </div>
                 </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-summary-field-name">E-mail address</div>
-                    <div class="chbs-summary-field-value">asdfa@gmail.com</div>
+                    <div class="chbs-summary-field-value">{{$email}}</div>
                 </div>
             </div>
         </div>
@@ -42,29 +42,29 @@
                 </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-summary-field-name">Pickup location</div>
-                    <div class="chbs-summary-field-value">New York, NY, USA</div>
+                    <div class="chbs-summary-field-value">{{$pickup_location}}</div>
                 </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-summary-field-name">Drop off location</div>
-                    <div class="chbs-summary-field-value">New York, NY, USA</div>
+                    <div class="chbs-summary-field-value">{{$drop_location}}</div>
                 </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-summary-field-name">Pickup date, time</div>
-                    <div class="chbs-summary-field-value">27-01-2023, 7:00</div>
+                    <div class="chbs-summary-field-value">{{$pickup_date}}, {{$pickup_time}}</div>
                 </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-summary-field-name">Extra time</div>
-                    <div class="chbs-summary-field-value">1 hours</div>
+                    <div class="chbs-summary-field-value">1 hour</div>
                 </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-layout-50x50 chbs-clear-fix">
                         <div class="chbs-layout-column-left">
                             <div class="chbs-summary-field-name">Total distance</div>
-                            <div class="chbs-summary-field-value">0 km</div>
+                            <div class="chbs-summary-field-value">{{$total_distance}}</div>
                         </div>
                         <div class="chbs-layout-column-right">
                             <div class="chbs-summary-field-name">Total time</div>
-                            <div class="chbs-summary-field-value">1 h 0 m</div>
+                            <div class="chbs-summary-field-value">{{$total_time}}</div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-summary-field-name">Vehicle</div>
-                    <div class="chbs-summary-field-value">Ford Tourneo</div>
+                    <div class="chbs-summary-field-value">{{getVehicleName($vehicle_id)}}</div>
                 </div>
             </div>
             <div class="chbs-clear-fix chbs-coupon-code-section">
@@ -94,18 +94,7 @@
                 </a>
             </div>
             <div class="chbs-summary-price-element">
-                <div class="chbs-summary-price-element-time-extra">
-                    <span>Extra time</span>
-                    <span>$62.00</span>
-                </div>
-                <div class="chbs-summary-price-element-total">
-                    <span>Total</span>
-                    <span>$62.00</span>
-                </div>
-                <div class="chbs-summary-price-element-pay">
-                    <span>To pay <span>(30% deposit)</span></span>
-                    <span>$18.60</span>
-                </div>
+                @include('livewire.frontend.bookings.summary-price-element')
             </div>
         </div>
     </div>

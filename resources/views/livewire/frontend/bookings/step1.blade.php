@@ -60,19 +60,19 @@
                                 title="Extra time included to the journey."></span>
                         </label>
                         <select name="chbs_extra_time_service_type_1">
-                            <option value="0">0 hour(s)</option>
-                            <option value="1">1 hour(s)</option>
-                            <option value="2">2 hour(s)</option>
-                            <option value="3">3 hour(s)</option>
-                            <option value="4">4 hour(s)</option>
-                            <option value="5">5 hour(s)</option>
-                            <option value="6">6 hour(s)</option>
-                            <option value="7">7 hour(s)</option>
-                            <option value="8">8 hour(s)</option>
-                            <option value="9">9 hour(s)</option>
-                            <option value="10">10 hour(s)</option>
-                            <option value="11">11 hour(s)</option>
-                            <option value="12">12 hour(s)</option>
+                            <option value="" selected>-Select Hour-</option>
+                            <option value="1">1 Hour</option>
+                            <option value="2">2 Hours</option>
+                            <option value="3">3 Hours</option>
+                            <option value="4">4 Hours</option>
+                            <option value="5">5 Hours</option>
+                            <option value="6">6 Hours</option>
+                            <option value="7">7 Hours</option>
+                            <option value="8">8 Hours</option>
+                            <option value="9">9 Hours</option>
+                            <option value="10">10 Hours</option>
+                            <option value="11">11 Hours</option>
+                            <option value="12">12 Hours</option>
                         </select>
                     </div>
                 </div>

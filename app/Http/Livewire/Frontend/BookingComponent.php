@@ -6,8 +6,8 @@ use App\Models\Booking;
 use App\Models\BookingExtra;
 use App\Models\BookingItem;
 use App\Models\Vehicle;
-use Illuminate\Support\Facades\Session;
 use Livewire\Component;
+use Cart;
 
 class BookingComponent extends Component
 {
@@ -20,8 +20,14 @@ class BookingComponent extends Component
 
     public $updateMode = false;
     public $successGoogleMap = false;
+
+    public $booking_extra_id;
+    public $booking_extra_qty;
     public $booking_extras = [];
-    public $booking_extra_qty = 1;
+    public $booking_extra_total = 0;
+    public $vehicle_total = 0;
+    public $grand_total = 0;
+
     public
         $booking_id,
         $pickup_date,
@@ -37,9 +43,16 @@ class BookingComponent extends Component
         $last_name,
         $email,
         $phone,
-        $comments,
-        $subtotal,
-        $grand_total;
+        $comments;
+
+    public function mount()
+    {
+        $booking_extras = BookingExtra::get();
+        foreach ($booking_extras as $key => $booking_extra) {
+            $this->booking_extra_id[$key] = $booking_extra->id;
+            $this->booking_extra_qty[$key] = 0;
+        }
+    }
 
     public function render()
     {
@@ -47,7 +60,7 @@ class BookingComponent extends Component
             $this->emit('google_map_show');
         }
         $vehicles = Vehicle::orderBy('id', 'asc')->get();
-        $extras = BookingExtra::orderBy('name', 'asc')->get();
+        $extras = BookingExtra::get();
 
         return view('livewire.frontend.booking-component', [
             'vehicles' => $vehicles,
@@ -58,7 +71,7 @@ class BookingComponent extends Component
     public function submitStep1()
     {
         $data = $this->validate([
-            'pickup_date' => ['required'],
+            'pickup_date' => ['nullable'],
             'pickup_time' => ['nullable'],
             'pickup_location' => ['nullable'],
             'drop_location' => ['nullable'],
@@ -164,15 +177,56 @@ class BookingComponent extends Component
         $this->vehicle_id = $vehicle_id;
 
         $vehicle = Vehicle::find($vehicle_id);
-        $this->subtotal = $vehicle->ptp_min_amount;
-        $this->grand_total = (($vehicle->ptp_min_amount * 30) / 100) + $this->subtotal;
+        $this->vehicle_total = $vehicle->ptp_min_amount;
+        $this->calculateGrandTotal();
     }
 
-    public function selectBookingExtra($booking_extra_id)
+    public function cartIncrement($row)
     {
-        $cart = array();
-        $booking_extras[] = array_push($cart, $booking_extra_id);
+        $this->booking_extra_qty[$row] =  $this->booking_extra_qty[$row] + 1;
 
-        dd($booking_extras);
+        $result = 0;
+        $booking_extra_array = [];
+        foreach ($this->booking_extra_qty as $key => $value) {
+            $booking_extra = BookingExtra::find($this->booking_extra_id[$key]);
+            $booking_extra_array[] = [
+                'booking_extra_id'    => $this->booking_extra_id[$key],
+                'booking_extra_qty'   => $this->booking_extra_qty[$key],
+                'booking_extra_price'   => $booking_extra->price,
+                'booking_extra_sum'   => $booking_extra->price * $this->booking_extra_qty[$key],
+            ];
+
+            $result = $result + $booking_extra_array[$key]['booking_extra_sum'];
+        }
+
+        $this->booking_extra_total = $result;
+        $this->calculateGrandTotal();
+    }
+
+    public function cartDecrement($row)
+    {
+        $this->booking_extra_qty[$row] =  $this->booking_extra_qty[$row] - 1;
+
+        $result = 0;
+        $booking_extra_array = [];
+        foreach ($this->booking_extra_qty as $key => $value) {
+            $booking_extra = BookingExtra::find($this->booking_extra_id[$key]);
+            $booking_extra_array[] = [
+                'booking_extra_id'    => $this->booking_extra_id[$key],
+                'booking_extra_qty'   => $this->booking_extra_qty[$key],
+                'booking_extra_price'   => $booking_extra->price,
+                'booking_extra_sum'   => $booking_extra->price * $this->booking_extra_qty[$key],
+            ];
+
+            $result = $result + $booking_extra_array[$key]['booking_extra_sum'];
+        }
+
+        $this->booking_extra_total = $result;
+        $this->calculateGrandTotal();
+    }
+
+    public function calculateGrandTotal()
+    {
+        $this->grand_total = $this->vehicle_total + $this->booking_extra_total;
     }
 }

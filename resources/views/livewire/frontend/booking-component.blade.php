@@ -2,7 +2,7 @@
     <div class="theme_page relative">
         <div class="clearfix">
             <div class="chbs-main chbs-booking-form-id-10007 chbs-clear-fix chbs-hidden" id="">
-                @include('livewire.frontend.bookings.bar')
+                @include('livewire.frontend.bookings.step-bar')
                 <div class="chbs-main-content chbs-clear-fix">
                     @include('livewire.frontend.bookings.step1')
                     @include('livewire.frontend.bookings.step2')
