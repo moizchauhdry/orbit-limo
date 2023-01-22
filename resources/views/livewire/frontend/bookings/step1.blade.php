@@ -164,7 +164,7 @@
                 <div>
                     <span class="chbs-meta-icon-route"></span>
                     <span>Total distance</span>
-                    <span style="font-size: 18px">{{$total_distance?? '0 Km'}}</span>
+                    <span style="font-size: 18px">{{distanceInKm($total_distance)}} km</span>
                 </div>
                 <div>
                     <span class="chbs-meta-icon-clock"></span>

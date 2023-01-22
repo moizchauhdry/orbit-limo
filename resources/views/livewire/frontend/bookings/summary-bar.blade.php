@@ -31,7 +31,7 @@
             <div class="chbs-layout-50x50 chbs-clear-fix">
                 <div class="chbs-layout-column-left">
                     <div class="chbs-summary-field-name">Total distance</div>
-                    <div class="chbs-summary-field-value">{{$total_distance}}</div>
+                    <div class="chbs-summary-field-value">{{distanceInKm($total_distance)}} Km</div>
                 </div>
                 <div class="chbs-layout-column-right">
                     <div class="chbs-summary-field-name">Total time</div>

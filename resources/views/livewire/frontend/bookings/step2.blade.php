@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="chbs-vehicle-content-price">
                                     <span>
-                                        <span>${{$vehicle->ptp_min_amount}}</span>
+                                        <span>${{calculateVehicleAmount($vehicle->id, $total_distance)}}</span>
                                     </span>
                                 </div>
                                 <div class="chbs-vehicle-content-meta">

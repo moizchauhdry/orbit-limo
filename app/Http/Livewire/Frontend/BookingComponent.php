@@ -221,9 +221,7 @@ class BookingComponent extends Component
     public function selectVehicle($vehicle_id)
     {
         $this->vehicle_id = $vehicle_id;
-
-        $vehicle = Vehicle::find($vehicle_id);
-        $this->vehicle_total = $vehicle->ptp_min_amount;
+        $this->vehicle_total = calculateVehicleAmount($vehicle_id, $this->total_distance);
         $this->calculateGrandTotal();
     }
 
