@@ -21,6 +21,9 @@ class CreateBookingsTable extends Migration
             $table->string('drop_location');
             $table->string('total_distance');
             $table->string('total_time');
+            $table->string('extra_time');
+            $table->string('service_type');
+            $table->string('transfer_type');
             $table->unsignedBigInteger('vehicle_id');
             $table->tinyInteger('passenger');
             $table->tinyInteger('suitcase');
@@ -29,6 +32,10 @@ class CreateBookingsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('comments')->nullable();
+            $table->double('grand_total')->default(0);
+            $table->enum('booking_status', ['pending', 'done'])->default('pending');
+            $table->string('payment_method', 100)->nullable();
+            $table->enum('payment_status', ['pending', 'paid'])->default('pending');
             $table->timestamps();
         });
     }

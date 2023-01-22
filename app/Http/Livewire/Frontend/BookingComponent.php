@@ -24,9 +24,13 @@ class BookingComponent extends Component
     public $booking_extra_id;
     public $booking_extra_qty;
     public $booking_extras = [];
+    public $booking_extra_array = [];
     public $booking_extra_total = 0;
     public $vehicle_total = 0;
     public $grand_total = 0;
+    public $passenger = 1;
+    public $suitcase = 1;
+    public $payment_method = 1; // Default Paypal
 
     public
         $booking_id,
@@ -36,14 +40,17 @@ class BookingComponent extends Component
         $drop_location,
         $total_distance,
         $total_time,
+        $extra_time,
+        $service_type,
+        $transfer_type,
         $vehicle_id,
-        $passenger,
-        $suitcase,
         $first_name,
         $last_name,
         $email,
         $phone,
-        $comments;
+        $comments,
+        $booking_status,
+        $payment_status;
 
     public function mount()
     {
@@ -71,18 +78,13 @@ class BookingComponent extends Component
     public function submitStep1()
     {
         $data = $this->validate([
-            'pickup_date' => ['nullable'],
-            'pickup_time' => ['nullable'],
-            'pickup_location' => ['nullable'],
-            'drop_location' => ['nullable'],
-            // 'total_distance' => ['nullable'],
-            // 'total_time' => ['nullable'],
+            'pickup_date' => ['required'],
+            'pickup_time' => ['required'],
+            'pickup_location' => ['required'],
+            'drop_location' => ['required'],
+            'total_distance' => ['required'],
+            'total_time' => ['required'],
         ]);
-
-        // $booking = new Booking();
-        // $booking->fill($data);
-        // Session::put('booking', $booking);
-        // Session::get('booking');
 
         $this->current_step = 2;
         $this->emit('google_map_hide');
@@ -90,17 +92,61 @@ class BookingComponent extends Component
 
     public function submitStep2()
     {
+        $data = $this->validate([
+            'passenger' => ['required'],
+            'suitcase' => ['required'],
+            'vehicle_id' => ['required'],
+        ]);
 
         $this->current_step = 3;
     }
 
     public function submitStep3()
     {
+        $data = $this->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email' => ['required'],
+            'phone' => ['required'],
+            'comments' => ['nullable'],
+        ]);
+
         $this->current_step = 4;
     }
 
     public function submitStep4()
     {
+        $booking = Booking::create([
+            'pickup_date' => $this->pickup_date,
+            'pickup_time' => $this->pickup_time,
+            'pickup_location' => $this->pickup_location,
+            'drop_location' => $this->drop_location,
+            'total_distance' => $this->total_distance,
+            'total_time' => $this->total_time,
+            'extra_time' => $this->extra_time,
+            'service_type' => 'Distance',
+            'transfer_type' => 'One Way',
+            'vehicle_id' => $this->vehicle_id,
+            'passenger' => $this->passenger,
+            'suitcase' => $this->suitcase,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'comments' => $this->comments,
+            'grand_total' => $this->grand_total,
+            'payment_method' => $this->payment_method,
+            'booking_status' => 'done',
+        ]);
+
+        foreach ($this->booking_extra_array as $key => $extra) {
+            BookingItem::create([
+                'booking_id' => $booking->id,
+                'booking_extra_id' => $extra['booking_extra_id'],
+                'qty' => $extra['booking_extra_qty'],
+            ]);
+        }
+
         $this->current_step = 5;
     }
 
@@ -200,6 +246,7 @@ class BookingComponent extends Component
         }
 
         $this->booking_extra_total = $result;
+        $this->booking_extra_array = $booking_extra_array;
         $this->calculateGrandTotal();
     }
 
@@ -223,6 +270,7 @@ class BookingComponent extends Component
             }
 
             $this->booking_extra_total = $result;
+            $this->booking_extra_array = $booking_extra_array;
             $this->calculateGrandTotal();
         }
     }

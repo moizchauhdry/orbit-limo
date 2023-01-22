@@ -25,7 +25,7 @@
         </div>
         <div class="chbs-summary-field">
             <div class="chbs-summary-field-name">Extra time</div>
-            <div class="chbs-summary-field-value">1 hours</div>
+            <div class="chbs-summary-field-value">{{$extra_time}} Hours</div>
         </div>
         <div class="chbs-summary-field">
             <div class="chbs-layout-50x50 chbs-clear-fix">

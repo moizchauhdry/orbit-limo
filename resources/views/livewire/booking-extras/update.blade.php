@@ -11,17 +11,17 @@
                     <input type="hidden" wire:model="user_id">
                     <div class="form-group mb-2">
                         <label for="name"><strong>Name</strong></label>
-                        <input type="text" class="form-control" wire:model="name" id="name">
+                        <input type="text" class="form-control" wire:model.defer="name" id="name">
                         @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group mb-2">
                         <label for="price"><strong>Price</strong></label>
-                        <input type="text" class="form-control" wire:model="price" id="price">
+                        <input type="text" class="form-control" wire:model.defer="price" id="price">
                         @error('price') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group mb-2">
                         <label for="desc"><strong>Description</strong></label>
-                        <textarea wire:model="desc" class="form-control" name="desc" id="desc" cols="30"
+                        <textarea wire:model.defer="desc" class="form-control" name="desc" id="desc" cols="30"
                             rows="5"></textarea>
                         @error('desc') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>

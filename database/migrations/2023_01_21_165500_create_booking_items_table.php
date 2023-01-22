@@ -17,6 +17,7 @@ class CreateBookingItemsTable extends Migration
             $table->id();
             $table->bigInteger('booking_id')->unsigned();
             $table->bigInteger('booking_extra_id')->unsigned();
+            $table->integer('qty');
             $table->timestamps();
         });
     }

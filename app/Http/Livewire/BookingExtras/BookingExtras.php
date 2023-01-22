@@ -31,6 +31,8 @@ class BookingExtras extends Component
     private function resetInputFields()
     {
         $this->name = '';
+        $this->price = '';
+        $this->desc = '';
         $this->resetValidation();
     }
 
@@ -59,6 +61,8 @@ class BookingExtras extends Component
         $extras = BookingExtra::where('id', $id)->first();
         $this->extras_id = $id;
         $this->name = $extras->name;
+        $this->price = $extras->price;
+        $this->desc = $extras->desc;
     }
 
     public function cancel()

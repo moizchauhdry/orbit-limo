@@ -59,8 +59,8 @@
                             Extra time <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="Extra time included to the journey."></span>
                         </label>
-                        <select name="chbs_extra_time_service_type_1">
-                            <option value="" selected>-Select Hour-</option>
+                        <select wire:model.defer="extra_time">
+                            <option selected>-Select Hour-</option>
                             <option value="1">1 Hour</option>
                             <option value="2">2 Hours</option>
                             <option value="3">3 Hours</option>

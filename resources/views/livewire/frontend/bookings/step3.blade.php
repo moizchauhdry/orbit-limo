@@ -13,17 +13,17 @@
                             <label class="chbs-form-label-group">Contact details</label>
                             <div class="chbs-form-field chbs-form-field-width-50">
                                 <label>First name *</label>
-                                <input type="text" name="chbs_client_contact_detail_first_name" value="">
+                                <input type="text" wire:model.defer="first_name">
                             </div>
                             <div class="chbs-form-field chbs-form-field-width-50">
                                 <label>Last name *</label>
-                                <input type="text" name="chbs_client_contact_detail_last_name" value="">
+                                <input type="text" wire:model.defer="last_name">
                             </div>
                         </div>
                         <div class="chbs-clear-fix">
                             <div class="chbs-form-field chbs-form-field-width-50">
                                 <label>E-mail address *</label>
-                                <input type="text" name="chbs_client_contact_detail_email_address" value="">
+                                <input type="text" wire:model.defer="email">
                             </div>
                             <div class="chbs-form-field chbs-form-field-width-50">
                                 <label>Phone number</label>
@@ -36,9 +36,9 @@
                                             <div class="iti__arrow"></div>
                                         </div>
                                     </div>
-                                    <input type="text" name="chbs_client_contact_detail_phone_number_placeholder"
-                                        value="" autocomplete="off" style="padding-left: 72px;"
-                                        placeholder="301 2345678" data-intl-tel-input-id="0">
+                                    <input type="text" wire:model.defer="phone" autocomplete="off"
+                                        style="padding-left: 72px;" placeholder="301 2345678"
+                                        data-intl-tel-input-id="0">
                                 </div>
                                 <input type="hidden" name="chbs_client_contact_detail_phone_number" value="">
                             </div>
@@ -46,7 +46,7 @@
                         <div class="chbs-clear-fix">
                             <div class="chbs-form-field">
                                 <label>Comments</label>
-                                <textarea name="chbs_comment"></textarea>
+                                <textarea name="chbs_comment" wire:model.defer="comments"></textarea>
                             </div>
                         </div>
                     </div>

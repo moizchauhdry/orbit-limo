@@ -13,8 +13,8 @@
                         Passengers <span class="chbs-tooltip chbs-meta-icon-question" data-hasqtip="35"
                             oldtitle="Number of Passengers." title=""></span>
                     </label>
-                    <select name="chbs_vehicle_passenger_count" id="ui-id-44">
-                        <option value="1">1</option>
+                    <select wire:model.defer="passenger">
+                        <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -22,12 +22,11 @@
                     </select>
                 </div>
                 <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
-                    <label>
-                        Suitcases <span class="chbs-tooltip chbs-meta-icon-question" data-hasqtip="36"
+                    <label>Suitcases <span class="chbs-tooltip chbs-meta-icon-question" data-hasqtip="36"
                             oldtitle="Number of Suitcases." title=""></span>
                     </label>
-                    <select name="chbs_vehicle_bag_count" id="ui-id-12">
-                        <option value="1" selected="selected">1</option>
+                    <select wire:model.defer="suitcase">
+                        <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
