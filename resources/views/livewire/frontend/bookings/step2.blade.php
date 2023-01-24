@@ -1,10 +1,10 @@
 @if ($current_step == 2)
 <div class="chbs-main-content-step-2">
-    <div class="chbs-layout-25x75 chbs-clear-fix">
-        <div class="chbs-layout-column-left">
+    <div class="row">
+        <div class="col-md-3">
             @include('livewire.frontend.bookings.summary-bar')
         </div>
-        <div class="chbs-layout-column-right">
+        <div class="col-md-9">
             <div></div>
             <div class="chbs-vehicle-filter chbs-box-shadow chbs-clear-fix">
                 <label class="chbs-form-label-group">Vehicles filter</label>
@@ -53,7 +53,7 @@
                             <div class="chbs-vehicle-image" style="opacity: 1;"><img
                                     src="{{asset('storage/'.$vehicle->image)}}" alt="">
                             </div>
-                            <div class="chbs-vehicle-content">
+                            <div class="chbs-vehicle-content row">
                                 <div class="chbs-vehicle-content-header">
                                     <span>{{$vehicle->name}}</span>
                                     <button wire:click="selectVehicle({{$vehicle->id}})" type="button"

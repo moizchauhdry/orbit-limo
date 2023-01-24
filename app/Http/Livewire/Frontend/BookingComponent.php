@@ -78,14 +78,14 @@ class BookingComponent extends Component
 
     public function submitStep1()
     {
-        $data = $this->validate([
-            'pickup_date' => ['required'],
-            'pickup_time' => ['required'],
-            'pickup_location' => ['required'],
-            'drop_location' => ['required'],
-            'total_distance' => ['required'],
-            'total_time' => ['required'],
-        ]);
+        // $data = $this->validate([
+        //     'pickup_date' => ['required'],
+        //     'pickup_time' => ['required'],
+        //     'pickup_location' => ['required'],
+        //     'drop_location' => ['required'],
+        //     'total_distance' => ['required'],
+        //     'total_time' => ['required'],
+        // ]);
 
         $this->current_step = 2;
         $this->disabled = true;

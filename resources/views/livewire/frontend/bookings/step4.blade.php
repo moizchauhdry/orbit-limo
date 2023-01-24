@@ -1,7 +1,7 @@
 @if ($current_step == 4)
-<div class="chbs-main-content-step-4" style="display: block;">
-    <div class="chbs-layout-33x33x33 chbs-clear-fix">
-        <div class="chbs-layout-column-left">
+<div class="chbs-main-content-step-4 container">
+    <div class="chbs-layout-33x33x33 row">
+        <div class="col-md-4">
             <div class="chbs-summary">
                 <div class="chbs-summary-header">
                     <h4>Contact &amp; Billing Info</h4>
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="chbs-layout-column-center">
+        <div class="col-md-4">
             <div></div>
             <div class="chbs-summary">
                 <div class="chbs-summary-header">
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <div class="chbs-layout-column-right">
+        <div class="col-md-4">
             <div><img src="https://quanticalabs.com/wp_plugins/chauffeur-booking-system/files/2017/11/image_11.jpg"
                     alt=""></div>
             <div class="chbs-summary">

@@ -56,7 +56,7 @@
                             disabled @endif>
                     </div>
 
-                    {{-- <label class="chbs-form-label-group">Extra options</label>
+                    <label class="chbs-form-label-group">Extra options</label>
                     <div class="chbs-form-field chbs-form-field-extra-time">
                         <label>
                             Extra time <span class="chbs-tooltip chbs-meta-icon-question"
@@ -77,7 +77,7 @@
                             <option value="11">11 Hours</option>
                             <option value="12">12 Hours</option>
                         </select>
-                    </div> --}}
+                    </div>
                 </div>
 
                 @if ($disabled)
@@ -194,7 +194,7 @@
 @push('js')
 <style>
     #map {
-        height: 500px;
+        height: 375px;
         width: 100%
     }
 </style>

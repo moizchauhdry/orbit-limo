@@ -1,6 +1,6 @@
 <div>
-    <div class="theme_page relative">
-        <div class="clearfix">
+    <div class="container">
+        <div class="mt-4 mb-4">
             <div class="chbs-main chbs-booking-form-id-10007 chbs-clear-fix chbs-hidden" id="">
                 @include('livewire.frontend.bookings.step-bar')
                 <div class="chbs-main-content chbs-clear-fix">
