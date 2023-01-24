@@ -34,6 +34,7 @@
                         <span class="chbs-location-add chbs-meta-icon-plus"></span>
                         <span class="chbs-location-remove chbs-meta-icon-minus"></span>
                     </div> --}}
+
                     <div class="chbs-form-field chbs-form-field-location-autocomplete chbs-form-field-location-switch"
                         data-label-waypoint="Waypoint">
                         <label>
@@ -42,7 +43,8 @@
                             <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will start."></span>
                         </label>
-                        <input type="text" wire:model.defer="pickup_location" id="origin-input">
+                        <input type="text" wire:model.defer="pickup_location" id="origin-input" @if ($disabled) disabled
+                            @endif>
                         {{-- <span class="chbs-location-add chbs-meta-icon-plus"></span> --}}
                     </div>
                     <div class="chbs-form-field chbs-form-field-location-autocomplete">
@@ -50,10 +52,11 @@
                             Drop-off location <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will end."></span>
                         </label>
-                        <input type="text" wire:model.defer="drop_location" id="destination-input">
+                        <input type="text" wire:model.defer="drop_location" id="destination-input" @if ($disabled)
+                            disabled @endif>
                     </div>
 
-                    <label class="chbs-form-label-group">Extra options</label>
+                    {{-- <label class="chbs-form-label-group">Extra options</label>
                     <div class="chbs-form-field chbs-form-field-extra-time">
                         <label>
                             Extra time <span class="chbs-tooltip chbs-meta-icon-question"
@@ -74,8 +77,14 @@
                             <option value="11">11 Hours</option>
                             <option value="12">12 Hours</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
+
+                @if ($disabled)
+                <button wire:click="changeLocation" class="btn btn-sm btn-warning m-2 float-end text-white"><i
+                        class="bi bi-geo-fill me-1"></i>Change Location</button>
+                @endif
+
                 {{-- <div id="panel-2">
                     <label class="chbs-form-label-group">Ride details</label>
                     <div class="chbs-clear-fix chbs-form-field-pickup-date-time">
@@ -191,116 +200,123 @@
 </style>
 
 <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        window.livewire.on('init-map', () => {
+            initMap();
+        });
+    });
+
     function initMap() {
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    mapTypeControl: false,
-                    center: { lat: -33.8688, lng: 151.2195 },
-                    zoom: 13,
-                });
+        const map = new google.maps.Map(document.getElementById("map"), {
+            mapTypeControl: false,
+            center: { lat: -33.8688, lng: 151.2195 },
+            zoom: 13,
+        });
 
-                new AutocompleteDirectionsHandler(map);
+        new AutocompleteDirectionsHandler(map);
+    }
+
+    class AutocompleteDirectionsHandler {
+        map;
+        originPlaceId;
+        destinationPlaceId;
+        travelMode;
+        directionsService;
+        directionsRenderer;
+        constructor(map) {
+            this.map = map;
+            this.originPlaceId = "";
+            this.destinationPlaceId = "";
+            this.travelMode = google.maps.TravelMode.DRIVING;
+            this.directionsService = new google.maps.DirectionsService();
+            this.directionsRenderer = new google.maps.DirectionsRenderer();
+            this.directionsRenderer.setMap(map);
+
+            const originInput = document.getElementById("origin-input");
+            const destinationInput = document.getElementById("destination-input");
+
+            const modeSelector = document.getElementById("mode-selector");
+            // Specify just the place data fields that you need.
+            const originAutocomplete = new google.maps.places.Autocomplete(
+                originInput,
+                { fields: ["place_id"] }
+            );
+            // Specify just the place data fields that you need.
+            const destinationAutocomplete = new google.maps.places.Autocomplete(
+                destinationInput,
+                { fields: ["place_id"] }
+            );
+
+            this.setupClickListener(
+                "changemode-driving",
+                google.maps.TravelMode.DRIVING
+            );
+            this.setupPlaceChangedListener(originAutocomplete, "ORIG");
+            this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
+            // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+            // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+            //     destinationInput
+            // );
+            // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+        }
+        // Sets a listener on a radio button to change the filter type on Places
+        // Autocomplete.
+        setupClickListener(id, mode) {
+            const radioButton = document.getElementById(id);
+
+            radioButton.addEventListener("click", () => {
+                this.travelMode = mode;
+                this.route();
+            });
+        }
+        setupPlaceChangedListener(autocomplete, mode) {
+            autocomplete.bindTo("bounds", this.map);
+            autocomplete.addListener("place_changed", () => {
+                const place = autocomplete.getPlace();
+                console.log(place);
+
+                if (!place.place_id) {
+                    window.alert("Please select an option from the dropdown list.");
+                    return;
+                }
+
+                if (mode === "ORIG") {
+                    this.originPlaceId = place.place_id;
+                } else {
+                    this.destinationPlaceId = place.place_id;
+                }
+
+                this.route();
+
+                Livewire.emit('setGoogleMapPlaces', $("#origin-input").val(), $("#destination-input").val());
+            });
+        }
+        route() {
+            if (!this.originPlaceId || !this.destinationPlaceId) {
+                return;
             }
 
-            class AutocompleteDirectionsHandler {
-                map;
-                originPlaceId;
-                destinationPlaceId;
-                travelMode;
-                directionsService;
-                directionsRenderer;
-                constructor(map) {
-                    this.map = map;
-                    this.originPlaceId = "";
-                    this.destinationPlaceId = "";
-                    this.travelMode = google.maps.TravelMode.DRIVING;
-                    this.directionsService = new google.maps.DirectionsService();
-                    this.directionsRenderer = new google.maps.DirectionsRenderer();
-                    this.directionsRenderer.setMap(map);
+            const me = this;
 
-                    const originInput = document.getElementById("origin-input");
-                    const destinationInput = document.getElementById("destination-input");
-
-                    const modeSelector = document.getElementById("mode-selector");
-                    // Specify just the place data fields that you need.
-                    const originAutocomplete = new google.maps.places.Autocomplete(
-                        originInput,
-                        { fields: ["place_id"] }
-                    );
-                    // Specify just the place data fields that you need.
-                    const destinationAutocomplete = new google.maps.places.Autocomplete(
-                        destinationInput,
-                        { fields: ["place_id"] }
-                    );
-
-                    this.setupClickListener(
-                        "changemode-driving",
-                        google.maps.TravelMode.DRIVING
-                    );
-                    this.setupPlaceChangedListener(originAutocomplete, "ORIG");
-                    this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
-                    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-                    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
-                    //     destinationInput
-                    // );
-                    // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
-                }
-                // Sets a listener on a radio button to change the filter type on Places
-                // Autocomplete.
-                setupClickListener(id, mode) {
-                    const radioButton = document.getElementById(id);
-
-                    radioButton.addEventListener("click", () => {
-                        this.travelMode = mode;
-                        this.route();
-                    });
-                }
-                setupPlaceChangedListener(autocomplete, mode) {
-                    autocomplete.bindTo("bounds", this.map);
-                    autocomplete.addListener("place_changed", () => {
-                        const place = autocomplete.getPlace();
-
-                        if (!place.place_id) {
-                            window.alert("Please select an option from the dropdown list.");
-                            return;
-                        }
-
-                        if (mode === "ORIG") {
-                            this.originPlaceId = place.place_id;
-                        } else {
-                            this.destinationPlaceId = place.place_id;
-                        }
-
-                        this.route();
-
-                        Livewire.emit('setGoogleMapPlaces', $("#origin-input").val(), $("#destination-input").val());
-                    });
-                }
-                route() {
-                    if (!this.originPlaceId || !this.destinationPlaceId) {
-                        return;
+            this.directionsService.route(
+                {
+                    origin: { placeId: this.originPlaceId },
+                    destination: { placeId: this.destinationPlaceId },
+                    travelMode: this.travelMode,
+                },
+                (response, status) => {
+                    if (status === "OK") {
+                        me.directionsRenderer.setDirections(response);
+                        Livewire.emit('successGoogleMap');
+                    } else {
+                        window.alert("Directions request failed due to " + status);
                     }
-
-                    const me = this;
-
-                    this.directionsService.route(
-                        {
-                            origin: { placeId: this.originPlaceId },
-                            destination: { placeId: this.destinationPlaceId },
-                            travelMode: this.travelMode,
-                        },
-                        (response, status) => {
-                            if (status === "OK") {
-                                me.directionsRenderer.setDirections(response);
-                                Livewire.emit('successGoogleMap');
-                            } else {
-                                window.alert("Directions request failed due to " + status);
-                            }
-                        }
-                    );
                 }
-            }
+            );
+        }
+    }
 
-            window.initMap = initMap;
+    // window.initMap = initMap;
 </script>
 
 <script

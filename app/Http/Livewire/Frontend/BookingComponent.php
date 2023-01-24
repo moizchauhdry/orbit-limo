@@ -18,6 +18,7 @@ class BookingComponent extends Component
         'failedGoogleMap' => 'failedGoogleMap',
     ];
 
+    public $disabled = false;
     public $updateMode = false;
     public $successGoogleMap = false;
 
@@ -87,6 +88,7 @@ class BookingComponent extends Component
         ]);
 
         $this->current_step = 2;
+        $this->disabled = true;
         $this->emit('google_map_hide');
     }
 
@@ -153,7 +155,6 @@ class BookingComponent extends Component
     public function back($step)
     {
         $this->current_step = $step;
-        $this->render();
     }
 
     public function setGoogleMapPlaces($origin, $destination)
@@ -276,5 +277,15 @@ class BookingComponent extends Component
     public function calculateGrandTotal()
     {
         $this->grand_total = $this->vehicle_total + $this->booking_extra_total;
+    }
+
+    public function changeLocation()
+    {
+        $this->disabled = false;
+        if ($this->current_step == 1) {
+            $this->emit('init-map');
+            $this->pickup_location = '';
+            $this->drop_location = '';
+        }
     }
 }
