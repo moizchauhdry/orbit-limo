@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div wire:loading id="wireLoadingBar">
+    <div class="livewire-loader hidden">
         <div class="lds-roller">
             <div></div>
             <div></div>
@@ -58,7 +58,9 @@
                     'booking_id': '{{$booking->id}}',
                 },
                 url: '{{route('booking.square-payment.success')}}',
-
+                beforeSend: function(){
+                    $(".livewire-loader").removeClass('hidden');
+                },
                 success: function (response) {
                     var url = "{{ route('success', '$booking->id') }}";
                     location.href = url;

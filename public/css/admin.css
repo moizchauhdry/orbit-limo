@@ -162,3 +162,7 @@ input[type="text"][disabled] {
     color: #778591;;
     cursor: not-allowed !important;
 }
+
+.hidden {
+    display: none;
+}
