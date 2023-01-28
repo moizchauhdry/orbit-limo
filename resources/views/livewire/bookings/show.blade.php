@@ -33,9 +33,9 @@
                             </td>
                             <tr>
                                 <th>Date</th>
-                                <td>{{$booking_data->pickup_date}} KM</td>
+                                <td>{{getDateByFormat($booking_data->pickup_date)}}</td>
                                 <th>Time</th>
-                                <td>{{$booking_data->pickup_time}}</td>
+                                <td>{{getTimeByFormat($booking_data->pickup_time)}}</td>
                             </tr>
                             <tr>
                                 <th>Pickup</th>
