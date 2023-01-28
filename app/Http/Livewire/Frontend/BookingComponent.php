@@ -151,7 +151,8 @@ class BookingComponent extends Component
             ]);
         }
 
-        $this->current_step = 5;
+        return redirect()->route('booking.square-payment', $booking->id);
+        // $this->current_step = 5;
     }
 
     public function back($step)
