@@ -3,6 +3,7 @@
     <script src="https://portal.pbbarcouncil.com/public/admin/plugins/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/square.css')}}" preload>
     <link rel="stylesheet" href="{{asset('css/app.css')}}" preload>
+    <link rel="stylesheet" href="{{asset('css/admin.css')}}" preload>
     <script src="https://web.squarecdn.com/v1/square.js"></script>
 </head>
 
@@ -23,7 +24,19 @@
         </div>
     </div>
 
-    @include('livewire.loader')
+    <div wire:loading id="wireLoadingBar">
+        <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="modal-backdrop show backStyle"></div>
+    </div>
 
     <script type="module">
         const payments = Square.payments('sq0idp-mvWJB6CzQwBgCLKYoADlQg', 'LC9B8670T65GJ');
