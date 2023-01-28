@@ -23,7 +23,7 @@ class PaymentController extends Controller
         $url = 'https://connect.squareupsandbox.com/v2/payments';
         $body = [
             'amount_money' => [
-                'amount' => (int) $booking->grand_total,
+                'amount' => (int) $booking->grand_total * 100,
                 'currency' => 'CAD',
             ],
             'idempotency_key' => (string) Str::uuid(),
