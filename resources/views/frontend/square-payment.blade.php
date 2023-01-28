@@ -24,7 +24,8 @@
     </div>
 
     <script type="module">
-        const payments = Square.payments('sandbox-sq0idb-RT3u-HhCpNdbMiGg5aXuVg', 'TC4Z3ZEBKRXRH');
+        // const payments = Square.payments('sandbox-sq0idb-RT3u-HhCpNdbMiGg5aXuVg', 'TC4Z3ZEBKRXRH');
+        const payments = Square.payments('sq0idp-mvWJB6CzQwBgCLKYoADlQg', 'LC9B8670T65GJ');
     const card = await payments.card();
     await card.attach('#card-container');
 

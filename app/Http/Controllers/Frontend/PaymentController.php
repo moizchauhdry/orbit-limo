@@ -20,10 +20,10 @@ class PaymentController extends Controller
     {
         $booking = Booking::find($request->booking_id);
 
-        $url = 'https://connect.squareupsandbox.com/v2/payments';
+        $url = 'https://connect.squareup.com/v2/payments';
         $body = [
             'amount_money' => [
-                'amount' => (int) $booking->grand_total * 100,
+                'amount' => 100,
                 'currency' => 'CAD',
             ],
             'idempotency_key' => (string) Str::uuid(),
