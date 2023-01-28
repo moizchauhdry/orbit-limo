@@ -79,9 +79,9 @@
                                         <div class="chbs-vehicle-content-meta-info">
                                             <div>
                                                 <span class="chbs-meta-icon-people"></span>
-                                                <span class="chbs-circle">7</span>
+                                                <span class="chbs-circle">{{$vehicle->passenger}}</span>
                                                 <span class="chbs-meta-icon-bag"></span>
-                                                <span class="chbs-circle">6</span>
+                                                <span class="chbs-circle">{{$vehicle->suitcase}}</span>
                                             </div>
                                         </div>
                                     </div>

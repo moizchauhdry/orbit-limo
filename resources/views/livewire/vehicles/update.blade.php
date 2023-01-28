@@ -15,7 +15,7 @@
                             <input type="text" class="form-control" wire:model="name" id="name">
                             @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
-                        @if ($updateMode == false)
+                        {{-- @if ($updateMode == false) --}}
                         <div class="col-md-6 form-group mb-2">
                             <label for="photo">Image</label>
                             <input type="file" class="form-control" wire:model="image" id="image">
@@ -27,7 +27,7 @@
                             @endif --}}
                             @error('image') <span class="text-danger">{{ $message }}</span>@enderror
                         </div>
-                        @endif
+                        {{-- @endif --}}
                     </div>
                     <h5 class="text-center"><strong><u>Point To Point</u></strong></h5>
                     <div class="row">

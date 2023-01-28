@@ -54,7 +54,7 @@
             </div>
             <div class="chbs-payment-form">
                 <h4 class="chbs-payment-header">
-                    Choose payment method
+                    Payment method
                 </h4>
                 <ul class="chbs-payment chbs-list-reset">
                     {{-- <li>
@@ -65,14 +65,8 @@
                         </a>
                     </li> --}}
                     <li>
-                        <a href="#" class="chbs-payment-type-2">
-                            <span class="chbs-meta-icon-tick"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" data-payment-id="3" class="chbs-payment-type-3">
-                            <i class="bi bi-check-circle mb-2 text-success fs-2"></i>
-                            <span class="chbs-meta-icon-tick"></span>
+                        <a href="#" class="chbs-payment-type-3">
+                            <i class="bi bi-check-circle mb-4 text-success fs-2"></i>
                         </a>
                     </li>
                 </ul>

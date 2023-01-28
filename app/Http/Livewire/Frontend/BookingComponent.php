@@ -127,7 +127,7 @@ class BookingComponent extends Component
             'drop_location' => $this->drop_location,
             'total_distance' => $this->total_distance,
             'total_time' => $this->total_time,
-            'extra_time' => $this->extra_time,
+            'duration_in_hours' => $this->duration_in_hours,
             'service_type' => 'Distance',
             'transfer_type' => 'One Way',
             'vehicle_id' => $this->vehicle_id,

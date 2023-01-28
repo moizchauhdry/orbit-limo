@@ -18,6 +18,8 @@ class CreateVehiclesTable extends Migration
             $table->string('name', 100);
             $table->string('image')->nullable();
             $table->boolean('status')->default(true);
+            $table->tinyInteger('passenger');
+            $table->tinyInteger('suitcase');
 
             // Point to Point (ptp)
             $table->double('ptp_min_amount');

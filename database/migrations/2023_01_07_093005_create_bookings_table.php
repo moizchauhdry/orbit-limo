@@ -21,7 +21,7 @@ class CreateBookingsTable extends Migration
             $table->string('drop_location');
             $table->string('total_distance');
             $table->string('total_time');
-            $table->string('extra_time');
+            $table->string('duration_in_hours')->nullable();
             $table->string('service_type');
             $table->string('transfer_type');
             $table->unsignedBigInteger('vehicle_id');
