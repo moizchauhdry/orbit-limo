@@ -19,8 +19,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" wire:click.prevent="assignDriver({{$booking->id}})"
-                    class="btn btn-primary">Confirm</button>
+                <button type="button" wire:click.prevent="updateAssignDriver()" class="btn btn-primary">Confirm</button>
             </div>
         </div>
     </div>

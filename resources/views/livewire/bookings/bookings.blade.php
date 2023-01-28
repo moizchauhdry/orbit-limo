@@ -6,7 +6,7 @@
     </div>
     @endif
 
-    @can('booking-create')
+    {{-- @can('booking-create')
     <div class="row">
         <div class="col-md-12">
             <a href="{{route('admin.bookings.create')}}" class="btn btn-success float-end my-1">
@@ -14,7 +14,7 @@
             </a>
         </div>
     </div>
-    @endcan
+    @endcan --}}
 
     <div class="row">
         <div class="col-md-3">
@@ -66,9 +66,9 @@
                         @if ($booking->driver_id)
                         <span class="badge text-bg-success my-1">Assigned - {{$booking->driver->name}}</span>
                         @else
-                        <button class="btn btn-primary btn-sm my-1" data-bs-toggle="modal"
-                            data-bs-target="#assign_driver_modal">
-                            <i class="bi bi-person-fill-add me-1"></i>Assign Driver</button>
+                        <button wire:click="assignDriver({{ $booking->id }})" class="btn btn-warning btn-sm my-1"
+                            data-bs-toggle="modal" data-bs-target="#assign_driver_modal"><i
+                                class="bi bi-person-fill-add me-1"></i>Assign Driver</button>
                         @endif
 
                         <div>
@@ -106,12 +106,8 @@
         </div>
     </div>
 
-    @can('booking-edit')
     @include('livewire.bookings.assign-driver')
-    @endcan
-
     @include('livewire.bookings.show')
-
     @include('livewire.loader')
 
 </div>

@@ -179,6 +179,9 @@
         window.livewire.on('booking_extra_modal_hide', () => {
             $('#booking_extra_modal').modal('hide');
         });
+        window.livewire.on('hide_modal', () => {
+            $('.modal').modal('hide');
+        });
     </script>
 
     <script>

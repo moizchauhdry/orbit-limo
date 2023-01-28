@@ -215,15 +215,22 @@ class Bookings extends Component
 
     public function assignDriver($id)
     {
+        $this->booking_id = $id;
+    }
+
+    public function updateAssignDriver()
+    {
         $data = $this->validate([
             'driver_id' => ['required'],
         ]);
 
-        $booking = Booking::find($id);
+        $booking = Booking::find($this->booking_id);
         $booking->update([
             'driver_id' => $data['driver_id'],
             'driver_status' =>  true,
         ]);
+
+        $this->emit('hide_modal');
     }
 
     public function show($id)
