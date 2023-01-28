@@ -39,13 +39,12 @@ class PaymentController extends Controller
         $status_code = $response->status();
         $response_body = json_decode($response->getBody(), true);
 
+        dd($response_body);
+
         return response()->json([
             'status' => true,
             'code' => $status_code,
             'message' => 'success',
         ]);
-
-
-        dd($response_body);
     }
 }
