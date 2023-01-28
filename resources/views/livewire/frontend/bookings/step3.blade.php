@@ -30,10 +30,10 @@
                                 <div class="iti iti--allow-dropdown iti--separate-dial-code">
                                     <div class="iti__flag-container">
                                         <div class="iti__selected-flag" role="combobox" aria-owns="country-listbox"
-                                            tabindex="0" title="Pakistan (‫پاکستان‬‎): +92">
-                                            <div class="iti__flag iti__pk"></div>
-                                            <div class="iti__selected-dial-code">+92</div>
-                                            <div class="iti__arrow"></div>
+                                            tabindex="0" title="Pakistan (‫پاکستان‬‎): +1">
+                                            {{-- <div class="iti__flag iti__pk"></div> --}}
+                                            <div class="iti__selected-dial-code">+1</div>
+                                            {{-- <div class="iti__arrow"></div> --}}
                                         </div>
                                     </div>
                                     <input type="text" wire:model.defer="phone" autocomplete="off"
@@ -46,7 +46,8 @@
                         <div class="chbs-clear-fix">
                             <div class="chbs-form-field">
                                 <label>Comments</label>
-                                <textarea name="chbs_comment" wire:model.defer="comments"></textarea>
+                                <textarea name="chbs_comment" wire:model.defer="comments"
+                                    placeholder="e.g Flight No, Service Name"></textarea>
                             </div>
                         </div>
                     </div>
@@ -57,13 +58,6 @@
                     Payment method
                 </h4>
                 <ul class="chbs-payment chbs-list-reset">
-                    {{-- <li>
-                        <a href="#" data-payment-id="1" class="chbs-payment-type-1">
-                            <span class="chbs-meta-icon-wallet"></span>
-                            <span class="chbs-payment-name">Cash</span>
-                            <span class="chbs-meta-icon-tick"></span>
-                        </a>
-                    </li> --}}
                     <li>
                         <a href="#" class="chbs-payment-type-3">
                             <i class="bi bi-check-circle mb-4 text-success fs-2"></i>
@@ -78,9 +72,9 @@
 <div class="chbs-clear-fix chbs-main-content-navigation-button" style="margin-top: 20px;">
     <button wire:click="back(2)" type="button" class="chbs-button chbs-button-style-2 chbs-button-step-prev">
         <span class="chbs-meta-icon-arrow-horizontal-large"></span>
-        Choose a Vehicle </button>
+        Back </button>
     <button wire:click="submitStep3" type="button" class="chbs-button chbs-button-style-1 chbs-button-step-next">
-        Booking Summary <span class="chbs-meta-icon-arrow-horizontal-large"></span>
+        Next <span class="chbs-meta-icon-arrow-horizontal-large"></span>
     </button>
 </div>
 @endif

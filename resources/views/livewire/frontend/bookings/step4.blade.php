@@ -67,7 +67,7 @@
 <div class="chbs-clear-fix chbs-main-content-navigation-button" style="margin-top: 20px;">
     <button wire:click="back(3)" type="button" class="chbs-button chbs-button-style-2 chbs-button-step-prev">
         <span class="chbs-meta-icon-arrow-horizontal-large"></span>
-        Enter Contact Details </button>
+        Back </button>
     <button wire:click="submitStep4" type="button" class="chbs-button chbs-button-style-1 chbs-button-step-next">
         Book Now <span class="chbs-meta-icon-arrow-horizontal-large"></span>
     </button>

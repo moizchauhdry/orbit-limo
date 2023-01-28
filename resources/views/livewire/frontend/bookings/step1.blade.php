@@ -99,7 +99,7 @@
             <div class="chbs-ride-info chbs-box-shadow">
                 <div>
                     <span class="chbs-meta-icon-route"></span>
-                    <span>Total distance</span>
+                    <span>Distance</span>
                     <span style="font-size: 18px">{{distanceInKm($total_distance)}} km</span>
                 </div>
                 <div>
@@ -112,7 +112,7 @@
     </div>
     <div class="chbs-clear-fix chbs-main-content-navigation-button">
         <button wire:click="submitStep1" type="button" class="chbs-button chbs-button-style-1 chbs-button-step-next">
-            Choose a vehicle <span class="chbs-meta-icon-arrow-horizontal-large"></span>
+            Next <span class="chbs-meta-icon-arrow-horizontal-large"></span>
         </button>
     </div>
 </div>

@@ -1,5 +1,5 @@
 @if (in_array($current_step, ['1','2','3','4']))
-<div class="chbs-main-navigation-default chbs-clear-fix" data-step-count="4">
+<div class="chbs-main-navigation-default chbs-clear-fix">
     <ul class="chbs-list-reset">
         <li data-step="1" class="{{$current_step == 1 ? 'chbs-state-selected': ''}}">
             <div></div>

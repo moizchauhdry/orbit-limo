@@ -5,54 +5,43 @@
             @include('livewire.frontend.bookings.summary-bar')
         </div>
         <div class="col-md-9">
-            <div class="chbs-vehicle-filter chbs-box-shadow chbs-clear-fix">
-                <label class="chbs-form-label-group">Vehicles filter</label>
-                <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
-                    <label class="chbs-form-field-label">
-                        Passengers <span class="chbs-tooltip chbs-meta-icon-question" data-hasqtip="35"
-                            oldtitle="Number of Passengers." title=""></span>
-                    </label>
-                    <select wire:model.defer="passenger">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
-                    <label>Suitcases <span class="chbs-tooltip chbs-meta-icon-question" data-hasqtip="36"
-                            oldtitle="Number of Suitcases." title=""></span>
-                    </label>
-                    <select wire:model.defer="suitcase">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
-                    <label>
-                        Type <span class="chbs-tooltip chbs-meta-icon-question" data-hasqtip="37"
-                            oldtitle="Vehicle Type." title=""></span>
-                    </label>
-                    <select name="chbs_vehicle_category" id="ui-id-13" disabled>
-                        <option value="0">- All vehicles -</option>
-                        <option value="1">Sedan</option>
-                        <option value="2">SUV</option>
-                    </select>
-                </div>
-            </div>
+            <div></div>
             <div class="chbs-vehicle-list">
                 <ul class="chbs-list-reset">
                     @foreach ($vehicles as $vehicle)
                     <li>
-                        <div class="chbs-vehicle chbs-clear-fix">
-                            <div class="chbs-vehicle-image" style="opacity: 1;"><img
-                                    src="{{asset('storage/'.$vehicle->image)}}" alt="">
+                        <div class="col-md-12">
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <img src="{{asset('storage/'.$vehicle->image)}}" alt="">
+                                </div>
+                                <div class="col-md-4">
+                                    <h4><b>{{$vehicle->name}}</b></h4>
+                                    <h1>${{calculateVehicleAmount($vehicle->id,$service_type,
+                                        $total_distance,$duration_in_hours)}}</h1>
+                                    <div style="font-size: 40px">
+                                        <span class="chbs-meta-icon-people"></span>
+                                        <span class="circle">{{$vehicle->passenger}}</span>
+                                        <span class="chbs-meta-icon-bag"></span>
+                                        <span class="circle">{{$vehicle->suitcase}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pt-4">
+                                    <button wire:click="selectVehicle({{$vehicle->id}})" type="button"
+                                        class="chbs-button {{$vehicle->id == $vehicle_id ? 'chbs-button-style-1' : 'chbs-button-style-2'}}">
+                                        @if ($vehicle->id == $vehicle_id)
+                                        Selected <i class="bi bi-check-circle ms-1"></i>
+                                        @else Select @endif
+                                    </button>
+                                </div>
                             </div>
-                            <div class="chbs-vehicle-content row">
+                        </div>
+
+                        {{-- <div class="chbs-vehicle">
+                            <div class="chbs-vehicle-image" style="opacity: 1;">
+                                <img src="{{asset('storage/'.$vehicle->image)}}" alt="">
+                            </div>
+                            <div class="chbs-vehicle-content">
                                 <div class="chbs-vehicle-content-header">
                                     <span>{{$vehicle->name}}</span>
                                     <button wire:click="selectVehicle({{$vehicle->id}})" type="button"
@@ -87,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </li>
                     @endforeach
                 </ul>
@@ -110,13 +99,13 @@
                                                 ${{$extra->price}}
                                             </span>
                                             <span class="chbs-booking-form-extra-description">
-                                                Baby car seat for children aged 0-36 months
+                                                {{$extra->desc}}
                                             </span>
                                         </div>
                                     </div>
                                     <div class="chbs-column-2">
                                         <div class="chbs-form-field">
-                                            <label>Quantity</label>
+                                            <label>Qty</label>
                                             <div class="chbs-quantity-section">
                                                 <span class="chbs-quantity-section-button chbs-meta-icon-minus"
                                                     wire:click="cartDecrement({{$key}})"></span>
@@ -127,7 +116,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="chbs-column-3">
+                                    <div class="chbs-column-3 step-2-extra-options-select-btn">
                                         @if ($booking_extra_qty[$key] > 0)
                                         <button type="button" class="chbs-button chbs-button-style-1">
                                             Selected <i class="bi bi-check-circle ms-1"></i></button>
@@ -150,9 +139,9 @@
 <div class="chbs-clear-fix chbs-main-content-navigation-button" style="margin-top: 20px;">
     <button wire:click="back(1)" type="button" class="chbs-button chbs-button-style-2 chbs-button-step-prev">
         <span class="chbs-meta-icon-arrow-horizontal-large"></span>
-        Choose ride details </button>
+        Back </button>
     <button wire:click="submitStep2" type="button" class="chbs-button chbs-button-style-1 chbs-button-step-next">
-        Enter contact details <span class="chbs-meta-icon-arrow-horizontal-large"></span>
+        Next <span class="chbs-meta-icon-arrow-horizontal-large"></span>
     </button>
 </div>
 @endif

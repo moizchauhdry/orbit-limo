@@ -102,12 +102,7 @@
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('plugins/sweetalert2/sweetalert2.min.css')}}">
-
-    <style>
-        .hide {
-            display: none;
-        }
-    </style>
+    <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
 
     @livewireStyles
 </head>

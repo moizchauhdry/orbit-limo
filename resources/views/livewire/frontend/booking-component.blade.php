@@ -1,6 +1,9 @@
 <div>
     <div class="container">
         <div class="mt-4 mb-4">
+            <div class="text-center mb-4">
+                <img src="https://orbitlimo.ca/wp-content/uploads/2023/01/orbit-logo--189x84.png" alt="">
+            </div>
             <div class="chbs-main chbs-booking-form-id-10007 chbs-clear-fix chbs-hidden" id="">
                 @include('livewire.frontend.bookings.step-bar')
                 <div class="chbs-main-content chbs-clear-fix">
