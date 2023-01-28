@@ -62,15 +62,17 @@
                         $(".livewire-loader").removeClass('hidden');
                     },
                     success: function (response) {
-                        if (response.status == 1) {
+                        if (response.code == 200) {
                             var url = "{{ route('success') }}";
                             location.href = url;
                         } else {
                             alert('PAYMENT ERROR!');
+                            $(".livewire-loader").addClass('hidden');
                         }
                     },
                     error : function (errors) {
                         alert('SYSTEM ERROR!');
+                        $(".livewire-loader").addClass('hidden');
                     }
                 });
 
