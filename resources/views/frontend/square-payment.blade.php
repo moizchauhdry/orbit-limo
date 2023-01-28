@@ -51,23 +51,27 @@
             const result = await card.tokenize();
             if (result.status === 'OK') {
                 $.ajax({
-                method: "POST",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr('content'),
-                    'payment_token': result.token,
-                    'booking_id': '{{$booking->id}}',
-                },
-                url: '{{route('booking.square-payment.success')}}',
-                beforeSend: function(){
-                    $(".livewire-loader").removeClass('hidden');
-                },
-                success: function (response) {
-                    var url = "{{ route('success', '$booking->id') }}";
-                    location.href = url;
-                },
-                error : function (errors) {
-                    alert('PAYMENT ERROR!');
-                }
+                    method: "POST",
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
+                        'payment_token': result.token,
+                        'booking_id': '{{$booking->id}}',
+                    },
+                    url: '{{route('booking.square-payment.success')}}',
+                    beforeSend: function(){
+                        $(".livewire-loader").removeClass('hidden');
+                    },
+                    success: function (response) {
+                        if (response.status == 1) {
+                            var url = "{{ route('success') }}";
+                            location.href = url;
+                        } else {
+                            alert('PAYMENT ERROR!');
+                        }
+                    },
+                    error : function (errors) {
+                        alert('SYSTEM ERROR!');
+                    }
                 });
 
             } else {

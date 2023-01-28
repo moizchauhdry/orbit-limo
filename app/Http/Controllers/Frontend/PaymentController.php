@@ -39,6 +39,8 @@ class PaymentController extends Controller
         $status_code = $response->status();
         $response_body = json_decode($response->getBody(), true);
 
+        dd($status_code);
+
         return response()->json([
             'status' => true,
             'code' => $status_code,
@@ -46,9 +48,8 @@ class PaymentController extends Controller
         ]);
     }
 
-    public function success($id)
+    public function success()
     {
-        $booking = Booking::find($id);
-        return view('frontend.success', compact('booking'));
+        return view('frontend.success');
     }
 }
