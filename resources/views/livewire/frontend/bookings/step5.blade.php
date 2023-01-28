@@ -5,31 +5,50 @@
             <div></div>
             <div></div>
         </div>
-        <h3>Thank you for your order</h3>
-        <div class="chbs-booking-complete-payment">
-            <div class="chbs-booking-complete-payment-paypal">
-                <a href="#" class="chbs-button chbs-button-style-1">Pay via PayPal</a>
-                <div>You will be redirected to the payment page within <span>5</span>
-                    second.</div>
-            </div>
-            <div class="chbs-booking-complete-payment-stripe">
-                <a href="#" class="chbs-button chbs-button-style-1">Pay via Stripe</a>
-                <div>You will be redirected to the payment page within <span>5</span>
-                    second.</div>
-            </div>
-            <div class="chbs-booking-complete-payment-woocommerce">
-                <a href="#" class="chbs-button chbs-button-style-1">Pay for order</a>
-            </div>
-            <div class="chbs-booking-complete-payment-cash">
-                <a href="#" class="chbs-button chbs-button-style-1">Back To Home</a>
-            </div>
-            <div class="chbs-booking-complete-payment-wire-transfer">
-                <a href="#" class="chbs-button chbs-button-style-1">Back To Home</a>
-            </div>
-            <div class="chbs-booking-complete-payment-credit-card-pickup">
-                <a href="#" class="chbs-button chbs-button-style-1">Back To Home</a>
+        <h3>Thank you for your order. Please pay ${{$grand_total}} to complete your booking process.</h3>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div id="payment-status-container"></div>
+                <div id="card-container"></div>
+                <button id="card-button" type="button">Pay ${{$grand_total}}</button>
             </div>
         </div>
     </div>
 </div>
+
+@push('js')
+<link rel="stylesheet" href="{{asset('css/square.css')}}" preload>
+<script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+<script type="module">
+    const payments = Square.payments('sandbox-sq0idb-RT3u-HhCpNdbMiGg5aXuVg', 'TC4Z3ZEBKRXRH');
+    const card = await payments.card();
+    await card.attach('#card-container');
+
+    const cardButton = document.getElementById('card-button');
+    cardButton.addEventListener('click', async () => {
+      const statusContainer = document.getElementById('payment-status-container');
+
+      try {
+        const result = await card.tokenize();
+        if (result.status === 'OK') {
+          console.log(`Payment token is ${result.token}`);
+          statusContainer.innerHTML = "Payment Successful";
+        } else {
+          let errorMessage = `Tokenization failed with status: ${result.status}`;
+          if (result.errors) {
+            errorMessage += ` and errors: ${JSON.stringify(
+              result.errors
+            )}`;
+          }
+
+          throw new Error(errorMessage);
+        }
+      } catch (e) {
+        console.error(e);
+        statusContainer.innerHTML = "Payment Failed";
+      }
+    });
+</script>
+@endpush
+
 @endif
