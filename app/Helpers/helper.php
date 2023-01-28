@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Vehicle;
+use Carbon\Carbon;
 
 if (!function_exists('clean_string')) {
     function clean_string($string)
@@ -61,5 +62,28 @@ if (!function_exists('distanceInKm')) {
         }
 
         return number_format((float)$distance_in_km, 2, '.', '');
+    }
+}
+
+
+if (!function_exists('getDateByFormat')) {
+    function getDateByFormat($date)
+    {
+        $format_date = null;
+        if (isset($date)) {
+            $format_date = Carbon::parse($date)->format('d F, Y');
+        }
+        return $format_date;
+    }
+}
+
+if (!function_exists('getTimeByFormat')) {
+    function getTimeByFormat($time)
+    {
+        $format_time = null;
+        if (isset($time)) {
+            $format_time = Carbon::parse($time)->format('h:i A');
+        }
+        return $format_time;
     }
 }

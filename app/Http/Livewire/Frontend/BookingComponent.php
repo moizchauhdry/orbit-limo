@@ -29,8 +29,6 @@ class BookingComponent extends Component
     public $booking_extra_total = 0;
     public $vehicle_total = 0;
     public $grand_total = 0;
-    public $passenger = 1;
-    public $suitcase = 1;
     public $payment_method = 1;
     public $service_type = 1;
 
@@ -97,8 +95,6 @@ class BookingComponent extends Component
     public function submitStep2()
     {
         $data = $this->validate([
-            'passenger' => ['required'],
-            'suitcase' => ['required'],
             'vehicle_id' => ['required'],
         ]);
 
@@ -131,8 +127,6 @@ class BookingComponent extends Component
             'service_type' => 'Distance',
             'transfer_type' => 'One Way',
             'vehicle_id' => $this->vehicle_id,
-            'passenger' => $this->passenger,
-            'suitcase' => $this->suitcase,
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'email' => $this->email,
@@ -140,7 +134,6 @@ class BookingComponent extends Component
             'comments' => $this->comments,
             'grand_total' => $this->grand_total,
             'payment_method' => $this->payment_method,
-            'booking_status' => 'done',
         ]);
 
         foreach ($this->booking_extra_array as $key => $extra) {
@@ -152,7 +145,6 @@ class BookingComponent extends Component
         }
 
         return redirect()->route('booking.square-payment', $booking->id);
-        // $this->current_step = 5;
     }
 
     public function back($step)

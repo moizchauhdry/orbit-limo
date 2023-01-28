@@ -12,9 +12,6 @@
             <a href="{{route('admin.bookings.create')}}" class="btn btn-success float-end my-1">
                 <i class="bi bi-plus-lg me-1"></i>Add Booking
             </a>
-            {{-- <button type="button" class="btn btn-success float-end my-1" data-bs-toggle="modal"
-                data-bs-target="#booking_modal"><i class="bi bi-plus-lg me-1"></i>Add Booking
-            </button> --}}
         </div>
     </div>
     @endcan
@@ -31,42 +28,60 @@
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
                     <th>Vehicle</th>
                     <th>Pickup</th>
                     <th>Drop-off</th>
+                    <th style="width: 150px">Date</th>
                     <th>Status</th>
-                    <th width="150px">Action</th>
+                    <th style="width: 200px">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse($bookings as $booking)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $booking->first_name }}</td>
-                    <td>{{ $booking->email }}</td>
-                    <td class="text-capitalize">{{ $booking->phone }}</td>
+                    <td class="text-capitalize">{{ $booking->first_name }} {{$booking->last_name}}</td>
                     <td class="text-capitalize">{{ $booking->vehicle->name ?? '' }}</td>
                     <td class="text-capitalize">{{ $booking->pickup_location }}</td>
                     <td class="text-capitalize">{{ $booking->drop_location }}</td>
                     <td class="text-capitalize">
-                        <span class="badge text-bg-{{$booking->status ? 'success' : 'danger'}}">
-                            {{ $booking->status ? 'Active' : 'Inactive' }}
-                        </span>
+                        {{ getDateByFormat($booking->pickup_date) }} <br>
+                        {{getTimeByFormat($booking->pickup_time)}}
+                    </td>
+                    <td class="text-capitalize">
+                        @if ($booking->booking_status == 1)
+                        <span class="badge text-bg-success">Booking Done</span>
+                        @else
+                        <span class="badge text-bg-primary">Booking Pending</span>
+                        @endif
+
+                        @if ($booking->payment_status == 1)
+                        <span class="badge text-bg-success">Paid</span>
+                        @else
+                        <span class="badge text-bg-danger">Unpaid</span>
+                        @endif
+
                     </td>
                     <td>
-                        {{-- @can('booking-edit')
-                        <button wire:click="edit({{ $booking->id }})" class="btn btn-primary btn-sm my-1"
-                            data-bs-toggle="modal" data-bs-target="#booking_modal">
-                            <i class="bi bi-pencil-square me-1"></i>Edit</button>
-                        @endcan --}}
+                        @if ($booking->driver_id)
+                        <span class="badge text-bg-success my-1">Assigned - {{$booking->driver->name}}</span>
+                        @else
+                        <button class="btn btn-primary btn-sm my-1" data-bs-toggle="modal"
+                            data-bs-target="#assign_driver_modal">
+                            <i class="bi bi-person-fill-add me-1"></i>Assign Driver</button>
+                        @endif
 
-                        @can('booking-delete')
-                        <button onclick="deleteConfirmation('delete-booking','{{$booking->id}}')"
-                            class="btn btn-danger btn-sm my-1">
-                            <i class="bi bi-trash me-1"></i>Delete</button>
-                        @endcan
+                        <div>
+                            <button wire:click="show({{ $booking->id }})" class="btn btn-primary btn-sm my-1"
+                                data-bs-toggle="modal" data-bs-target="#booking_detail_modal">
+                                <i class="bi bi-list me-1"></i>Detail</button>
+
+                            @can('booking-delete')
+                            <button onclick="deleteConfirmation('delete-booking','{{$booking->id}}')"
+                                class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash me-1"></i>Delete</button>
+                            @endcan
+                        </div>
                     </td>
                 </tr>
                 @empty
@@ -91,9 +106,11 @@
         </div>
     </div>
 
-    {{-- @can('booking-edit')
-    @include('livewire.bookings.update')
-    @endcan --}}
+    @can('booking-edit')
+    @include('livewire.bookings.assign-driver')
+    @endcan
+
+    @include('livewire.bookings.show')
 
     @include('livewire.loader')
 

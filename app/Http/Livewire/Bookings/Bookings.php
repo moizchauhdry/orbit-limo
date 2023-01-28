@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Bookings;
 
 use Livewire\Component;
 use App\Models\Booking;
+use App\Models\Driver;
 use App\Models\Vehicle;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
@@ -15,6 +16,7 @@ class Bookings extends Component
     public $updateMode = false;
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
+    public $booking_data;
     public
         $booking_id,
         $search,
@@ -25,6 +27,7 @@ class Bookings extends Component
         $total_distance,
         $total_time,
         $vehicle_id,
+        $driver_id,
         $passenger,
         $suitcase,
         $first_name,
@@ -39,15 +42,17 @@ class Bookings extends Component
 
     public function render()
     {
-        $bookings = Booking::query()
-            // ->where('name', 'like', '%' . $this->search . '%')
+        $bookings = Booking::orderBy('id', 'desc')
+            ->where('id', 'like', '%' . $this->search . '%')
             ->paginate(10);
 
         $vehicles = Vehicle::get();
+        $drivers = Driver::get();
 
         return view('livewire.bookings.bookings', [
             'bookings' => $bookings,
-            'vehicles' => $vehicles
+            'vehicles' => $vehicles,
+            'drivers' => $drivers
         ]);
     }
 
@@ -206,5 +211,23 @@ class Bookings extends Component
             'title' => $title,
             'text' =>  $text
         ]);
+    }
+
+    public function assignDriver($id)
+    {
+        $data = $this->validate([
+            'driver_id' => ['required'],
+        ]);
+
+        $booking = Booking::find($id);
+        $booking->update([
+            'driver_id' => $data['driver_id'],
+            'driver_status' =>  true,
+        ]);
+    }
+
+    public function show($id)
+    {
+        $this->booking_data = Booking::find($id);
     }
 }
