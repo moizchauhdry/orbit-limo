@@ -1,4 +1,6 @@
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://portal.pbbarcouncil.com/public/admin/plugins/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/square.css')}}" preload>
     <link rel="stylesheet" href="{{asset('css/app.css')}}" preload>
     <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
@@ -21,9 +23,6 @@
         </div>
     </div>
 
-
-
-
     <script type="module">
         const payments = Square.payments('sandbox-sq0idb-RT3u-HhCpNdbMiGg5aXuVg', 'TC4Z3ZEBKRXRH');
     const card = await payments.card();
@@ -36,8 +35,23 @@
       try {
         const result = await card.tokenize();
         if (result.status === 'OK') {
-          console.log(`Payment token is ${result.token}`);
-          statusContainer.innerHTML = "Payment Successful";
+            $.ajax({
+            method: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                'payment_token': result.token,
+                'booking_id': '{{$booking->id}}',
+            },
+            url: '{{route('booking.square-payment.success')}}',
+
+            success: function (response) {
+                alert('PAYMENT SUCCESS.');
+            },
+            error : function (errors) {
+                alert('PAYMENT ERROR!');
+            }
+            });
+
         } else {
           let errorMessage = `Tokenization failed with status: ${result.status}`;
           if (result.errors) {
