@@ -6,8 +6,8 @@ use App\Models\Booking;
 use App\Models\BookingExtra;
 use App\Models\BookingItem;
 use App\Models\Vehicle;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
-use Cart;
 
 class BookingComponent extends Component
 {
@@ -31,7 +31,8 @@ class BookingComponent extends Component
     public $grand_total = 0;
     public $passenger = 1;
     public $suitcase = 1;
-    public $payment_method = 1; // Default Paypal
+    public $payment_method = 1;
+    public $service_type = 1;
 
     public
         $booking_id,
@@ -41,8 +42,7 @@ class BookingComponent extends Component
         $drop_location,
         $total_distance,
         $total_time,
-        $extra_time,
-        $service_type,
+        $duration_in_hours,
         $transfer_type,
         $vehicle_id,
         $first_name,
@@ -78,14 +78,16 @@ class BookingComponent extends Component
 
     public function submitStep1()
     {
-        // $data = $this->validate([
-        //     'pickup_date' => ['required'],
-        //     'pickup_time' => ['required'],
-        //     'pickup_location' => ['required'],
-        //     'drop_location' => ['required'],
-        //     'total_distance' => ['required'],
-        //     'total_time' => ['required'],
-        // ]);
+        $data = $this->validate([
+            'pickup_date' => ['required'],
+            'pickup_time' => ['required'],
+            'pickup_location' => ['required'],
+            'drop_location' => ['required'],
+            'total_distance' => ['required'],
+            'total_time' => ['required'],
+            'service_type' => ['required', 'in:1,2'],
+            'duration_in_hours' =>  [Rule::requiredIf($this->service_type == 2)],
+        ]);
 
         $this->current_step = 2;
         $this->disabled = true;
@@ -222,7 +224,7 @@ class BookingComponent extends Component
     public function selectVehicle($vehicle_id)
     {
         $this->vehicle_id = $vehicle_id;
-        $this->vehicle_total = calculateVehicleAmount($vehicle_id, $this->total_distance);
+        $this->vehicle_total = calculateVehicleAmount($vehicle_id, $this->service_type, $this->total_distance, $this->duration_in_hours);
         $this->calculateGrandTotal();
     }
 
@@ -287,5 +289,10 @@ class BookingComponent extends Component
             $this->pickup_location = '';
             $this->drop_location = '';
         }
+    }
+
+    public function serviceType($service_type)
+    {
+        $this->service_type = $service_type;
     }
 }

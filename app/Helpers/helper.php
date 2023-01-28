@@ -11,25 +11,40 @@ if (!function_exists('clean_string')) {
 }
 
 
-if (!function_exists('getVehicleName')) {
-    function getVehicleName($id)
+if (!function_exists('getVehicle')) {
+    function getVehicle($id)
     {
-        return Vehicle::find($id)->name ?? '';
+        $name = Vehicle::find($id)->name ?? '';
+        $image = Vehicle::find($id)->image ?? '';
+
+        return [
+            'name' => $name,
+            'image' => $image,
+        ];
     }
 }
 
 
 if (!function_exists('calculateVehicleAmount')) {
-    function calculateVehicleAmount($id, $distance)
+    function calculateVehicleAmount($id, $service_type, $distance, $duration_in_hours)
     {
-        $distance_in_km = distanceInKm($distance);
-
         $vehicle = Vehicle::find($id);
 
-        if ($distance_in_km <= $vehicle->ptp_min_distance) {
-            $result = $vehicle->ptp_min_amount;
+
+        if ($service_type == 1) {
+            $distance_in_km = distanceInKm($distance);
+
+            if ($distance_in_km <= $vehicle->ptp_min_distance) {
+                $result = $vehicle->ptp_min_amount;
+            } else {
+                $result = (($distance_in_km - $vehicle->ptp_min_distance) * $vehicle->ptp_adt_amount_per_km) + $vehicle->ptp_min_amount;
+            }
         } else {
-            $result = (($distance_in_km - $vehicle->ptp_min_distance) * $vehicle->ptp_adt_amount_per_km) + $vehicle->ptp_min_amount;
+            if ($duration_in_hours <= $vehicle->hrly_min_hour) {
+                $result = $vehicle->hrly_min_amount;
+            } else {
+                $result = (($duration_in_hours - $vehicle->hrly_min_hour) * $vehicle->hrly_adt_amount_per_hour) + $vehicle->hrly_min_amount;
+            }
         }
 
         return number_format((float)$result, 2, '.', '');

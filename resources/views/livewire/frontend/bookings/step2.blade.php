@@ -5,7 +5,6 @@
             @include('livewire.frontend.bookings.summary-bar')
         </div>
         <div class="col-md-9">
-            <div></div>
             <div class="chbs-vehicle-filter chbs-box-shadow chbs-clear-fix">
                 <label class="chbs-form-label-group">Vehicles filter</label>
                 <div class="chbs-form-field chbs-form-field-width-33" style="cursor: pointer;">
@@ -65,7 +64,8 @@
                                 </div>
                                 <div class="chbs-vehicle-content-price">
                                     <span>
-                                        <span>${{calculateVehicleAmount($vehicle->id, $total_distance)}}</span>
+                                        <span>${{calculateVehicleAmount($vehicle->id,$service_type,
+                                            $total_distance,$duration_in_hours)}}</span>
                                     </span>
                                 </div>
                                 <div class="chbs-vehicle-content-meta">
