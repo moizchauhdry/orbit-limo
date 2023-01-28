@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +20,12 @@ Route::get('/online-booking', function () {
     return view('frontend.booking');
 });
 
+Route::get('/square-payment/{booking_id}', [PaymentController::class, 'squarePayment'])->name('booking.square-payment');
+
+
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/register', function () {
     return redirect()->route('login');
