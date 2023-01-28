@@ -23,7 +23,7 @@ class PaymentController extends Controller
         $url = 'https://connect.squareup.com/v2/payments';
         $body = [
             'amount_money' => [
-                'amount' => 100,
+                'amount' => (int) $booking->grand_total,
                 'currency' => 'CAD',
             ],
             'idempotency_key' => (string) Str::uuid(),
@@ -39,13 +39,16 @@ class PaymentController extends Controller
         $status_code = $response->status();
         $response_body = json_decode($response->getBody(), true);
 
-
-        dd($response_body);
-
         return response()->json([
             'status' => true,
             'code' => $status_code,
             'message' => 'success',
         ]);
+    }
+
+    public function success($id)
+    {
+        $booking = Booking::find($id);
+        return view('frontend.success', compact('booking'));
     }
 }

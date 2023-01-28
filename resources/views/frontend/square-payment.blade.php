@@ -23,50 +23,52 @@
         </div>
     </div>
 
+    @include('livewire.loader')
+
     <script type="module">
-        // const payments = Square.payments('sandbox-sq0idb-RT3u-HhCpNdbMiGg5aXuVg', 'TC4Z3ZEBKRXRH');
         const payments = Square.payments('sq0idp-mvWJB6CzQwBgCLKYoADlQg', 'LC9B8670T65GJ');
-    const card = await payments.card();
-    await card.attach('#card-container');
+        const card = await payments.card();
+        await card.attach('#card-container');
 
-    const cardButton = document.getElementById('card-button');
-    cardButton.addEventListener('click', async () => {
-      const statusContainer = document.getElementById('payment-status-container');
+        const cardButton = document.getElementById('card-button');
+        cardButton.addEventListener('click', async () => {
+        const statusContainer = document.getElementById('payment-status-container');
 
-      try {
-        const result = await card.tokenize();
-        if (result.status === 'OK') {
-            $.ajax({
-            method: "POST",
-            data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),
-                'payment_token': result.token,
-                'booking_id': '{{$booking->id}}',
-            },
-            url: '{{route('booking.square-payment.success')}}',
+        try {
+            const result = await card.tokenize();
+            if (result.status === 'OK') {
+                $.ajax({
+                method: "POST",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    'payment_token': result.token,
+                    'booking_id': '{{$booking->id}}',
+                },
+                url: '{{route('booking.square-payment.success')}}',
 
-            success: function (response) {
-                alert('PAYMENT SUCCESS.');
-            },
-            error : function (errors) {
-                alert('PAYMENT ERROR!');
+                success: function (response) {
+                    var url = "{{ route('success', '{{$booking->id}}') }}";
+                    location.href = url;
+                },
+                error : function (errors) {
+                    alert('PAYMENT ERROR!');
+                }
+                });
+
+            } else {
+            let errorMessage = `Tokenization failed with status: ${result.status}`;
+            if (result.errors) {
+                errorMessage += ` and errors: ${JSON.stringify(
+                result.errors
+                )}`;
             }
-            });
 
-        } else {
-          let errorMessage = `Tokenization failed with status: ${result.status}`;
-          if (result.errors) {
-            errorMessage += ` and errors: ${JSON.stringify(
-              result.errors
-            )}`;
-          }
-
-          throw new Error(errorMessage);
+            throw new Error(errorMessage);
+            }
+        } catch (e) {
+            console.error(e);
+            statusContainer.innerHTML = "Payment Failed";
         }
-      } catch (e) {
-        console.error(e);
-        statusContainer.innerHTML = "Payment Failed";
-      }
-    });
+        });
     </script>
 </body>
