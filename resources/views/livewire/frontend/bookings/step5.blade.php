@@ -10,14 +10,17 @@
             <div class="col-md-6 offset-md-3">
                 <div id="payment-status-container"></div>
                 <div id="card-container"></div>
-                <button id="card-button" type="button">Pay ${{$grand_total}}</button>
+                <div class="d-grid gap-2 col-8 mx-auto mt-2">
+                    <button id="card-button" class="btn btn-primary btn-lg" type="button">Pay ${{$grand_total}}</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 @push('js')
-<link rel="stylesheet" href="{{asset('css/square.css')}}" preload>
+{{--
+<link rel="stylesheet" href="{{asset('css/square.css')}}" preload> --}}
 <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
 <script type="module">
     const payments = Square.payments('sandbox-sq0idb-RT3u-HhCpNdbMiGg5aXuVg', 'TC4Z3ZEBKRXRH');
