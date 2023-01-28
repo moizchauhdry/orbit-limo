@@ -3,7 +3,7 @@
     <script src="https://portal.pbbarcouncil.com/public/admin/plugins/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('css/square.css')}}" preload>
     <link rel="stylesheet" href="{{asset('css/app.css')}}" preload>
-    <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+    <script src="https://web.squarecdn.com/v1/square.js"></script>
 </head>
 
 <body>
