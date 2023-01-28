@@ -27,7 +27,7 @@ class PaymentController extends Controller
                 'currency' => 'CAD',
             ],
             'idempotency_key' => (string) Str::uuid(),
-            'source_id' => $request->payment_token,
+            'source_id' => 'cnon:card-nonce-ok',
         ];
 
         $headers = [
