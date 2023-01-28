@@ -63,8 +63,12 @@ display: none !important;
 }
 
 .chbs-column-3.step-2-extra-options-select-btn {
-display: none !important;
-}
+    display: none !important;
+    }
+
+        .chbs-main .chbs-form-field.chbs-form-field-width-50 {
+            width: 100%;
+        }
 }
 
 .hide {
