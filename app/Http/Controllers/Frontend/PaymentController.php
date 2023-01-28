@@ -18,7 +18,6 @@ class PaymentController extends Controller
 
     public function squarePaymentSuccess(Request $request)
     {
-        dd($request->payment_token);
         $booking = Booking::find($request->booking_id);
 
         $url = 'https://connect.squareupsandbox.com/v2/payments';
