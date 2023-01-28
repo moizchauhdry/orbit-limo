@@ -47,7 +47,7 @@
                 url: '{{route('booking.square-payment.success')}}',
 
                 success: function (response) {
-                    var url = "{{ route('success', '{{$booking->id}}') }}";
+                    var url = "{{ route('success', '$booking->id') }}";
                     location.href = url;
                 },
                 error : function (errors) {
