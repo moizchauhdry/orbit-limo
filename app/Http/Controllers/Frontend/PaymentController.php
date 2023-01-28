@@ -31,7 +31,7 @@ class PaymentController extends Controller
         ];
 
         $headers = [
-            'Authorization' => 'Bearer EAAAEFPXBi9lWx8ObCdZBQh2Ve2exWLT-6R3AoYNTjdjtttvK9I0VRLMCWX8Pgkm'
+            'Authorization' => 'Bearer EAAAFPJlZxg1dvr39acAuQChqKzYuukzpo67UggwU3mfwMfX3LsG0BT6q5_YGFkf'
         ];
 
         $response = Http::withHeaders($headers)->post($url, $body);
