@@ -27,7 +27,11 @@ Route::get('success', [PaymentController::class, 'success'])->name('success');
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/', function () {
+    return redirect()->route('home');
+});
 
 Route::get('/register', function () {
     return redirect()->route('login');
