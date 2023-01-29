@@ -6,6 +6,10 @@
     <span>Extras</span>
     <span>${{$booking_extra_total}}</span>
 </div>
+<div class="chbs-summary-price-element-time-extra">
+    <span>HST (13%)</span>
+    <span>${{$hst_amount}}</span>
+</div>
 <div class="chbs-summary-price-element-total">
     <span>Total</span>
     <span>${{$grand_total}}</span>

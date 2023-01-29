@@ -34,6 +34,7 @@ class BookingComponent extends Component
     public $booking_extra_total = 0;
     public $vehicle_total = 0;
     public $grand_total = 0;
+    public $hst_amount = 0;
     public $payment_method = 1;
     public $service_type = 1;
 
@@ -294,7 +295,10 @@ class BookingComponent extends Component
 
     public function calculateGrandTotal()
     {
-        $this->grand_total = $this->vehicle_total + $this->booking_extra_total;
+        $total = $this->vehicle_total + $this->booking_extra_total;
+        $hst = $total * 13 / 100;
+        $this->hst_amount = number_format((float)$hst, 2, '.', '');
+        $this->grand_total = $total + $this->hst_amount;
     }
 
     public function changeLocation()
