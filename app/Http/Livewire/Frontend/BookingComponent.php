@@ -5,9 +5,14 @@ namespace App\Http\Livewire\Frontend;
 use App\Models\Booking;
 use App\Models\BookingExtra;
 use App\Models\BookingItem;
+use App\Models\User;
 use App\Models\Vehicle;
+use App\Notifications\AdminBookingNotification;
+use App\Notifications\BookingNotification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
 
 class BookingComponent extends Component
 {
@@ -142,6 +147,24 @@ class BookingComponent extends Component
                 'booking_extra_id' => $extra['booking_extra_id'],
                 'qty' => $extra['booking_extra_qty'],
             ]);
+        }
+
+        try {
+            $user = User::updateOrCreate(['email' => $booking->email], [
+                'name' => $booking->first_name . ' ' . $booking->last_name,
+                'email' => $booking->email,
+                'phone' => $booking->phone,
+                'password' => Hash::make('password')
+            ]);
+
+            $user->assignRole(2);
+            $user->notify(new BookingNotification($booking));
+            $admin_users = User::whereHas('roles', function ($qry) {
+                $qry->where('name', 'admin');
+            })->get();
+            Notification::send($admin_users, new AdminBookingNotification());
+        } catch (\Throwable $th) {
+            //throw $th;
         }
 
         return redirect()->route('booking.square-payment', $booking->id);

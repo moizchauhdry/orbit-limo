@@ -23,7 +23,7 @@
                         <div class="chbs-clear-fix">
                             <div class="chbs-form-field chbs-form-field-width-50">
                                 <label>E-mail address *</label>
-                                <input type="text" wire:model.defer="email">
+                                <input type="email" wire:model.defer="email">
                             </div>
                             <div class="chbs-form-field chbs-form-field-width-50">
                                 <label>Phone number</label>
@@ -36,7 +36,7 @@
                                             {{-- <div class="iti__arrow"></div> --}}
                                         </div>
                                     </div>
-                                    <input type="text" wire:model.defer="phone" autocomplete="off"
+                                    <input type="number" wire:model.defer="phone" autocomplete="off"
                                         style="padding-left: 72px;" placeholder="301 2345678"
                                         data-intl-tel-input-id="0">
                                 </div>
