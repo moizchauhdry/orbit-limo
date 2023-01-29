@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Booking;
 use App\Models\Driver;
 use App\Models\Vehicle;
+use App\Notifications\DriverNotification;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 
@@ -231,6 +232,13 @@ class Bookings extends Component
         ]);
 
         $this->emit('hide_modal');
+
+        try {
+            $driver = Driver::find($data['driver_id']);
+            $driver->notify(new DriverNotification($booking));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     public function show($id)
