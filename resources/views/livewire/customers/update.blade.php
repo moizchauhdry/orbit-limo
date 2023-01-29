@@ -15,8 +15,8 @@
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control" wire:model="email" id="email"
-                            placeholder="Enter Email">
+                        <input type="email" class="form-control" wire:model="email" id="email" placeholder="Enter Email"
+                            readonly>
                         <label for="email">Email</label>
                         @error('email') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>

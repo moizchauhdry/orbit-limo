@@ -29,6 +29,7 @@
                     <th>No.</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Role</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th width="150px">Action</th>
@@ -40,6 +41,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td class="text-capitalize">{{ $user->roles[0]->name }}</td>
                     <td class="text-capitalize">{{ $user->created_at }}</td>
                     <td class="text-capitalize"><span class="badge text-bg-{{$user->status ? 'success' :
                             'danger'}}">{{ $user->status ? 'Active' : 'Inactive' }}</span></td>

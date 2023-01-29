@@ -29,6 +29,9 @@ class Users extends Component
         $user = Auth::user();
 
         $users = User::query()
+            ->whereHas('roles', function ($qry) {
+                $qry->where('name', 'admin');
+            })
             ->where('id', '!=', 1)
             ->where('id', '!=', $user->id)
             ->where('name', 'like', '%' . $this->search . '%')
