@@ -21,6 +21,8 @@ class PaymentController extends Controller
     {
         $booking = Booking::find($request->booking_id);
 
+        dd((int) $booking->grand_total * 100);
+
         $url = 'https://connect.squareup.com/v2/payments';
         $body = [
             'amount_money' => [
