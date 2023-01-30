@@ -20,9 +20,7 @@ class PaymentController extends Controller
     public function squarePaymentSuccess(Request $request)
     {
         $booking = Booking::find($request->booking_id);
-
-        $grand_total = $booking->grand_total * 100;
-        dd((int) $grand_total);
+        $grand_total = (int)($booking->grand_total * 100);
 
         $url = 'https://connect.squareup.com/v2/payments';
         $body = [
