@@ -17,7 +17,8 @@
         </div>
     </div>
 
-    <div wire:loading wire:target="submitStep1,submitStep2,submitStep3,submitStep4,back">
+    <div wire:loading
+        wire:target="submitStep1,submitStep2,submitStep3,submitStep4,back,selectVehicle,cartIncrement,cartDecrement,serviceType">
         <div class="lds-roller">
             <div></div>
             <div></div>
