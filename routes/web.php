@@ -21,7 +21,7 @@ Route::get('/online-booking', function () {
 });
 
 Route::get('/square-payment/{booking_id}', [PaymentController::class, 'squarePayment'])->name('booking.square-payment');
-Route::get('square-payment-success', [PaymentController::class, 'squarePaymentSuccess'])->name('booking.square-payment.success');
+Route::post('square-payment-success', [PaymentController::class, 'squarePaymentSuccess'])->name('booking.square-payment.success');
 Route::get('success', [PaymentController::class, 'success'])->name('success');
 
 
