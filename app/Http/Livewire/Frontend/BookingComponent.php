@@ -37,6 +37,7 @@ class BookingComponent extends Component
     public $hst_amount = 0;
     public $payment_method = 1;
     public $service_type = 1;
+    public $total_time = '0 h';
 
     public
         $booking_id,
@@ -45,7 +46,6 @@ class BookingComponent extends Component
         $pickup_location,
         $drop_location,
         $total_distance,
-        $total_time,
         $duration_in_hours,
         $transfer_type,
         $vehicle_id,
@@ -86,9 +86,9 @@ class BookingComponent extends Component
             'pickup_date' => ['required'],
             'pickup_time' => ['required'],
             'pickup_location' => ['required'],
-            'drop_location' => ['required'],
-            'total_distance' => ['required'],
-            'total_time' => ['required'],
+            'drop_location' => [Rule::requiredIf($this->service_type == 1)],
+            'total_distance' => [Rule::requiredIf($this->service_type == 1)],
+            'total_time' => [Rule::requiredIf($this->service_type == 1)],
             'service_type' => ['required', 'in:1,2'],
             'duration_in_hours' =>  [Rule::requiredIf($this->service_type == 2)],
         ]);

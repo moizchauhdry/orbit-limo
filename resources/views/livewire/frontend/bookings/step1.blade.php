@@ -19,14 +19,16 @@
                     <div class="chbs-clear-fix chbs-form-field-pickup-date-time">
                         <div class="chbs-form-field chbs-form-field-width-50">
                             <label class="chbs-form-field-label">
-                                Pickup date <span class="chbs-tooltip chbs-meta-icon-question"
+                                Pickup date <span class="text-danger">*</span> <span
+                                    class="chbs-tooltip chbs-meta-icon-question"
                                     title="The date when your journey will start."></span>
                             </label>
                             <input wire:model.defer="pickup_date" type="date" class="chbs-datepicker">
                         </div>
                         <div class="chbs-form-field chbs-form-field-width-50">
                             <label>
-                                Pickup time <span class="chbs-tooltip chbs-meta-icon-question"
+                                Pickup time <span class="text-danger">*</span> <span
+                                    class="chbs-tooltip chbs-meta-icon-question"
                                     title="The time when your journey will start."></span>
                             </label>
                             <input wire:model.defer="pickup_time" type="time" class="chbs-timepicker">
@@ -36,7 +38,8 @@
                     <div class="chbs-form-field chbs-form-field-location-autocomplete chbs-form-field-location-switch"
                         data-label-waypoint="Waypoint">
                         <label>
-                            Pickup location <span class="chbs-my-location-link">&nbsp;&nbsp;-&nbsp;&nbsp;<a href="#">Use
+                            Pickup location <span class="text-danger">*</span> <span
+                                class="chbs-my-location-link">&nbsp;&nbsp;-&nbsp;&nbsp;<a href="#">Use
                                     my location</a></span>
                             <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will start."></span>
@@ -46,7 +49,9 @@
                     </div>
                     <div class="chbs-form-field chbs-form-field-location-autocomplete">
                         <label>
-                            Drop-off location <span class="chbs-tooltip chbs-meta-icon-question"
+                            Drop-off location @if ($service_type == 1)
+                            <span class="text-danger">*</span>
+                            @endif <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will end."></span>
                         </label>
                         <input type="text" wire:model.defer="drop_location" id="destination-input" @if ($disabled)
@@ -105,7 +110,7 @@
                 <div>
                     <span class="chbs-meta-icon-clock"></span>
                     <span>Total time</span>
-                    <span style="font-size: 18px">{{$total_time ?? '0 h'}}</span>
+                    <span style="font-size: 18px">{{$total_time}}</span>
                 </div>
             </div>
         </div>
