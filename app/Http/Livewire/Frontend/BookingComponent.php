@@ -82,7 +82,7 @@ class BookingComponent extends Component
 
     public function submitStep1()
     {
-        if ($this->service_type == 1 && $this->total_distance == null) {
+        if ($this->total_distance == null) {
             $this->alert('warning', 'Google Maps !', 'The origin or destination point is not valid. Please select the values from the dropdown list.');
         }
 
@@ -91,8 +91,8 @@ class BookingComponent extends Component
             'pickup_time' => ['required'],
             'pickup_location' => ['required'],
             'drop_location' => [Rule::requiredIf($this->service_type == 1)],
-            'total_distance' => [Rule::requiredIf($this->service_type == 1)],
-            'total_time' => [Rule::requiredIf($this->service_type == 1)],
+            'total_distance' => ['required'],
+            'total_time' => ['required'],
             'service_type' => ['required', 'in:1,2'],
             'duration_in_hours' =>  [Rule::requiredIf($this->service_type == 2)],
         ], [
@@ -192,12 +192,16 @@ class BookingComponent extends Component
             $this->pickup_location = $origin;
             $this->drop_location = $destination;
 
+            if ($this->service_type == 2 && $this->drop_location == NULL) {
+                $destination = $origin;
+            }
+
             $ch = curl_init();
 
             $url = "https://maps.googleapis.com/maps/api/distancematrix/json";
             $data_array = [
-                'destinations' => $this->drop_location,
-                'origins' => $this->pickup_location,
+                'destinations' => $destination,
+                'origins' => $origin,
                 'units' => 'imperial',
                 'key' => 'AIzaSyBXl5k0hdaecdpWF7AcfhkXv4TN6MvQn6g',
             ];
@@ -225,7 +229,6 @@ class BookingComponent extends Component
                 'distance' => $distance,
                 'duration' => $duration,
             ]);
-
 
             curl_close($ch);
         } catch (\Throwable $th) {
@@ -318,6 +321,8 @@ class BookingComponent extends Component
             $this->emit('init-map');
             $this->pickup_location = '';
             $this->drop_location = '';
+            $this->total_distance = '';
+            $this->total_time = '';
         }
     }
 

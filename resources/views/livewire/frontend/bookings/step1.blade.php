@@ -94,12 +94,17 @@
                     @endif
                 </div>
 
+
                 @if ($disabled)
                 <button wire:click="changeLocation" class="btn btn-sm btn-warning m-2 float-end text-white"><i
                         class="bi bi-geo-fill me-1"></i>Change Location</button>
                 @endif
 
             </div>
+
+            @if ($service_type == 2)
+            <span class="fw-bold mt-2">Note: 30kms allowed per hour.</span>
+            @endif
         </div>
         <div class="col-md-6">
             <div class="chbs-google-map" wire:ignore>
@@ -195,11 +200,6 @@
             );
             this.setupPlaceChangedListener(originAutocomplete, "ORIG");
             this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
-            // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-            // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
-            //     destinationInput
-            // );
-            // this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
         }
         // Sets a listener on a radio button to change the filter type on Places
         // Autocomplete.
