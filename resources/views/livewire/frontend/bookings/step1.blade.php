@@ -50,8 +50,8 @@
                             @error('pickup_location') <span
                                 class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                         </label>
-                        <input type="text" wire:model.defer="pickup_location" id="origin-input" @if ($disabled) disabled
-                            @endif>
+                        <input type="text" wire:model.defer="pickup_location" wire:keyup="changeOrigin"
+                            id="origin-input" @if ($disabled) disabled @endif>
                     </div>
                     <div class="chbs-form-field chbs-form-field-location-autocomplete">
                         <label>
@@ -62,8 +62,8 @@
                             @error('drop_location') <span
                                 class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                         </label>
-                        <input type="text" wire:model.defer="drop_location" id="destination-input" @if ($disabled)
-                            disabled @endif>
+                        <input type="text" wire:model.defer="drop_location" wire:keyup="changeDestination"
+                            id="destination-input" @if ($disabled) disabled @endif>
                     </div>
 
                     @if ($service_type == 2)

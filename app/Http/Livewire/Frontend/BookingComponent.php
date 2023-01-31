@@ -82,26 +82,32 @@ class BookingComponent extends Component
 
     public function submitStep1()
     {
-        if ($this->total_distance == null) {
+        if ($this->service_type == 2 && $this->drop_location == NULL) {
+            $this->successGoogleMap == true;
+        }
+
+        if ($this->successGoogleMap == false) {
             $this->alert('warning', 'Google Maps !', 'The origin or destination point is not valid. Please select the values from the dropdown list.');
         }
 
-        $data = $this->validate([
-            'pickup_date' => ['required'],
-            'pickup_time' => ['required'],
-            'pickup_location' => ['required'],
-            'drop_location' => [Rule::requiredIf($this->service_type == 1)],
-            'total_distance' => ['required'],
-            'total_time' => ['required'],
-            'service_type' => ['required', 'in:1,2'],
-            'duration_in_hours' =>  [Rule::requiredIf($this->service_type == 2)],
-        ], [
-            'required' => 'THE FIELD IS REQUIRED.'
-        ]);
+        if ($this->successGoogleMap == true) {
+            $data = $this->validate([
+                'pickup_date' => ['required'],
+                'pickup_time' => ['required'],
+                'pickup_location' => ['required'],
+                'drop_location' => [Rule::requiredIf($this->service_type == 1)],
+                'total_distance' => ['required'],
+                'total_time' => ['required'],
+                'service_type' => ['required', 'in:1,2'],
+                'duration_in_hours' =>  [Rule::requiredIf($this->service_type == 2)],
+            ], [
+                'required' => 'THE FIELD IS REQUIRED.'
+            ]);
 
-        $this->current_step = 2;
-        $this->disabled = true;
-        $this->emit('google_map_hide');
+            $this->current_step = 2;
+            $this->disabled = true;
+            $this->emit('google_map_hide');
+        }
     }
 
     public function submitStep2()
@@ -194,6 +200,7 @@ class BookingComponent extends Component
 
             if ($this->service_type == 2 && $this->drop_location == NULL) {
                 $destination = $origin;
+                $this->successGoogleMap = true;
             }
 
             $ch = curl_init();

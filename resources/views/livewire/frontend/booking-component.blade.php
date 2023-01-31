@@ -17,5 +17,17 @@
         </div>
     </div>
 
-    @include('livewire.loader')
+    <div wire:loading wire:target="submitStep1,submitStep2,submitStep3,submitStep4,back">
+        <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="modal-backdrop show backStyle"></div>
+    </div>
 </div>
