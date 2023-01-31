@@ -12,28 +12,32 @@
                         <div class="chbs-clear-fix">
                             <label class="chbs-form-label-group">Contact details</label>
                             <div class="chbs-form-field chbs-form-field-width-50">
-                                <label>First name *</label>
+                                <label>First name *</label>@error('first_name') <span
+                                    class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                                 <input type="text" wire:model.defer="first_name">
                             </div>
                             <div class="chbs-form-field chbs-form-field-width-50">
-                                <label>Last name *</label>
+                                <label>Last name *</label>@error('last_name') <span
+                                    class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                                 <input type="text" wire:model.defer="last_name">
                             </div>
                         </div>
                         <div class="chbs-clear-fix">
                             <div class="chbs-form-field chbs-form-field-width-50">
-                                <label>E-mail address *</label>
+                                <label>E-mail address *</label>@error('email') <span
+                                    class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                                 <input type="email" wire:model.defer="email">
                             </div>
                             <div class="chbs-form-field chbs-form-field-width-50">
-                                <label>Phone number</label>
+                                <label>Phone number</label>@error('phone') <span
+                                    class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                                 <div class="iti iti--allow-dropdown iti--separate-dial-code">
                                     <div class="iti__flag-container">
                                         <div class="iti__selected-flag" role="combobox" aria-owns="country-listbox"
-                                            tabindex="0" title="Pakistan (‫پاکستان‬‎): +1">
+                                            tabindex="0" title="Canada +1">
                                             {{-- <div class="iti__flag iti__pk"></div> --}}
                                             <div class="iti__selected-dial-code">+1</div>
-                                            {{-- <div class="iti__arrow"></div> --}}
+                                            <div class="iti__arrow"></div>
                                         </div>
                                     </div>
                                     <input type="number" wire:model.defer="phone" autocomplete="off"
@@ -47,7 +51,7 @@
                             <div class="chbs-form-field">
                                 <label>Comments</label>
                                 <textarea name="chbs_comment" wire:model.defer="comments"
-                                    placeholder="e.g Flight No, Service Name"></textarea>
+                                    placeholder="e.g Flight no."></textarea>
                             </div>
                         </div>
                     </div>

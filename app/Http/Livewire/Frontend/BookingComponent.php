@@ -82,6 +82,10 @@ class BookingComponent extends Component
 
     public function submitStep1()
     {
+        if ($this->service_type == 1 && $this->total_distance == null) {
+            $this->alert('warning', 'Google Maps !', 'The origin or destination point is not valid. Please select the values from the dropdown list.');
+        }
+
         $data = $this->validate([
             'pickup_date' => ['required'],
             'pickup_time' => ['required'],
@@ -91,6 +95,8 @@ class BookingComponent extends Component
             'total_time' => [Rule::requiredIf($this->service_type == 1)],
             'service_type' => ['required', 'in:1,2'],
             'duration_in_hours' =>  [Rule::requiredIf($this->service_type == 2)],
+        ], [
+            'required' => 'THE FIELD IS REQUIRED.'
         ]);
 
         $this->current_step = 2;
@@ -100,6 +106,10 @@ class BookingComponent extends Component
 
     public function submitStep2()
     {
+        if ($this->vehicle_id == null) {
+            $this->alert('warning', 'Select Vehicle', 'Please select the vehicle to continue your process.');
+        }
+
         $data = $this->validate([
             'vehicle_id' => ['required'],
         ]);
@@ -112,7 +122,7 @@ class BookingComponent extends Component
         $data = $this->validate([
             'first_name' => ['required'],
             'last_name' => ['required'],
-            'email' => ['required'],
+            'email' => ['required', 'email'],
             'phone' => ['required'],
             'comments' => ['nullable'],
         ]);
@@ -314,5 +324,14 @@ class BookingComponent extends Component
     public function serviceType($service_type)
     {
         $this->service_type = $service_type;
+    }
+
+    public function alert($type, $title, $text)
+    {
+        $this->dispatchBrowserEvent('swal:modal', [
+            'type' => $type,
+            'title' => $title,
+            'text' =>  $text
+        ]);
     }
 }

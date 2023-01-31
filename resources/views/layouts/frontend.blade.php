@@ -19,6 +19,8 @@
         media="all">
     <script src="{{ asset('js/jquery.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{asset('plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+
     <link rel="stylesheet" id="google-font-open-sans-css"
         href="//fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C700&amp;ver=4.9.22" type="text/css" media="all">
     <link rel="stylesheet" id="google-font-lato-css"
@@ -80,6 +82,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         window.livewire.on('google_map_show', () => {
             $("#map").removeClass('hide');
                 });
+    </script>
+
+    <script>
+        window.addEventListener('swal:modal', event => {
+            swal.fire({
+                title: event.detail.title,
+                text: event.detail.text,
+                icon: event.detail.type,
+            });
+        });
     </script>
 
     <!-- Google Tag Manager (noscript) -->

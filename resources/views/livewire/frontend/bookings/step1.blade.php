@@ -22,6 +22,8 @@
                                 Pickup date <span class="text-danger">*</span> <span
                                     class="chbs-tooltip chbs-meta-icon-question"
                                     title="The date when your journey will start."></span>
+                                @error('pickup_date') <span
+                                    class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                             </label>
                             <input wire:model.defer="pickup_date" type="date" class="chbs-datepicker">
                         </div>
@@ -30,6 +32,8 @@
                                 Pickup time <span class="text-danger">*</span> <span
                                     class="chbs-tooltip chbs-meta-icon-question"
                                     title="The time when your journey will start."></span>
+                                @error('pickup_time') <span
+                                    class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                             </label>
                             <input wire:model.defer="pickup_time" type="time" class="chbs-timepicker">
                         </div>
@@ -43,6 +47,8 @@
                                     my location</a></span>
                             <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will start."></span>
+                            @error('pickup_location') <span
+                                class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                         </label>
                         <input type="text" wire:model.defer="pickup_location" id="origin-input" @if ($disabled) disabled
                             @endif>
@@ -53,6 +59,8 @@
                             <span class="text-danger">*</span>
                             @endif <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="The address where your journey will end."></span>
+                            @error('drop_location') <span
+                                class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                         </label>
                         <input type="text" wire:model.defer="drop_location" id="destination-input" @if ($disabled)
                             disabled @endif>
@@ -64,6 +72,8 @@
                         <label>
                             Duration (In Hours) <span class="chbs-tooltip chbs-meta-icon-question"
                                 title="Extra time included to the journey."></span>
+                            @error('duration_in_hours') <span
+                                class="text-danger ml-4 fw-bold">{{ $message }}</span>@enderror
                         </label>
                         <select wire:model.defer="duration_in_hours">
                             <option selected value="">-Select Hour-</option>
