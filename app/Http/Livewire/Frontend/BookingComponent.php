@@ -146,7 +146,7 @@ class BookingComponent extends Component
             'total_distance' => $this->total_distance,
             'total_time' => $this->total_time,
             'duration_in_hours' => $this->duration_in_hours,
-            'service_type' => 'Distance',
+            'service_type' => $this->service_type,
             'transfer_type' => 'One Way',
             'vehicle_id' => $this->vehicle_id,
             'first_name' => $this->first_name,

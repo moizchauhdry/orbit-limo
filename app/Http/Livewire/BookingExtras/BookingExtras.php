@@ -39,9 +39,9 @@ class BookingExtras extends Component
     public function store()
     {
         $data = $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:100'],
-            'price' => ['required', 'string', 'min:3', 'max:100'],
-            'desc' => ['required', 'string', 'min:3', 'max:100'],
+            'name' => ['required', 'string', 'max:100'],
+            'price' => ['required', 'numeric'],
+            'desc' => ['required', 'string', 'max:100'],
         ]);
 
         BookingExtra::create([
@@ -74,9 +74,9 @@ class BookingExtras extends Component
     public function update()
     {
         $data = $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:100'],
-            'price' => ['required', 'string', 'min:3', 'max:100'],
-            'desc' => ['required', 'string', 'min:3', 'max:100'],
+            'name' => ['required', 'string', 'max:100'],
+            'price' => ['required', 'numeric'],
+            'desc' => ['required', 'string', 'max:100'],
         ]);
 
         if ($this->extras_id) {

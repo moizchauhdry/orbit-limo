@@ -151,8 +151,12 @@ class Vehicles extends Component
             ]);
 
 
-            $this->image->store('vehicle-images');
-            $vehicle->update(['image' => $this->image->store('vehicle-images')]);
+            try {
+                $this->image->store('vehicle-images');
+                $vehicle->update(['image' => $this->image->store('vehicle-images')]);
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
 
             $this->updateMode = false;
             $this->alert('Vehicle Updated!', 'The vehicle have been updated successfully.');

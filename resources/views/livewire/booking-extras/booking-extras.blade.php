@@ -28,6 +28,8 @@
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
                     <th>Status</th>
                     <th width="150px">Action</th>
                 </tr>
@@ -37,6 +39,8 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $extra->name }}</td>
+                    <td>${{ $extra->price }}</td>
+                    <td>{{ $extra->desc }}</td>
                     <td class="text-capitalize">
                         <span class="badge text-bg-{{$extra->status ? 'success' : 'danger'}}">
                             {{ $extra->status ? 'Active' : 'Inactive' }}

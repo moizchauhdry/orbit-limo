@@ -51,10 +51,10 @@
                             </tr>
                             <tr>
                                 <th>Service Type</th>
-                                <td>{{$booking_data->service_type}}</td>
+                                <td>{{$booking_data->service_type == 2 ? 'Hourly' : 'Distance'}}</td>
                                 @if ($booking_data->service_type == 2)
                                 <th>No. of Hours</th>
-                                <td>{{$booking_data->duration_in_hours}}</td>
+                                <td>{{$booking_data->duration_in_hours}} Hours</td>
                                 @endif
                             </tr>
 
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

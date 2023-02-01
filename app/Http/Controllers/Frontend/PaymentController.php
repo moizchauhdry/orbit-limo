@@ -43,6 +43,11 @@ class PaymentController extends Controller
         $status_code = $response->status();
         $response_body = json_decode($response->getBody(), true);
 
+        $booking->update([
+            'booking_status' => true,
+            'payment_status' => true,
+        ]);
+
         return response()->json([
             'status' => true,
             'code' => $status_code,

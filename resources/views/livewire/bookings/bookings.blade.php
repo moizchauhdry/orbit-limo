@@ -6,16 +6,6 @@
     </div>
     @endif
 
-    {{-- @can('booking-create')
-    <div class="row">
-        <div class="col-md-12">
-            <a href="{{route('admin.bookings.create')}}" class="btn btn-success float-end my-1">
-                <i class="bi bi-plus-lg me-1"></i>Add Booking
-            </a>
-        </div>
-    </div>
-    @endcan --}}
-
     <div class="row">
         <div class="col-md-3">
             <input wire:model="search" type="search" class="form-control my-1" id="search" placeholder="Search">
@@ -26,20 +16,22 @@
         <table class="table table-bordered text-center">
             <thead class="bg-success text-white">
                 <tr>
-                    <th>No.</th>
+                    <th>Sr.No.</th>
+                    <th style="width: 7%">Booking #</th>
                     <th>Name</th>
                     <th>Vehicle</th>
                     <th>Pickup</th>
                     <th>Drop-off</th>
-                    <th style="width: 150px">Date</th>
+                    <th style="width: 12%">Date</th>
                     <th>Status</th>
-                    <th style="width: 200px">Action</th>
+                    <th style="width: 10%">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse($bookings as $booking)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $booking->id }}</td>
                     <td class="text-capitalize">{{ $booking->first_name }} {{$booking->last_name}}</td>
                     <td class="text-capitalize">{{ $booking->vehicle->name ?? '' }}</td>
                     <td class="text-capitalize">{{ $booking->pickup_location }}</td>
