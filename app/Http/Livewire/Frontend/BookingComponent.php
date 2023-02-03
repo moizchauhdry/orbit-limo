@@ -179,9 +179,9 @@ class BookingComponent extends Component
             $admin_users = User::whereHas('roles', function ($qry) {
                 $qry->where('name', 'admin');
             })->get();
-            Notification::send($admin_users, new AdminBookingNotification());
+            Notification::send($admin_users, new AdminBookingNotification($booking));
         } catch (\Throwable $th) {
-            //throw $th;
+            // throw $th;
         }
 
         return redirect()->route('booking.square-payment', $booking->id);

@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Mail\BookingMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -41,12 +42,7 @@ class BookingNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-            ->subject('Booking Notification')
-            ->greeting('Dear ' . $this->booking->first_name . ' ' . $this->booking->last_name . ',')
-            ->line('The booking order has been submitted successfully.')
-            ->action('Orbit Limo - Premium Limo Services in Canada', url('https://orbitlimo.ca/'))
-            ->line('Thank you for using our application!');
+        return (new BookingMail($this->booking))->to($notifiable->email);
     }
 
     /**

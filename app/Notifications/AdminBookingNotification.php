@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class AdminBookingNotification extends Notification
 {
     use Queueable;
+    private $booking;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($booking)
     {
-        //
+        $this->booking = $booking;
     }
 
     /**
@@ -44,8 +45,8 @@ class AdminBookingNotification extends Notification
             ->subject('Booking Notification')
             ->greeting('To Orbit Limo,')
             ->line('The new booking order has been submitted successfully.')
-            ->action('Orbit Limo - Premium Limo Services in Canada', url('https://orbitlimo.ca/'))
-            ->line('Thank you for using our application!');
+            ->line('Booking Date/Time: ' . getDateByFormat($this->booking->pickup_date) . ' (' . getTimeByFormat($this->booking->pickup_time) . ')')
+            ->action('Orbit Limo - Premium Limo Services in Canada', url('https://orbitlimo.ca/'));
     }
 
     /**

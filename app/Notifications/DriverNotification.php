@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class DriverNotification extends Notification
 {
     use Queueable;
+    private $booking;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($booking)
     {
-        //
+        $this->booking = $booking;
     }
 
     /**
@@ -41,9 +42,13 @@ class DriverNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('You’ve been assigned a new ride.')
+            ->line('Pick-up Date/Time: ' . getDateByFormat($this->booking->pickup_date) . ' (' . getTimeByFormat($this->booking->pickup_time) . ')')
+            ->line('Pick-up Location: ' . $this->booking->pickup_location)
+            ->line('Drop-off Location: ' . $this->booking->drop_location)
+            ->line('Customer Name: ' . $this->booking->first_name . ' ' . $this->booking->last_name)
+            ->line('Customer Contact: ' . $this->booking->phone)
+            ->line('Thank you for using our services!');
     }
 
     /**
