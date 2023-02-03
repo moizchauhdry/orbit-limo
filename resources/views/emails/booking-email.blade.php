@@ -29,6 +29,14 @@
             OF ANY KIND.</li>
     </ul>
     </p>
+
+    <br>
+
+    <p>
+        Thank you for using our services. <br>
+        Best Regards, <br>
+        Orbit Limo
+    </p>
 </div>
 
 @endsection
