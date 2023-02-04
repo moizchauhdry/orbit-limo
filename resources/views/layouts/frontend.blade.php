@@ -47,13 +47,13 @@
     <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-255655150-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-255655150-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      gtag('config', 'UA-255655150-1');
+        gtag('config', 'UA-255655150-2');
     </script>
 
     <!-- Google Tag Manager -->
