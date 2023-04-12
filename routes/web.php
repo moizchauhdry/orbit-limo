@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [FrontendHomeController::class, 'index'])->name('frontend.index');
+
+
 Route::get('/online-booking', function () {
     return view('frontend.booking');
 });
@@ -28,10 +32,6 @@ Route::get('success', [PaymentController::class, 'success'])->name('success');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::get('/', function () {
-    return redirect()->route('home');
-});
 
 Route::get('/register', function () {
     return redirect()->route('login');

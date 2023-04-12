@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar .active{
+    color: #E1D986 !important;
+}
+
+.navbar .nav-link:hover{
+    color: #E1D986 !important;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid #E1D986; 
+    transition: border .5s;
+    transform-origin: left;
+}
+
+.register .active{
+    color: black !important;
+}
+header{
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgba(0,0,0,0.7),rgba(0, 0, 0,0.9)),url(./images/image.png);
+}
+
+.section__fleet{
+    background-image: linear-gradient(to right bottom, rgba(0,0,0,0.6),rgba(0, 0, 0,0.8)),url(./images/iceland-g8c1c40cea_1920.jpeg);
+    background-size: cover;
+    background-position: left center;
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+}
+
+
+.section__flight{
+    background-image: linear-gradient(to right bottom, rgba(196, 205, 220,0.1),rgba(255, 244, 230,0.2)),url(./images/Why-Should-I-Hire-JFK-Car-Service-scaled.jpg);
+    background-position: 50% 40%;
+    height: 60vh;
+}
+
+@media screen and (max-width:650px){
+    .section__flight{
+        background-image: linear-gradient(to right bottom, rgba(196, 205, 220,0.1),rgba(255, 244, 230,0.2)),url(./images/flight-plan.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+@media screen and (max-width:992px){
+    .navbar-nav{
+        background: white !important;
+        padding-left: 10px !important;
+    }
+    .navbar-nav li{
+        color: black !important;
+        border-bottom: 1px solid #adacac !important;
+    }
+    .navbar-nav a{
+        color: black !important;
+    }
+    .navbar-nav li:last-child{
+        border-bottom: none !important;
+    }
+}
+
+.lh-3{
+    line-height: 3;
+}
+
+.btn-success{
+    border: 1px solid #E1D986 !important;
+    background: linear-gradient( #E1D986,#000) !important;
+    border-radius: 3px !important;
+}
+
+.btn-success:hover{
+    border: 1px solid black !important;
+}
+
+.register{
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px 10px rgba(101, 100, 100, 0.1);
+}
+.tab-content{
+    position: relative;
+}
+
+.tab-content input{
+    height: 40px;
+}
+
+.nav-tabs{
+    height: 50px;
+}
+
+@media screen and (max-width:770px) {
+    .tab-content input{
+        height: 40px;
+    }
+    .nav-tabs{
+        height: 40px;
+    }
+}
+
+
+
+.header__content{
+    height: 67% !important;
+}
+
+@media screen and (max-width:1500px){
+    .header__content{
+        height: 75% !important;
+    }
+}
+@media screen and (max-width:990px){
+    .header__content{
+        height: 80% !important;
+    }
+}
+@media screen and (max-width:768px){
+    .header__content{
+        height: 72% !important;
+    }
+}
+
+.tab-pane{
+    position: absolute;
+}
+.custom-gradient{
+    background: linear-gradient(to right bottom, rgb(229, 44, 67),rgb(255, 108, 0));
+}
+
+.page-footer a:hover{
+    color: dodgerblue !important;
+}
