@@ -37,67 +37,54 @@
                     <li class="nav-item h-100">
                         <a class="nav-link h-100 text-white fw-semibold active" href="#on-way" id="on-way-tab"
                             data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="on-way"
-                            aria-selected="true">On Way</a>
+                            aria-selected="true" onclick="bookingTab('distance')">On Way</a>
                     </li>
                     <li class="nav-item h-100">
                         <a class="nav-link h-100 text-white fw-semibold" href="#by-hour" id="by-hour-tab"
                             data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="by-hour"
-                            aria-selected="true">By the hour</a>
+                            aria-selected="true" onclick="bookingTab('hourly')">By the hour</a>
                     </li>
                 </ul>
 
-                <form class="tab-content" id="myTabContent">
+                <form class="tab-content">
+                    @csrf
 
-                    <div class="tab-pane fade show active text-white py-2 px-3 w-100" id="on-way" role="tabpanel"
-                        aria-label="on-way-tab" aria-labelledby="on-way-tab">
+                    <div class="alert alert-warning error-messages m-3" style="display:none">
+                        <h5>Validation!</h5>
+                        <ul></ul>
+                    </div>
+
+                    <input type="hidden" name="booking_type" id="booking_type">
+
+                    <div class="tab-pane fade show active text-white py-2 px-3 w-100">
                         <div class="form-group my-2">
                             <label class="text-white h6" for="formGroupFrom">From</label>
-                            <input type="text" class="form-control" id="formGroupFrom"
+                            <input type="text" class="form-control" name="pickup_location" id="pickup_location"
                                 placeholder="Address, airport, hotel, ..." />
                         </div>
 
-                        <div class="form-group my-2">
+                        <div class="form-group my-2 destination">
                             <label class="text-white h6" for="formGroupTo">To</label>
-                            <input type="text" class="form-control" id="formGroupTo"
+                            <input type="text" class="form-control" name="drop_location" id="drop_location"
                                 placeholder="Address, airport, hotel, ...">
                         </div>
+
+                        <div class="form-group my-2 duration">
+                            <label class="text-white h6" for="formGroupDuration">Duration</label>
+                            <input type="text" class="form-control" name="duration_in_hours" placeholder="2 hours">
+                        </div>
+
                         <div class="form-group">
                             <label class="text-white h6" for="datepicker">Date</label>
-                            <input id="datepicker" class="form-control" />
+                            <input id="pickup_date" class="form-control pickup_date" name="pickup_date" />
                         </div>
                         <div class="form-group my-2">
                             <label class="text-white h6" for="formGroupTime">Time</label>
-                            <input type="time" value="09:00" class="form-control" id="formGroupTime"
+                            <input type="time" value="09:00" class="form-control" name="pickup_time" id="pickup_time"
                                 placeholder="9:00 AM">
                         </div>
                         <div class="mt-3">
-                            <a class="w-100 btn btn-success py-2">Search</a>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade show text-white py-2 px-3 w-100" id="by-hour" role="tabpanel"
-                        aria-label="by-hour-tab" aria-labelledby="by-hour-tab">
-                        <div class="form-group my-2">
-                            <label class="text-white h6" for="formGroupFrom">From</label>
-                            <input type="text" class="form-control" id="formGroupFrom"
-                                placeholder="Address, airport, hotel, ..." />
-                        </div>
-
-                        <div class="form-group my-2">
-                            <label class="text-white h6" for="formGroupDuration">Duration</label>
-                            <input type="text" class="form-control" id="formGroupDuration" placeholder="2 hours">
-                        </div>
-                        <div class="form-group my-2">
-                            <label class="text-white h6" for="datepicker">Date</label>
-                            <input id="datepicker2" class="form-control" />
-                        </div>
-                        <div class="form-group my-2">
-                            <label class="text-white h6" for="formGroupTime">Time</label>
-                            <input type="text" class="form-control" id="formGroupTime" placeholder="9:00 AM">
-                        </div>
-
-                        <div class="mt-3">
-                            <a class="w-100 btn btn-success shadow py-2">Search</a>
+                            <button type="button" class="w-100 btn btn-success py-2 btn-booking-submit">Search</button>
                         </div>
                     </div>
 
@@ -107,3 +94,82 @@
 
     </div>
 </header>
+
+<script>
+    bookingTab('distance');
+
+    function bookingTab(tab) {
+        $(".error-messages").hide();
+
+        var booking_type = $("#booking_type").val(tab);
+
+        if (tab == "hourly") {
+            $(".duration").show();
+            $(".destination").hide();
+        } else {
+            $(".destination").show();
+            $(".duration").hide();
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+  
+    $(".btn-booking-submit").click(function(e){
+    
+        e.preventDefault();
+     
+        var booking_type = $("#booking_type").val();
+        var pickup_location = $("#pickup_location").val();
+        var drop_location = $("#drop_location").val();
+        var pickup_time = $("#pickup_time").val();
+        var pickup_date = $("#pickup_date").val();
+     
+        $.ajax({
+           type:'POST',
+           url:"{{ route('frontend.booking.store') }}",
+           data:{
+                pickup_location:pickup_location, 
+                drop_location:drop_location,
+                pickup_time:pickup_time,
+                pickup_date:pickup_date,
+                booking_type:booking_type,
+            },
+           success:function(data){
+                if($.isEmptyObject(data.error)){
+                    window.location.href = '{{route('frontend.booking')}}';
+                }else{
+                    errorMessages(data.error);
+                }
+           }
+        });
+    
+    });
+  
+    function errorMessages (msg) {
+        $(".error-messages").find("ul").html('');
+        $(".error-messages").css('display','block');
+        $.each( msg, function( key, value ) {
+            $(".error-messages").find("ul").append('<li>'+value+'</li>');
+        });
+    }
+  
+</script>
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXl5k0hdaecdpWF7AcfhkXv4TN6MvQn6g&callback=initMap&libraries=places&v=weekly"
+    defer></script>
+
+<script>
+    function initMap() {
+        var pickupInput = document.getElementById('pickup_location');
+        var dropInput = document.getElementById('drop_location');
+        var pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput);
+        var dropAutocomplete = new google.maps.places.Autocomplete(dropInput);
+    }
+</script>

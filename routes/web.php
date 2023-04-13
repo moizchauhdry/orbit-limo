@@ -18,11 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendHomeController::class, 'index'])->name('frontend.index');
-
-
-Route::get('/online-booking', function () {
-    return view('frontend.booking');
-});
+Route::get('/booking', [FrontendHomeController::class, 'booking'])->name('frontend.booking');
+Route::post('/booking/store', [FrontendHomeController::class, 'storeBooking'])->name('frontend.booking.store');
 
 Route::get('/square-payment/{booking_id}', [PaymentController::class, 'squarePayment'])->name('booking.square-payment');
 Route::post('square-payment-success', [PaymentController::class, 'squarePaymentSuccess'])->name('booking.square-payment.success');

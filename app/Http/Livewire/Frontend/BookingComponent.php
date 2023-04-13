@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 
 class BookingComponent extends Component
 {
-    public $current_step = 1;
+    public $current_step = 2;
     protected $listeners = [
         'setGoogleMapPlaces' => 'setGoogleMapPlaces',
         'successGoogleMap' => 'successGoogleMap',
@@ -64,6 +64,13 @@ class BookingComponent extends Component
             $this->booking_extra_id[$key] = $booking_extra->id;
             $this->booking_extra_qty[$key] = 0;
         }
+
+        $this->pickup_location = session('pickup_location');
+        $this->drop_location = session('drop_location');
+        $this->pickup_date = session('pickup_date');
+        $this->pickup_time = session('pickup_time');
+
+        $this->setGoogleMapPlaces();
     }
 
     public function render()
@@ -192,55 +199,42 @@ class BookingComponent extends Component
         $this->current_step = $step;
     }
 
-    public function setGoogleMapPlaces($origin, $destination)
+    public function setGoogleMapPlaces()
     {
-        try {
-            $this->pickup_location = $origin;
-            $this->drop_location = $destination;
+        $ch = curl_init();
 
-            if ($this->service_type == 2 && $this->drop_location == NULL) {
-                $destination = $origin;
-                $this->successGoogleMap = true;
-            }
+        $url = "https://maps.googleapis.com/maps/api/distancematrix/json";
+        $data_array = [
+            'destinations' => $this->drop_location,
+            'origins' => $this->pickup_location,
+            'units' => 'imperial',
+            'key' => 'AIzaSyBXl5k0hdaecdpWF7AcfhkXv4TN6MvQn6g',
+        ];
 
-            $ch = curl_init();
+        $data = http_build_query($data_array);
 
-            $url = "https://maps.googleapis.com/maps/api/distancematrix/json";
-            $data_array = [
-                'destinations' => $destination,
-                'origins' => $origin,
-                'units' => 'imperial',
-                'key' => 'AIzaSyBXl5k0hdaecdpWF7AcfhkXv4TN6MvQn6g',
-            ];
+        $getUrl = $url . "?" . $data;
 
-            $data = http_build_query($data_array);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_URL, $getUrl);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 80);
 
-            $getUrl = $url . "?" . $data;
+        $response = curl_exec($ch);
 
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            curl_setopt($ch, CURLOPT_URL, $getUrl);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 80);
+        $response = json_decode($response, true);
+        $distance = $response['rows'][0]['elements'][0]['distance']['text'] ?? '';
+        $duration = $response['rows'][0]['elements'][0]['duration']['text'] ?? '';
 
-            $response = curl_exec($ch);
-
-            $response = json_decode($response, true);
-            $distance = $response['rows'][0]['elements'][0]['distance']['text'] ?? '';
-            $duration = $response['rows'][0]['elements'][0]['duration']['text'] ?? '';
-
+        if ($distance && $duration) {
             $this->total_distance = $distance;
             $this->total_time = $duration;
-
-            $this->dispatchBrowserEvent('google-map-updated', [
-                'distance' => $distance,
-                'duration' => $duration,
-            ]);
-
-            curl_close($ch);
-        } catch (\Throwable $th) {
-            $this->successGoogleMap = false;
+        } else {
+            dd('error');
         }
+
+        curl_close($ch);
     }
 
     public function changeOrigin()
