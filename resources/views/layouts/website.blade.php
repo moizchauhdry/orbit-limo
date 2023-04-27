@@ -29,7 +29,8 @@
 
     <script>
         $('.pickup_date').datepicker({
-            uiLibrary: 'bootstrap5'
+            uiLibrary: 'bootstrap5',
+            format: 'dd-mm-yyyy'
         });
     </script>
 
