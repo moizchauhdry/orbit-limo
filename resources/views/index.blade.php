@@ -51,11 +51,10 @@
 <section class="section__fleet py-5">
     <div class="container text-white py-5">
         <!-- Fleet Section Heading -->
-        <div
-            class="section__fleet--heading d-flex justify-content-md-between align-items-center flex-column flex-md-row justify-content-center">
+        <div class="section__fleet--heading d-flex justify-content-md-between align-items-center flex-column flex-md-row">
             <h1 class="display-3 fw-medium">Our Fleet</h1>
-            <p class="h6">We offer you an excellent and secure VIP experience.</p>
-            <div class="icon h2" style="color: #E1D986;"><i class="fa-solid fa-arrow-right"></i></div>
+            <p class="h6 text-center">We offer you an excellent and secure VIP experience.</p>
+            <div class="icon h2 align-self-end align-self-md-center pr-md-0 pr-10" style="color: #E1D986;"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
         <hr />
         <!-- Fleet Section Cards -->

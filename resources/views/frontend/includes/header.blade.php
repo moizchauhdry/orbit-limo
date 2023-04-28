@@ -10,8 +10,8 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse justify-content-end navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav pb-2 mb-2 mb-lg-0">
+            <div class="collapse justify-content-end navbar-collapse z-3" id="navbarSupportedContent">
+                <ul class="navbar-nav pb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link text-white active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item"><a class="nav-link text-white" href="#">About Us</a></li>
@@ -22,31 +22,31 @@
             </div>
         </nav>
         <!-- Header Content -->
-        <div class="header__content d-flex justify-content-evenly flex-column flex-lg-row pt-5">
+        <div class="header__content position-relative h-100 d-flex justify-content-evenly flex-column flex-lg-row pt-0 pt-xl-5">
 
             <!-- Header Content Data -->
-            <div class="d-flex flex-column justify-content-center align-items-center h-100 text-white pt-5 pt-md-0">
+            <div class="d-flex flex-column justify-content-center align-items-center text-white pt-5 pt-md-0">
                 <h2 class="display-3 fw-medium">ORBIT LIMO</h2>
                 <p class="h4">THE BEST, NOT THE CHEAPEST</p>
                 <hr>
             </div>
 
             <!-- Header Content Form -->
-            <div class="register col-12 col-lg-6 col-xl-4 h-100">
+            <div class="register col-12 col-lg-6 col-xl-4">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                    <li class="nav-item h-100">
-                        <a class="nav-link h-100 text-white fw-semibold active" href="#on-way" id="on-way-tab"
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold active" href="#on-way" id="on-way-tab"
                             data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="on-way"
                             aria-selected="true" onclick="bookingTab('distance')">On Way</a>
                     </li>
-                    <li class="nav-item h-100">
-                        <a class="nav-link h-100 text-white fw-semibold" href="#by-hour" id="by-hour-tab"
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="#by-hour" id="by-hour-tab"
                             data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="by-hour"
                             aria-selected="true" onclick="bookingTab('hourly')">By the hour</a>
                     </li>
                 </ul>
 
-                <form class="tab-content">
+                <form class="tab-content h-100">
                     @csrf
 
                     <div class="alert alert-warning error-messages m-3" style="display:none">
@@ -56,7 +56,7 @@
 
                     <input type="hidden" name="booking_type" id="booking_type">
 
-                    <div class="tab-pane fade show active text-white py-2 px-3 w-100">
+                    <div class="tab-pane show active text-white py-2 px-3 w-100">
                         <div class="form-group my-2">
                             <label class="text-white h6" for="formGroupFrom">From</label>
                             <input type="text" class="form-control" name="pickup_location" id="pickup_location"

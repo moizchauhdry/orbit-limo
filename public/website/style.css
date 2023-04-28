@@ -20,9 +20,10 @@ body{
     color: black !important;
 }
 header{
-    height: 100vh;
+    /* height: 100vh; */
     background-image: linear-gradient(to right bottom, rgba(0,0,0,0.7),rgba(0, 0, 0,0.9)),url(./images/image.png);
 }
+
 
 .section__fleet{
     background-image: linear-gradient(to right bottom, rgba(0,0,0,0.6),rgba(0, 0, 0,0.8)),url(./images/iceland-g8c1c40cea_1920.jpeg);
@@ -77,12 +78,13 @@ header{
     border: 1px solid black !important;
 }
 
-.register{
+.register,
+.tab-pane{
     background: rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 8px 10px rgba(101, 100, 100, 0.1);
 }
 .tab-content{
-    position: relative;
+    position: relative !important;
 }
 
 .tab-content input{
@@ -101,26 +103,25 @@ header{
         height: 40px;
     }
 }
+@media screen and (max-width:992px) {
+   .navbar-collapse{
+     position: absolute;
+     left: 0;
+     top: 100%;
+     width: 100%;
+     box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+   }
+}
 
 
 
 .header__content{
-    height: 67% !important;
+    padding: 28rem 0;
 }
 
-@media screen and (max-width:1500px){
+@media screen and (max-width:1440px){
     .header__content{
-        height: 75% !important;
-    }
-}
-@media screen and (max-width:990px){
-    .header__content{
-        height: 80% !important;
-    }
-}
-@media screen and (max-width:768px){
-    .header__content{
-        height: 72% !important;
+        padding: 24rem 0;
     }
 }
 

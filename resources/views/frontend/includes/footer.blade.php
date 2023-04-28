@@ -13,21 +13,21 @@
                 <!-- Links -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-3">Company</h5>
 
-                <ul class="list-unstyled lh-3">
+                <ul class="list-unstyled">
                     <li>
-                        <a class="text-decoration-none text-white" href="#">Home</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Home</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white" href="#">About Us</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">About Us</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white" href="#">Our Fleet</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Our Fleet</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white" href="#">For Corporates</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">For Corporates</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white" href="#">Contact us</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Contact us</a>
                     </li>
                 </ul>
 
