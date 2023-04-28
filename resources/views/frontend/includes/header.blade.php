@@ -22,7 +22,8 @@
             </div>
         </nav>
         <!-- Header Content -->
-        <div class="header__content position-relative h-100 d-flex justify-content-evenly flex-column flex-lg-row pt-0 pt-xl-5">
+        <div
+            class="header__content position-relative h-100 d-flex justify-content-evenly flex-column flex-lg-row pt-0 pt-xl-5">
 
             <!-- Header Content Data -->
             <div class="d-flex flex-column justify-content-center align-items-center text-white pt-5 pt-md-0">
@@ -40,9 +41,9 @@
                             aria-selected="true" onclick="bookingTab('distance')">On Way</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold" href="#by-hour" id="by-hour-tab"
-                            data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="by-hour"
-                            aria-selected="true" onclick="bookingTab('hourly')">By the hour</a>
+                        <a class="nav-link text-white fw-semibold" href="#by-hour" id="by-hour-tab" data-bs-toggle="tab"
+                            data-toggle="tab" role="tab" aria-controls="by-hour" aria-selected="true"
+                            onclick="bookingTab('hourly')">By the hour</a>
                     </li>
                 </ul>
 
@@ -169,7 +170,12 @@
     function initMap() {
         var pickupInput = document.getElementById('pickup_location');
         var dropInput = document.getElementById('drop_location');
-        var pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput);
-        var dropAutocomplete = new google.maps.places.Autocomplete(dropInput);
+        
+        var options = {
+            componentRestrictions: { country: 'ca' }
+        };
+        
+        var pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput,options);
+        var dropAutocomplete = new google.maps.places.Autocomplete(dropInput,options);
     }
 </script>
