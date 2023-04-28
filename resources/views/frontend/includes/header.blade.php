@@ -14,7 +14,7 @@
                 <ul class="navbar-nav pb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link text-white active" aria-current="page" href="#">Home</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/">About Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#">Our Fleet</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#">For Corporate</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#">Contact us</a></li>
