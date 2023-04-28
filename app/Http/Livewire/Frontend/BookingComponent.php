@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Vehicle;
 use App\Notifications\AdminBookingNotification;
 use App\Notifications\BookingNotification;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -146,7 +147,7 @@ class BookingComponent extends Component
     public function submitStep4()
     {
         $booking = Booking::create([
-            'pickup_date' => $this->pickup_date,
+            'pickup_date' => Carbon::parse($this->pickup_date)->format('Y-m-d'),
             'pickup_time' => $this->pickup_time,
             'pickup_location' => $this->pickup_location,
             'drop_location' => $this->drop_location,
