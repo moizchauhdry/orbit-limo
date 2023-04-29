@@ -4,16 +4,31 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+
+.input-group-text{
+    width: 40px;
+}
+
 .navbar .active{
     color: #E1D986 !important;
 }
 
 .navbar .nav-link:hover{
     color: #E1D986 !important;
-    padding-bottom: 8px;
-    border-bottom: 1.5px solid #E1D986; 
-    transition: border .5s;
-    transform-origin: left;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #E1D986;
+    transition: width .3s;
+    margin-top: 4px;
+}
+
+.navbar .nav-link:hover::after{
+    width: 100%;
 }
 
 .register .active{
@@ -52,15 +67,18 @@ header{
         background: white !important;
         padding-left: 10px !important;
     }
-    .navbar-nav li{
-        color: black !important;
-        border-bottom: 1px solid #adacac !important;
-    }
-    .navbar-nav a{
+    .navbar .nav-link{
         color: black !important;
     }
-    .navbar-nav li:last-child{
-        border-bottom: none !important;
+    .navbar .nav-link::after{
+        background: #adacac;
+        width: 100%;
+    }
+    .navbar .nav-item:last-child > .nav-link::after{
+        width: 0;
+    }
+    .navbar .nav-link:hover:after{
+        background: #E1D986;
     }
 }
 
@@ -121,7 +139,7 @@ header{
 
 @media screen and (max-width:1440px){
     .header__content{
-        padding: 24rem 0;
+        padding: 26rem 0;
     }
 }
 
@@ -134,4 +152,11 @@ header{
 
 .page-footer a:hover{
     color: dodgerblue !important;
+}
+
+.pickup_date + button,
+.pickup_time + button{
+    background-color: transparent !important;
+    color: white !important;
+    border-color: white !important;
 }

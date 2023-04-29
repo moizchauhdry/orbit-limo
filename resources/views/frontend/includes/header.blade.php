@@ -12,12 +12,16 @@
             </button>
             <div class="collapse justify-content-end navbar-collapse z-3" id="navbarSupportedContent">
                 <ul class="navbar-nav pb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link text-white active" aria-current="page" href="https://orbitlimo.ca/">Home</a>
+                    <li class="nav-item"><a class="nav-link text-white active" aria-current="page"
+                            href="https://orbitlimo.ca/">Home</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">Our Fleet</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">About
+                            Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">Our
+                            Fleet</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#">For Corporate</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/contact/">Contact us</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/contact/">Contact
+                            us</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,9 +30,9 @@
             class="header__content position-relative h-100 d-flex justify-content-evenly flex-column flex-lg-row pt-0 pt-xl-5">
 
             <!-- Header Content Data -->
-            <div class="d-flex flex-column justify-content-center align-items-center text-white pt-5 pt-md-0">
+            <div class="d-flex flex-column justify-content-center align-items-center text-white">
                 <h2 class="display-3 fw-medium">ORBIT LIMO</h2>
-                <p class="h4">THE BEST, NOT THE CHEAPEST</p>
+                <p class="h4 text-center">THE BEST, NOT THE CHEAPEST</p>
                 <hr>
             </div>
 
@@ -36,7 +40,7 @@
             <div class="register col-12 col-lg-6 col-xl-4">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold active" href="#on-way" id="on-way-tab"
+                        <a class="nav-link h-100 text-white fw-semibold active" href="#on-way" id="on-way-tab"
                             data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="on-way"
                             aria-selected="true" onclick="bookingTab('distance')">On Way</a>
                     </li>
@@ -60,29 +64,42 @@
                     <div class="tab-pane show active text-white py-2 px-3 w-100">
                         <div class="form-group my-2">
                             <label class="text-white h6" for="formGroupFrom">From</label>
-                            <input type="text" class="form-control" name="pickup_location" id="pickup_location"
-                                placeholder="Address, airport, hotel, ..." />
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="pickup_location" id="pickup_location"
+                                    placeholder="Address, airport, hotel, ..." />
+                                <span class="input-group-text bg-transparent text-light"><i
+                                        class="fa-solid fa-location-dot"></i></span>
+                            </div>
                         </div>
 
                         <div class="form-group my-2 destination">
                             <label class="text-white h6" for="formGroupTo">To</label>
-                            <input type="text" class="form-control" name="drop_location" id="drop_location"
-                                placeholder="Address, airport, hotel, ...">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="drop_location" id="drop_location"
+                                    placeholder="Address, airport, hotel, ...">
+                                <span class="input-group-text bg-transparent text-light"><i
+                                        class="fa-solid fa-location-dot"></i></span>
+                            </div>
                         </div>
 
                         <div class="form-group my-2 duration">
                             <label class="text-white h6" for="formGroupDuration">Duration</label>
-                            <input type="text" class="form-control" name="duration_in_hours" placeholder="2 hours">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="duration_in_hours" placeholder="2 hours">
+                                <span class="input-group-text bg-transparent text-light"><i
+                                        class="fa-solid fa-clock"></i></span>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label class="text-white h6" for="datepicker">Date</label>
-                            <input id="pickup_date" class="form-control pickup_date" name="pickup_date" />
+                            <input id="pickup_date" class="form-control pickup_date" name="pickup_date"
+                                placeholder='05-04-2023' />
                         </div>
                         <div class="form-group my-2">
                             <label class="text-white h6" for="formGroupTime">Time</label>
-                            <input type="time" value="09:00" class="form-control" name="pickup_time" id="pickup_time"
-                                placeholder="9:00 AM">
+                            <input class="form-control pickup_time" type='text' name="pickup_time" id="pickup_time"
+                                data-mdb-toggle="timepicker" placeholder="9:00 AM">
                         </div>
                         <div class="mt-3">
                             <button type="button" class="w-100 btn btn-success py-2 btn-booking-submit">Search</button>
