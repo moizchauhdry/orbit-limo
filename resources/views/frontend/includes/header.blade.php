@@ -16,7 +16,7 @@
                     </li>
                     <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">About Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">Our Fleet</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/our-fleet/#">For Corporate</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/our-fleet/">For Corporate</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/contact/">Contact us</a></li>
                 </ul>
             </div>
