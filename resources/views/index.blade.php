@@ -64,7 +64,7 @@
                 <img src="{{asset('website/images/SUV-Gallery-4.webp')}}" alt="img" class="h-75 w-75">
                 <div class="caption w-100">
                     <h5 class="text-left">EXECUTIVE SUV</h5>
-                    <a href="#" class="btn btn-success w-100 py-2">BOOK NOW</a>
+                    <a href="https://app.orbitlimo.ca/our-fleet/" class="btn btn-success w-100 py-2">BOOK NOW</a>
                 </div>
             </div>
             <!-- Fleet Section Card 2 -->
@@ -72,7 +72,7 @@
                 <img src="{{asset('website/images/Untitled-design-1.png')}}" alt="img" class="h-75 w-75">
                 <div class="caption w-100">
                     <h5>EXECUTIVE SEDAN</h5>
-                    <a href="#" class="btn btn-success w-100 py-2">BOOK NOW</a>
+                    <a href="https://app.orbitlimo.ca/our-fleet/" class="btn btn-success w-100 py-2">BOOK NOW</a>
                 </div>
             </div>
         </div>
