@@ -16,7 +16,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS File Link -->
     <link rel="stylesheet" href="{{asset('website/style.css')}}">
-    <!-- Date Picker CDN -->
+    <!-- Date & Time Picker CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -31,6 +31,11 @@
         $('.pickup_date').datepicker({
             uiLibrary: 'bootstrap5',
             format: 'dd-mm-yyyy'
+        });
+
+        $('.pickup_time').timepicker({
+            uiLibrary: 'bootstrap5',
+            format: 'hh:mm PM'
         });
     </script>
 
