@@ -108,6 +108,14 @@
 
                 </form>
             </div>
+
+            <div class='qr-code-content'>
+                <img src="{{asset('website/images/qrcode.png')}}" alt="img" class='h-100'>
+                <div>
+                    <a href="#"><img src="{{asset('website/images/icon-facebook.png')}}" alt="social-img"></a>
+                    <a href="#"><img src="{{asset('website/images/icon-instagram.png')}}" alt="social-img"></a>
+                </div>
+            </div>
         </div>
 
     </div>
