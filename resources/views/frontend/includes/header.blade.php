@@ -45,7 +45,7 @@
                             aria-selected="true" onclick="bookingTab('distance')">On Way</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold" href="#by-hour" id="by-hour-tab" data-bs-toggle="tab"
+                        <a class="nav-link h-100 text-white fw-semibold" href="#by-hour" id="by-hour-tab" data-bs-toggle="tab"
                             data-toggle="tab" role="tab" aria-controls="by-hour" aria-selected="true"
                             onclick="bookingTab('hourly')">By the hour</a>
                     </li>
