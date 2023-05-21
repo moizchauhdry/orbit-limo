@@ -88,8 +88,8 @@
                         <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Contact</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Tech
-                            Support</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/terms-and-conditions/"
+                            style="color: rgb(190, 187, 187);">Terms & Condition</a>
                     </li>
                 </ul>
 
