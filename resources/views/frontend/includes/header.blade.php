@@ -19,7 +19,8 @@
                             Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">Our
                             Fleet</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">For Corporate</a></li>
+                    <li class="nav-item"><a class="nav-link text-white"
+                            href="https://app.orbitlimo.ca/for-corporates/">For Corporate</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/contact/">Contact
                             us</a></li>
                 </ul>
@@ -45,9 +46,9 @@
                             aria-selected="true" onclick="bookingTab('distance')">On Way</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h-100 text-white fw-semibold" href="#by-hour" id="by-hour-tab" data-bs-toggle="tab"
-                            data-toggle="tab" role="tab" aria-controls="by-hour" aria-selected="true"
-                            onclick="bookingTab('hourly')">By the hour</a>
+                        <a class="nav-link h-100 text-white fw-semibold" href="#by-hour" id="by-hour-tab"
+                            data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="by-hour"
+                            aria-selected="true" onclick="bookingTab('hourly')">By the hour</a>
                     </li>
                 </ul>
 

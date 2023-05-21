@@ -15,19 +15,24 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a class="text-decoration-none" href="https://orbitlimo.ca/" style="color: rgb(190, 187, 187);">Home</a>
+                        <a class="text-decoration-none" href="https://orbitlimo.ca/"
+                            style="color: rgb(190, 187, 187);">Home</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/about-us/" style="color: rgb(190, 187, 187);">About Us</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/about-us/"
+                            style="color: rgb(190, 187, 187);">About Us</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/our-fleet/" style="color: rgb(190, 187, 187);">Our Fleet</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/our-fleet/"
+                            style="color: rgb(190, 187, 187);">Our Fleet</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">For Corporates</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/for-corporates/"
+                            style="color: rgb(190, 187, 187);">For Corporates</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/contact/" style="color: rgb(190, 187, 187);">Contact us</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/contact/"
+                            style="color: rgb(190, 187, 187);">Contact us</a>
                     </li>
                 </ul>
 
