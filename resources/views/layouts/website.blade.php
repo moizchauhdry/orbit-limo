@@ -17,9 +17,17 @@
     <!-- CSS File Link -->
     <link rel="stylesheet" href="{{asset('website/style.css')}}">
     <!-- Date & Time Picker CDN -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script> -->
     <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+
+
+
+    <!-- ---  -->
+    <!--  -->
 </head>
 
 <body>
@@ -35,8 +43,10 @@
 
         $('.pickup_time').timepicker({
             uiLibrary: 'bootstrap5',
-            format: 'hh:mm PM'
-        });
+                 format: 'hh:mm ZZ'
+             });
+     
+    
     </script>
 
     <!-- Bootstrap Script CDN  -->

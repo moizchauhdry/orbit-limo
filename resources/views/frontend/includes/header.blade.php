@@ -31,9 +31,9 @@
             class="header__content position-relative h-100 d-flex justify-content-evenly flex-column flex-lg-row pt-0 pt-xl-5">
 
             <!-- Header Content Data -->
-            <div class="d-flex flex-column justify-content-center align-items-center text-white">
-                <h2 class="display-3 fw-medium">ORBIT LIMO</h2>
-                <p class="h4 text-center">THE BEST, NOT THE CHEAPEST</p>
+            <div class="d-flex flex-column justify-content-center align-items-center text-white pt-4">
+                <h2 class="display-2 fw-medium">ORBIT LIMO</h2>
+                <!-- <p class="h4 text-center">THE BEST, NOT THE CHEAPEST</p> -->
                 <hr>
             </div>
 
@@ -108,6 +108,14 @@
                     </div>
 
                 </form>
+            </div>
+
+            <div class='qr-code-content'>
+                <img src="{{asset('website/images/qrcode.png')}}" alt="img" class='h-100'>
+                <div>
+                    <a href="#"><img src="{{asset('website/images/icon-facebook.png')}}" alt="social-img"></a>
+                    <a href="#"><img src="{{asset('website/images/icon-instagram.png')}}" alt="social-img"></a>
+                </div>
             </div>
         </div>
 
