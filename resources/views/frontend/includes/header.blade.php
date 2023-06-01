@@ -19,7 +19,7 @@
                             Us</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">Our
                             Fleet</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">For Corporate</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/for-corporates/">For Corporate</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/contact/">Contact
                             us</a></li>
                 </ul>
@@ -30,9 +30,9 @@
             class="header__content position-relative h-100 d-flex justify-content-evenly flex-column flex-lg-row pt-0 pt-xl-5">
 
             <!-- Header Content Data -->
-            <div class="d-flex flex-column justify-content-center align-items-center text-white">
-                <h2 class="display-3 fw-medium">ORBIT LIMO</h2>
-                <p class="h4 text-center">THE BEST, NOT THE CHEAPEST</p>
+            <div class="d-flex flex-column justify-content-center align-items-center text-white pt-4">
+                <h2 class="display-2 fw-medium">ORBIT LIMO</h2>
+                <!-- <p class="h4 text-center">THE BEST, NOT THE CHEAPEST</p> -->
                 <hr>
             </div>
 
