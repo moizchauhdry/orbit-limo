@@ -7,6 +7,27 @@
         <!-- Grid row -->
         <div class="row">
 
+         <!-- Grid column -->
+         <div class="col-md-3 mx-auto">
+
+            <!-- Links -->
+            <h3 class="font-weight-bold text-uppercase mt-3 mb-3 text-xl-left">Orbit Limo</h3>
+
+            <ul class="list-unstyled">
+            
+                <li>
+                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">A108 Adam StreetNY 535022, USA</a>
+                </li>
+                <li>
+                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Phone:</b> +1 5589 55488 55</a>
+                </li>
+                <li>
+                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Email:</b> info@example.com</a>
+                </li>
+            </ul>
+
+            </div>
+
             <!-- Grid column -->
             <div class="col-md-3 mx-auto">
 
@@ -98,35 +119,6 @@
 
             <hr class="clearfix w-100 d-md-none">
 
-            <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
-
-                <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Frequently visit cities</h5>
-
-                <ul class="list-unstyled text-left">
-                    <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Overview</a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Become a
-                            Partner</a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Find a
-                            Partner</a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Affiliates</a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Revene</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- Grid column -->
-
         </div>
         <!-- Grid row -->
 
@@ -139,10 +131,17 @@
         <div class="footer-copyright text-center py-3 d-flex flex-column flex-md-row justify-content-md-between">
             <a class="text-decoration-none text-light" href="#"> Copyright © 2023 Orbit Limo | Developed By
                 OCTALSOL</a>
-            <div class="footer-social h4 d-flex justify-content-center pt-2 pt-md-0 gap-3"><i
-                    class="fa-brands fa-youtube"></i><i class="fa-brands fa-facebook-f"></i><i
-                    class="fa-brands fa-twitter"></i><i class="fa-brands fa-instagram"></i><i
-                    class="fa-brands fa-linkedin"></i></div>
+            <div class="footer-social h4 d-flex justify-content-center pt-2 pt-md-0 gap-3">
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-facebook-f"></i>
+                <a href="https://twitter.com/orbit_limo?s=20" target='_blank' class='text-decoration-none text-white'>
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/orbitlimo?igshid=NTc4MTIwNjQ2YQ==" target='_blank' class='text-decoration-none text-white'>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
         </div>
     </div>
     <!-- Copyright -->

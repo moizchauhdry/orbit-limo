@@ -87,6 +87,49 @@
         <div class="section__services--heading text-center pt-5">
             <h1>City-to-city routes</h1>
         </div>
+          <!-- Section Cities Box Row -->
+          <div class="row justify-content-center g-3 pt-4">
+            <!-- Section Services Box 1 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                    <img src="https://imageio.forbes.com/specials-images/imageserve/617f45fea23581bf3decc29a/0x0.jpg?format=jpg&width=1200" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <div class="p-3 bg-white shadow-sm rounded-bottom">
+                        <p class="fw-medium m-0">Austin</p>
+                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Section Services Box 2 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                    <img src="https://a.cdn-hotels.com/gdcs/production91/d467/78da6fb8-0069-431d-adcb-4a34c13aada5.jpg?impolicy=fcrop&w=800&h=533&q=medium" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <div class="p-3 bg-white shadow-sm rounded-bottom">
+                        <p class="fw-medium m-0">Mississauga</p>
+                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Section Services Box 3 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                    <img src="https://www.zolo.ca/blog/wp-content/uploads/2020/05/most-expensive-homes-oakville-hero.jpg" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <div class="p-3 bg-white shadow-sm rounded-bottom">
+                        <p class="fw-medium m-0">Oakville</p>
+                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
+                    </div>
+                </div>
+            </div>
+              <!-- Section Services Box 4 -->
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                    <img src="https://www.thebeachguide.co.uk/images/content/scarborough-beaches.jpg" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <div class="p-3 bg-white shadow-sm rounded-bottom">
+                        <p class="fw-medium m-0">Scarborough</p>
+                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Boxes Row -->
         <div class="row g-3 px-2 py-5">
             <!-- Box 1 -->
