@@ -22,6 +22,7 @@ class HomeController extends Controller
 
     public function storeBooking(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'pickup_date' => ['required'],
             'pickup_time' => ['required'],
@@ -41,8 +42,8 @@ class HomeController extends Controller
         session()->put('pickup_time', $request->input('pickup_time'));
         session()->put('pickup_location', $request->input('pickup_location'));
         session()->put('drop_location', $request->input('drop_location'));
-        session()->put('total_distance', $request->input('total_distance'));
-        session()->put('total_time', $request->input('total_time'));
+        // session()->put('total_distance', $request->input('total_distance'));
+        // session()->put('total_time', $request->input('total_time'));
         session()->put('booking_type', $request->input('booking_type'));
         session()->put('duration_in_hours', $request->input('duration_in_hours'));
 

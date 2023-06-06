@@ -137,9 +137,9 @@
 </div>
 
 <div class="chbs-clear-fix chbs-main-content-navigation-button" style="margin-top: 20px;">
-    <button wire:click="back(1)" type="button" class="chbs-button chbs-button-style-2 chbs-button-step-prev">
+    <a href="{{route('frontend.index')}}" type="button" class="chbs-button chbs-button-style-2 chbs-button-step-prev">
         <span class="chbs-meta-icon-arrow-horizontal-large"></span>
-        Back </button>
+        Back </a>
     <button wire:click="submitStep2" type="button" class="chbs-button chbs-button-style-1 chbs-button-step-next">
         Next <span class="chbs-meta-icon-arrow-horizontal-large"></span>
     </button>

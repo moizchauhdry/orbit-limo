@@ -70,6 +70,11 @@ class BookingComponent extends Component
         $this->drop_location = session('drop_location') ?? $this->pickup_location;
         $this->pickup_date = session('pickup_date');
         $this->pickup_time = session('pickup_time');
+        $this->duration_in_hours = session('duration_in_hours');
+
+        if (session('booking_type') == 'hourly') {
+            $this->service_type = 2;
+        }
 
         $this->setGoogleMapPlaces();
     }
