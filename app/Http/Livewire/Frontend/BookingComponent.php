@@ -67,7 +67,7 @@ class BookingComponent extends Component
         }
 
         $this->pickup_location = session('pickup_location');
-        $this->drop_location = session('drop_location');
+        $this->drop_location = session('drop_location') ?? $this->pickup_location;
         $this->pickup_date = session('pickup_date');
         $this->pickup_time = session('pickup_time');
 
@@ -232,7 +232,7 @@ class BookingComponent extends Component
             $this->total_distance = $distance;
             $this->total_time = $duration;
         } else {
-            dd('error');
+            dd('The distance and duration is not set, please try again later.');
         }
 
         curl_close($ch);

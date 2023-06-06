@@ -55,13 +55,17 @@ if (!function_exists('calculateVehicleAmount')) {
 if (!function_exists('distanceInKm')) {
     function distanceInKm($distance)
     {
-        $distance_in_km = 0;
-        if (isset($distance) && !empty($distance)) {
-            $distance = explode(" ", $distance);
-            $distance_in_km = $distance[0] * 1.60934;
-        }
+        try {
+            $distance_in_km = 0;
+            if (isset($distance) && !empty($distance)) {
+                $distance = explode(" ", $distance);
+                $distance_in_km = $distance[0] * 1.60934;
+            }
 
-        return number_format((float)$distance_in_km, 2, '.', '');
+            return number_format((float)$distance_in_km, 2, '.', '');
+        } catch (\Throwable $th) {
+            return 0;
+        }
     }
 }
 

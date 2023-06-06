@@ -43,7 +43,7 @@
 
         $('.pickup_time').timepicker({
             uiLibrary: 'bootstrap5',
-                 format: 'hh:mm ZZ'
+                 format: 'hh:mm TT'
              });
      
     

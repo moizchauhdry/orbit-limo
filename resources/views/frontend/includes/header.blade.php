@@ -86,7 +86,8 @@
                         <div class="form-group my-2 duration">
                             <label class="text-white h6" for="formGroupDuration">Duration</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="duration_in_hours" placeholder="2 hours">
+                                <input type="text" class="form-control" name="duration_in_hours" id="duration_in_hours"
+                                    placeholder="2 hours">
                                 <span class="input-group-text bg-transparent text-light"><i
                                         class="fa-solid fa-clock"></i></span>
                             </div>
@@ -156,6 +157,7 @@
         var drop_location = $("#drop_location").val();
         var pickup_time = $("#pickup_time").val();
         var pickup_date = $("#pickup_date").val();
+        var duration_in_hours = $("#duration_in_hours").val();
      
         $.ajax({
            type:'POST',
@@ -163,6 +165,7 @@
            data:{
                 pickup_location:pickup_location, 
                 drop_location:drop_location,
+                duration_in_hours:duration_in_hours,
                 pickup_time:pickup_time,
                 pickup_date:pickup_date,
                 booking_type:booking_type,
