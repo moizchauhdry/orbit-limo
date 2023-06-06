@@ -41,9 +41,9 @@
             format: 'dd-mm-yyyy'
         });
 
-        $('.pickup_time').timepicker({
+        $('#pickup_time').timepicker({
             uiLibrary: 'bootstrap5',
-                 format: 'hh:mm TT'
+                 format: 'hh:MM TT'
              });
      
     
