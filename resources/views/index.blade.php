@@ -13,8 +13,8 @@
             <!-- Section Services Box 1 -->
             <div class="col-sm-6 col-md-5 col-lg-4">
                 <div class="thumbnail">
-                    <img src="{{asset('website/images/03.jpg')}}" alt="img" class="h-100 w-100 rounded">
-                    <div class="caption py-2">
+                    <img src="{{asset('website/images/intercity-rides.png')}}" alt="img" class="h-25 w-100 rounded">
+                    <div class="caption py-2"> 
                         <h3>Intercity rides</h3>
                         <p class="fw-light h6 pb-2">We can provide you with a stress-free solution for traveling
                             between cities by offering chauffeur services across the globe.</p>
@@ -24,7 +24,7 @@
             <!-- Section Services Box 2 -->
             <div class="col-sm-6 col-md-5 col-lg-4">
                 <div class="thumbnail">
-                    <img src="{{asset('website/images/04.jpg')}}" alt="img" class="h-100 w-100 rounded">
+                    <img src="{{asset('website/images/chaufer.png')}}" alt="img" class="h-25 w-100 rounded">
                     <div class="caption py-2">
                         <h3>Chauffeur hailing</h3>
                         <p class="fw-light h6 pb-2">Enjoy the quality of a traditional chauffeur, with the
@@ -35,7 +35,7 @@
             <!-- Section Services Box 3 -->
             <div class="col-sm-6 col-md-5 col-lg-4">
                 <div class="thumbnail">
-                    <img src="{{asset('website/images/05b.jpg')}}" alt="img" class="h-100 w-100 rounded">
+                    <img src="{{asset('website/images/airport-transfer.png')}}" alt="img" class="h-25 w-100 rounded">
                     <div class="caption py-2">
                         <h3>Airport transfers</h3>
                         <p class="fw-light h6 pb-2">With additional wait time and flight tracking in case of delays,
@@ -54,7 +54,6 @@
         <div class="section__fleet--heading d-flex justify-content-md-between align-items-center flex-column flex-md-row">
             <h1 class="display-3 fw-medium">Our Fleet</h1>
             <p class="h6 text-center">We offer you an excellent and secure VIP experience.</p>
-            <div class="icon h2 align-self-end align-self-md-center pr-md-0 pr-10" style="color: #E1D986;"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
         <hr />
         <!-- Fleet Section Cards -->
@@ -85,50 +84,49 @@
     <div class="container">
         <!-- Heading -->
         <div class="section__services--heading text-center pt-5">
-            <h1>City-to-city routes</h1>
+            <h1>Top Cities</h1>
         </div>
           <!-- Section Cities Box Row -->
           <div class="row justify-content-center g-3 pt-4">
             <!-- Section Services Box 1 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="https://imageio.forbes.com/specials-images/imageserve/617f45fea23581bf3decc29a/0x0.jpg?format=jpg&width=1200" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/toronto.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
-                        <p class="fw-medium m-0">Austin</p>
-                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
+                        <p class="fw-medium m-0">Toronto</p>
                     </div>
                 </div>
             </div>
             <!-- Section Services Box 2 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="https://a.cdn-hotels.com/gdcs/production91/d467/78da6fb8-0069-431d-adcb-4a34c13aada5.jpg?impolicy=fcrop&w=800&h=533&q=medium" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/mississagua.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
                         <p class="fw-medium m-0">Mississauga</p>
-                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
                     </div>
                 </div>
             </div>
             <!-- Section Services Box 3 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="https://www.zolo.ca/blog/wp-content/uploads/2020/05/most-expensive-homes-oakville-hero.jpg" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/okvillie.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
                         <p class="fw-medium m-0">Oakville</p>
-                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
                     </div>
                 </div>
             </div>
               <!-- Section Services Box 4 -->
               <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="https://www.thebeachguide.co.uk/images/content/scarborough-beaches.jpg" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/niagra.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
-                        <p class="fw-medium m-0">Scarborough</p>
-                        <span class="fw-light m-0 p-0">8 routes to/from this city</span>
+                        <p class="fw-medium m-0"> Niagara</p>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="section__services--heading text-center pt-5">
+            <h1>City-to-city routes</h1>
         </div>
         <!-- Boxes Row -->
         <div class="row g-3 px-2 py-5">
@@ -136,81 +134,73 @@
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Austin</span><i
+                    <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">San
-                            Antonio</span></div>
-                    <div class="fw-light"><span>1h 20m</span><span class="mx-3">50 mi</span></div>
+                            Niagara</span></div>
                 </div>
             </div>
             <!-- Box 2 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Austin</span><i
+                    <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Houston</span></div>
-                    <div class="fw-light"><span>2h 40m</span><span class="mx-3">104 mi</span></div>
+                            class="fw-medium">Montreal</span></div>
                 </div>
             </div>
             <!-- Box 3 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Bangkok</span><i
+                    <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Pattaya</span></div>
-                    <div class="fw-light"><span>1h 50m</span><span class="mx-3">93 mi</span></div>
+                            class="fw-medium">Oakville</span></div>
                 </div>
             </div>
             <!-- Box 4 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Brisbane</span><i
-                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">Gold
-                            Coast</span></div>
-                    <div class="fw-light"><span>1h</span><span class="mx-3"></span>79 km</div>
-                </div>
+                    <div><span class="fw-medium">Toronto</span><i
+                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
+                            class="fw-medium">London</span></div>
+                 </div>
             </div>
 
             <!-- Box 5 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Chicago</span><i
+                    <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Milwaukee</span></div>
-                    <div class="fw-light"><span>1h 30m</span><span class="mx-3">58 mi</span></div>
+                            class="fw-medium">Thunder Bay</span></div>
                 </div>
             </div>
             <!-- Box 6 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Dubai</span><i
-                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">Abu
-                            Dhabi</span></div>
-                    <div class="fw-light"><span>1h 25m</span><span class="mx-3">139 km</span></div>
+                    <div><span class="fw-medium">Toronto</span><i
+                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
+                            class="fw-medium">Windsor</span></div>
                 </div>
             </div>
             <!-- Box 7 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Dublin</span><i
+                    <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium"></span>Belfast</div>
-                    <div class="fw-light"><span>2h 10m</span><span class="mx-3">168 km</span></div>
+                            class="fw-medium">Kitchener</span></div>
                 </div>
             </div>
             <!-- Box 8 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Dublin</span><i
+                    <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Galway</span></div>
-                    <div class="fw-light"><span>2h 30m</span><span class="mx-3">209 km</span></div>
+                            class="fw-medium">Ottawa</span></div>
                 </div>
             </div>
 
@@ -223,8 +213,10 @@
                         <p class="fw-light">Enter your pick-up and drop-off locations to see the price.</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-5 col-lg-3">
-                        <button class="btn custom-gradient text-white py-3 fw-medium w-100">Book a city-to-city
-                            ride</button>
+                        <a href='#' class="btn custom-gradient text-white py-3 fw-medium w-100">
+                            Book a city-to-city
+                            ride
+                        </a>
                     </div>
                 </div>
             </div>
@@ -242,8 +234,8 @@
             <!-- Section Testimonials Box 1 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail text-center">
-                    <img src="{{asset('website/images/shield-check.svg')}}" alt="img" class="h-25 w-25">
-                    <div class="caption py-3">
+                    <img src="{{asset('website/images/safety-first.jpeg')}}" alt="img" class="h-50 w-50">
+                    <div class="caption">
                         <h3>Safety first</h3>
                         <p class="h5 fw-light">Travel confidently knowing your safety is our #1 priority. Rigorous
                             health and cleaning standards round out a best-in-class service.</p>
@@ -253,8 +245,8 @@
             <!-- Section Testimonials Box 2 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail text-center">
-                    <img src="{{asset('website/images/car.svg')}}" alt="img" class="h-25 w-25">
-                    <div class="caption py-3">
+                <img src="{{asset('website/images/travel.jpeg')}}" alt="img" class="h-25 w-50">
+                    <div class="caption">
                         <h3>Private travel solutions</h3>
                         <p class="h5 fw-light">Discover your one-stop travel shop: long-distance rides, one way or
                             return, by the hour, airport transfers, and more.</p>
@@ -264,8 +256,8 @@
             <!-- Section Testimonials Box 3 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail text-center">
-                    <img src="{{asset('website/images/leaf.svg')}}" alt="img" class="h-25 w-25">
-                    <div class="caption py-3">
+                  <img src="{{asset('website/images/sustainable.jpeg')}}" alt="img" class="h-50 w-50">
+                    <div class="caption">
                         <h3>Sustainable travel</h3>
                         <p class="h5 fw-light">Breathe easy knowing all ride emissions are offset, as part of our
                             global carbon offset program — the industry’s first.</p>

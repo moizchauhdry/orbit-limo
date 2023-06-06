@@ -16,13 +16,10 @@
             <ul class="list-unstyled">
             
                 <li>
-                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">A108 Adam StreetNY 535022, USA</a>
+                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Phone:</b> +1(437) 677-8333</a>
                 </li>
                 <li>
-                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Phone:</b> +1 5589 55488 55</a>
-                </li>
-                <li>
-                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Email:</b> info@example.com</a>
+                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Email:</b> info@orbitlimo.ca</a>
                 </li>
             </ul>
 
@@ -66,20 +63,20 @@
             <div class="col-md-3 mx-auto">
 
                 <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Intercity routes</h5>
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Top Cities</h5>
 
                 <ul class="list-unstyled">
                     <li>
-                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Features</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Toronto</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Services</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Mississauga</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Enterprise</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Oakville</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Pricings</a>
+                        <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);">Scarborough</a>
                     </li>
                 </ul>
 
@@ -132,7 +129,6 @@
             <a class="text-decoration-none text-light" href="#"> Copyright © 2023 Orbit Limo | Developed By
                 OCTALSOL</a>
             <div class="footer-social h4 d-flex justify-content-center pt-2 pt-md-0 gap-3">
-                <i class="fa-brands fa-youtube"></i>
                 <i class="fa-brands fa-facebook-f"></i>
                 <a href="https://twitter.com/orbit_limo?s=20" target='_blank' class='text-decoration-none text-white'>
                     <i class="fa-brands fa-twitter"></i>

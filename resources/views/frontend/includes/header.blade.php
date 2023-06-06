@@ -27,14 +27,13 @@
             </div>
         </nav>
         <!-- Header Content -->
-        <div
-            class="header__content position-relative h-100 d-flex justify-content-evenly flex-column flex-lg-row pt-0 pt-xl-5">
+        <div  class="header__content position-relative h-100 d-flex justify-content-between align-items-center flex-column flex-lg-row pt-0 pt-xl-5 px-xl-4">
 
             <!-- Header Content Data -->
-            <div class="d-flex flex-column justify-content-center align-items-center text-white pt-4">
-                <h2 class="display-2 fw-medium">ORBIT LIMO</h2>
+            <div class="text-white pt-xl-5 h-100">
+                <h2 class="display-4 fw-medium text-center py-3 px-md-2">Welcome to Our Orbit</h2>
                 <!-- <p class="h4 text-center">THE BEST, NOT THE CHEAPEST</p> -->
-                <hr>
+                <!-- <hr> -->
             </div>
 
             <!-- Header Content Form -->
@@ -48,7 +47,7 @@
                     <li class="nav-item">
                         <a class="nav-link h-100 text-white fw-semibold" href="#by-hour" id="by-hour-tab"
                             data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="by-hour"
-                            aria-selected="true" onclick="bookingTab('hourly')">By the hour</a>
+                            aria-selected="true" onclick="bookingTab('hourly')">By the Hour</a>
                     </li>
                 </ul>
 
@@ -106,9 +105,11 @@
                         <div class="mt-3">
                             <button type="button" class="w-100 btn btn-success py-2 btn-booking-submit">Search</button>
                         </div>
+                        <div class='note-msg py-1 text-center w-100'>Error Msg ...........</div>
                     </div>
 
                 </form>
+
             </div>
 
             <div class='qr-code-content'>
