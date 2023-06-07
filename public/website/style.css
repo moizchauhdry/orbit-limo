@@ -19,7 +19,8 @@ body{
 }
 
 .note-msg{
-    color: #E1D986 !important;
+    color: white !important;
+    font-weight: 900;
 }
 
 .navbar .nav-link::after {
@@ -181,7 +182,7 @@ header{
 }
 
 .page-footer a:hover{
-    color: dodgerblue !important;
+    color: #E1D986  !important;
 }
 
 .pickup_date + button,

@@ -16,10 +16,11 @@
             <ul class="list-unstyled">
             
                 <li>
-                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Phone:</b> +1(437) 677-8333</a>
+                    <a class="text-decoration-none" href="tel:+14376778333"  style="color: rgb(190, 187, 187);"><b class='text-white'>Phone:</b> +1(437) 677-8333</a>
+                  <br>  <span style="color: rgb(190, 187, 187);">Mon-Fri (8:00AM-6:00PM)</span> 
                 </li>
                 <li>
-                    <a class="text-decoration-none" href="#" style="color: rgb(190, 187, 187);"><b class='text-white'>Email:</b> info@orbitlimo.ca</a>
+                    <a class="text-decoration-none" href="mailto:info@orbitlimo.ca" style="color: rgb(190, 187, 187);"><b class='text-white'>Email:</b> info@orbitlimo.ca</a>
                 </li>
             </ul>
 
@@ -93,17 +94,16 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Community</a>
+                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Value Statement</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Knowledge
-                            Base</a>
+                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Mission Statement</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Videos</a>
+                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Accessibility Statement</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Contact</a>
+                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Privacy Statement</a>
                     </li>
                     <li>
                         <a class="text-decoration-none" href="https://app.orbitlimo.ca/terms-and-conditions/"

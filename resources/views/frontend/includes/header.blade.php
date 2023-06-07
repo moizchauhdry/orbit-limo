@@ -105,7 +105,7 @@
                         <div class="mt-3">
                             <button type="button" class="w-100 btn btn-success py-2 btn-booking-submit">Search</button>
                         </div>
-                        <div class='note-msg py-1 text-center w-100'>Error Msg ...........</div>
+                        <div class='note-msg py-1 text-center w-100'>Note: 30km allowed per Hour</div>
                     </div>
 
                 </form>
