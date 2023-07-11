@@ -27,7 +27,8 @@
             </div>
         </nav>
         <!-- Header Content -->
-        <div  class="header__content position-relative h-100 d-flex justify-content-between align-items-center flex-column flex-lg-row pt-0 pt-xl-5 px-xl-4">
+        <div
+            class="header__content position-relative h-100 d-flex justify-content-between align-items-center flex-column flex-lg-row pt-0 pt-xl-5 px-xl-4">
 
             <!-- Header Content Data -->
             <div class="text-white pt-xl-5 h-100">
@@ -42,7 +43,7 @@
                     <li class="nav-item">
                         <a class="nav-link h-100 text-white fw-semibold active" href="#on-way" id="on-way-tab"
                             data-bs-toggle="tab" data-toggle="tab" role="tab" aria-controls="on-way"
-                            aria-selected="true" onclick="bookingTab('distance')">On Way</a>
+                            aria-selected="true" onclick="bookingTab('distance')">One Way</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link h-100 text-white fw-semibold" href="#by-hour" id="by-hour-tab"
@@ -105,7 +106,7 @@
                         <div class="mt-3">
                             <button type="button" class="w-100 btn btn-success py-2 btn-booking-submit">Search</button>
                         </div>
-                        <div class='note-msg py-1 text-center w-100'>Note: 30km allowed per Hour</div>
+                        <div class='note-msg py-1 text-center w-100 allowed-per-hour'>Note: 30km allowed per Hour</div>
                     </div>
 
                 </form>
@@ -135,9 +136,11 @@
         if (tab == "hourly") {
             $(".duration").show();
             $(".destination").hide();
+            $(".allowed-per-hour").show();
         } else {
             $(".destination").show();
             $(".duration").hide();
+            $(".allowed-per-hour").hide();
         }
     }
 </script>

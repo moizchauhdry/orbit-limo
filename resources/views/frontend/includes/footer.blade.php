@@ -7,22 +7,24 @@
         <!-- Grid row -->
         <div class="row">
 
-         <!-- Grid column -->
-         <div class="col-md-3 mx-auto">
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
 
-            <!-- Links -->
-            <h3 class="font-weight-bold text-uppercase mt-3 mb-3 text-xl-left">Orbit Limo</h3>
+                <!-- Links -->
+                <h3 class="font-weight-bold text-uppercase mt-3 mb-3 text-xl-left">Orbit Limo</h3>
 
-            <ul class="list-unstyled">
-            
-                <li>
-                    <a class="text-decoration-none" href="tel:+14376778333"  style="color: rgb(190, 187, 187);"><b class='text-white'>Phone:</b> +1(437) 677-8333</a>
-                  <br>  <span style="color: rgb(190, 187, 187);">Mon-Fri (8:00AM-6:00PM)</span> 
-                </li>
-                <li>
-                    <a class="text-decoration-none" href="mailto:info@orbitlimo.ca" style="color: rgb(190, 187, 187);"><b class='text-white'>Email:</b> info@orbitlimo.ca</a>
-                </li>
-            </ul>
+                <ul class="list-unstyled">
+
+                    <li>
+                        <a class="text-decoration-none" href="tel:+14376778333" style="color: rgb(190, 187, 187);"><b
+                                class='text-white'>Phone:</b> +1(437) 677-8333</a>
+                        <br> <span style="color: rgb(190, 187, 187);">Mon-Fri (8:00AM-6:00PM)</span>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none" href="mailto:info@orbitlimo.ca"
+                            style="color: rgb(190, 187, 187);"><b class='text-white'>Email:</b> info@orbitlimo.ca</a>
+                    </li>
+                </ul>
 
             </div>
 
@@ -94,16 +96,20 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Value Statement</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/value-statement"
+                            style="color: rgb(190, 187, 187);">Value Statement</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Mission Statement</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/mission-statement"
+                            style="color: rgb(190, 187, 187);">Mission Statement</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Accessibility Statement</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/mission-statement"
+                            style="color: rgb(190, 187, 187);">Accessibility Statement</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none" href="#!" style="color: rgb(190, 187, 187);">Privacy Statement</a>
+                        <a class="text-decoration-none" href="https://app.orbitlimo.ca/privacy-statement"
+                            style="color: rgb(190, 187, 187);">Privacy Statement</a>
                     </li>
                     <li>
                         <a class="text-decoration-none" href="https://app.orbitlimo.ca/terms-and-conditions/"
@@ -133,7 +139,8 @@
                 <a href="https://twitter.com/orbit_limo?s=20" target='_blank' class='text-decoration-none text-white'>
                     <i class="fa-brands fa-twitter"></i>
                 </a>
-                <a href="https://instagram.com/orbitlimo?igshid=NTc4MTIwNjQ2YQ==" target='_blank' class='text-decoration-none text-white'>
+                <a href="https://instagram.com/orbitlimo?igshid=NTc4MTIwNjQ2YQ==" target='_blank'
+                    class='text-decoration-none text-white'>
                     <i class="fa-brands fa-instagram"></i>
                 </a>
                 <i class="fa-brands fa-linkedin"></i>

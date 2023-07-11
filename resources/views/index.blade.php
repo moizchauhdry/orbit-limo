@@ -14,8 +14,8 @@
             <div class="col-sm-6 col-md-5 col-lg-4">
                 <div class="thumbnail">
                     <img src="{{asset('website/images/intercity-rides.png')}}" alt="img" class="h-25 w-100 rounded">
-                    <div class="caption py-2"> 
-                        <h3>Intercity rides</h3>
+                    <div class="caption py-2">
+                        <h3>Intercity Rides</h3>
                         <p class="fw-light h6 pb-2">We can provide you with a stress-free solution for traveling
                             between cities by offering chauffeur services across the globe.</p>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="thumbnail">
                     <img src="{{asset('website/images/chaufer.png')}}" alt="img" class="h-25 w-100 rounded">
                     <div class="caption py-2">
-                        <h3>Chauffeur hailing</h3>
+                        <h3>Chauffeur Hailing</h3>
                         <p class="fw-light h6 pb-2">Enjoy the quality of a traditional chauffeur, with the
                             convenience of riding within minutes of booking.</p>
                     </div>
@@ -37,7 +37,7 @@
                 <div class="thumbnail">
                     <img src="{{asset('website/images/airport-transfer.png')}}" alt="img" class="h-25 w-100 rounded">
                     <div class="caption py-2">
-                        <h3>Airport transfers</h3>
+                        <h3>Airport Transfers</h3>
                         <p class="fw-light h6 pb-2">With additional wait time and flight tracking in case of delays,
                             our service is optimized to make every airport transfer a breeze.</p>
                     </div>
@@ -51,7 +51,8 @@
 <section class="section__fleet py-5">
     <div class="container text-white py-5">
         <!-- Fleet Section Heading -->
-        <div class="section__fleet--heading d-flex justify-content-md-between align-items-center flex-column flex-md-row">
+        <div
+            class="section__fleet--heading d-flex justify-content-md-between align-items-center flex-column flex-md-row">
             <h1 class="display-3 fw-medium">Our Fleet</h1>
             <p class="h6 text-center">We offer you an excellent and secure VIP experience.</p>
         </div>
@@ -86,12 +87,13 @@
         <div class="section__services--heading text-center pt-5">
             <h1>Top Cities</h1>
         </div>
-          <!-- Section Cities Box Row -->
-          <div class="row justify-content-center g-3 pt-4">
+        <!-- Section Cities Box Row -->
+        <div class="row justify-content-center g-3 pt-4">
             <!-- Section Services Box 1 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="{{asset('website/images/toronto.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/toronto.jpeg')}}" alt="img"
+                        class="w-100 rounded-top object-fit-cover" style="height: 110px;">
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
                         <p class="fw-medium m-0">Toronto</p>
                     </div>
@@ -100,7 +102,8 @@
             <!-- Section Services Box 2 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="{{asset('website/images/mississagua.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/mississagua.jpeg')}}" alt="img"
+                        class="w-100 rounded-top object-fit-cover" style="height: 110px;">
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
                         <p class="fw-medium m-0">Mississauga</p>
                     </div>
@@ -109,16 +112,18 @@
             <!-- Section Services Box 3 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="{{asset('website/images/okvillie.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/okvillie.jpeg')}}" alt="img"
+                        class="w-100 rounded-top object-fit-cover" style="height: 110px;">
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
                         <p class="fw-medium m-0">Oakville</p>
                     </div>
                 </div>
             </div>
-              <!-- Section Services Box 4 -->
-              <div class="col-sm-6 col-md-4 col-lg-3">
+            <!-- Section Services Box 4 -->
+            <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
-                    <img src="{{asset('website/images/niagra.jpeg')}}" alt="img" class="w-100 rounded-top object-fit-cover" style="height: 110px;" >
+                    <img src="{{asset('website/images/niagra.jpeg')}}" alt="img"
+                        class="w-100 rounded-top object-fit-cover" style="height: 110px;">
                     <div class="p-3 bg-white shadow-sm rounded-bottom">
                         <p class="fw-medium m-0"> Niagara</p>
                     </div>
@@ -164,7 +169,7 @@
                     <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
                             class="fw-medium">London</span></div>
-                 </div>
+                </div>
             </div>
 
             <!-- Box 5 -->
@@ -172,8 +177,8 @@
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
                     <div><span class="fw-medium">Toronto</span><i
-                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Thunder Bay</span></div>
+                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">Thunder
+                            Bay</span></div>
                 </div>
             </div>
             <!-- Box 6 -->
@@ -236,31 +241,34 @@
                 <div class="thumbnail text-center">
                     <img src="{{asset('website/images/safety-first.jpeg')}}" alt="img" class="h-50 w-50">
                     <div class="caption">
-                        <h3>Safety first</h3>
-                        <p class="h5 fw-light">Travel confidently knowing your safety is our #1 priority. Rigorous
-                            health and cleaning standards round out a best-in-class service.</p>
+                        <h3>Safety First</h3>
+                        <p class="h5 fw-light">Travel with assurance, as we prioritize your safety above all else.
+                            Impeccable health and sanitation protocols
+                            complement our exceptional service, ensuring the highest standards in the industry</p>
                     </div>
                 </div>
             </div>
             <!-- Section Testimonials Box 2 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail text-center">
-                <img src="{{asset('website/images/travel.jpeg')}}" alt="img" class="h-25 w-50">
+                    <img src="{{asset('website/images/travel.jpeg')}}" alt="img" class="h-25 w-50">
                     <div class="caption">
-                        <h3>Private travel solutions</h3>
-                        <p class="h5 fw-light">Discover your one-stop travel shop: long-distance rides, one way or
-                            return, by the hour, airport transfers, and more.</p>
+                        <h3>Private Travel Solutions</h3>
+                        <p class="h5 fw-light">Explore a convenient hub for all your travel needs: extended journeys,
+                            single or round trips, hourly rentals, airport
+                            transfers, and additional services available.</p>
                     </div>
                 </div>
             </div>
             <!-- Section Testimonials Box 3 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail text-center">
-                  <img src="{{asset('website/images/sustainable.jpeg')}}" alt="img" class="h-50 w-50">
+                    <img src="{{asset('website/images/sustainable.jpeg')}}" alt="img" class="h-50 w-50">
                     <div class="caption">
-                        <h3>Sustainable travel</h3>
-                        <p class="h5 fw-light">Breathe easy knowing all ride emissions are offset, as part of our
-                            global carbon offset program — the industry’s first.</p>
+                        <h3>Sustainable Travel</h3>
+                        <p class="h5 fw-light">Net zero emissions being our top priority, orbit limo aims to replace at
+                            least 50% of our fleet with
+                            all-electric vehicles, by 2028.</p>
                     </div>
                 </div>
             </div>
