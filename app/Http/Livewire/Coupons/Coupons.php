@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Coupons;
 
 use Livewire\Component;
 use App\Models\Coupon;
+use App\Rules\PercentageRule;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
 
@@ -14,7 +15,8 @@ class Coupons extends Component
     public $updateMode = false;
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
-    public $coupon_id, $search, $name;
+    public $coupon_id, $search;
+    public $name, $type, $value;
 
     protected $listeners = [
         'delete-coupon' => 'delete',
@@ -32,17 +34,23 @@ class Coupons extends Component
     private function resetInputFields()
     {
         $this->name = '';
+        $this->type = '';
+        $this->type = '';
         $this->resetValidation();
     }
 
     public function store()
     {
         $data = $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255', 'unique:coupons'],
+            'type' => ['required', 'in:fixed,percentage'],
+            'value' => ['required', 'numeric', new PercentageRule($this->type)],
         ]);
 
         Coupon::create([
             'name' => $data['name'],
+            'type' => $data['type'],
+            'value' => $data['value'],
         ]);
 
         $this->alert('Coupon Added!', 'The coupon have been created successfully.');
@@ -56,6 +64,8 @@ class Coupons extends Component
         $coupon = Coupon::where('id', $id)->first();
         $this->coupon_id = $id;
         $this->name = $coupon->name;
+        $this->type = $coupon->type;
+        $this->value = $coupon->value;
     }
 
     public function cancel()
@@ -67,13 +77,17 @@ class Coupons extends Component
     public function update()
     {
         $data = $this->validate([
-            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('coupons', 'name')->ignore($this->coupon_id, 'id'),],
+            'type' => ['required', 'in:fixed,percentage'],
+            'value' => ['required', 'numeric', new PercentageRule($this->type)],
         ]);
 
         if ($this->coupon_id) {
             $coupon = Coupon::find($this->coupon_id);
             $coupon->update([
                 'name' => $this->name,
+                'type' => $this->type,
+                'value' => $this->value,
             ]);
             $this->updateMode = false;
             $this->alert('Coupon Updated!', 'The coupon have been updated successfully.');

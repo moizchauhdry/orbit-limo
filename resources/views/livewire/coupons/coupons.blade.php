@@ -28,6 +28,8 @@
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
+                    <th>Type</th>
+                    <th>Value</th>
                     <th>Status</th>
                     <th width="150px">Action</th>
                 </tr>
@@ -37,6 +39,8 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $coupon->name }}</td>
+                    <td>{{ $coupon->type }}</td>
+                    <td>{{ $coupon->value }}</td>
                     <td class="text-capitalize">
                         <span class="badge text-bg-{{$coupon->status ? 'success' : 'danger'}}">
                             {{ $coupon->status ? 'Active' : 'Inactive' }}

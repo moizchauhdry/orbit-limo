@@ -13,6 +13,21 @@
                         <label for="name">Name</label>
                         @error('name') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
+                    <div class="form-floating mb-2">
+                        <select wire:model.defer="type" class="form-select" id="type"
+                            aria-label="Floating label select example">
+                            <option value="">Select</option>
+                            <option value="fixed">Fixed</option>
+                            <option value="percentage">Percentage</option>
+                        </select>
+                        <label for="type">Type</label>
+                        @error('type') <span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" wire:model="value" id="value" placeholder="Enter value">
+                        <label for="value">Value</label>
+                        @error('value') <span class="text-danger">{{ $message }}</span>@enderror
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
