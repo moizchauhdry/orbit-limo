@@ -135,7 +135,6 @@
             <a class="text-decoration-none text-light" href="#"> Copyright © 2023 Orbit Limo | Developed By
                 OCTALSOL</a>
             <div class="footer-social h4 d-flex justify-content-center pt-2 pt-md-0 gap-3">
-                <i class="fa-brands fa-facebook-f"></i>
                 <a href="https://twitter.com/orbit_limo?s=20" target='_blank' class='text-decoration-none text-white'>
                     <i class="fa-brands fa-twitter"></i>
                 </a>
@@ -143,7 +142,6 @@
                     class='text-decoration-none text-white'>
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <i class="fa-brands fa-linkedin"></i>
             </div>
         </div>
     </div>
