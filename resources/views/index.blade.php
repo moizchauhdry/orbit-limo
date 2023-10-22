@@ -90,7 +90,7 @@
         <!-- Section Cities Box Row -->
         <div class="row justify-content-center g-3 pt-4">
             <!-- Section Services Box 1 -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href="#" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
                     <img src="{{asset('website/images/toronto.jpeg')}}" alt="img"
                         class="w-100 rounded-top object-fit-cover" style="height: 110px;">
@@ -98,9 +98,9 @@
                         <p class="fw-medium m-0">Toronto</p>
                     </div>
                 </div>
-            </div>
+            </a>
             <!-- Section Services Box 2 -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href="#" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
                     <img src="{{asset('website/images/mississagua.jpeg')}}" alt="img"
                         class="w-100 rounded-top object-fit-cover" style="height: 110px;">
@@ -108,9 +108,9 @@
                         <p class="fw-medium m-0">Mississauga</p>
                     </div>
                 </div>
-            </div>
+            </a>
             <!-- Section Services Box 3 -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href="#" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
                     <img src="{{asset('website/images/okvillie.jpeg')}}" alt="img"
                         class="w-100 rounded-top object-fit-cover" style="height: 110px;">
@@ -118,9 +118,9 @@
                         <p class="fw-medium m-0">Oakville</p>
                     </div>
                 </div>
-            </div>
+            </a>
             <!-- Section Services Box 4 -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
+            <a href="#" class="col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">
                     <img src="{{asset('website/images/niagra.jpeg')}}" alt="img"
                         class="w-100 rounded-top object-fit-cover" style="height: 110px;">
@@ -128,10 +128,10 @@
                         <p class="fw-medium m-0"> Niagara</p>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="section__services--heading text-center pt-5">
-            <h1>City-to-city routes</h1>
+            <h1>City-to-City Routes</h1>
         </div>
         <!-- Boxes Row -->
         <div class="row g-3 px-2 py-5">
@@ -140,8 +140,13 @@
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
                     <div><span class="fw-medium">Toronto</span><i
-                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">San
-                            Niagara</span></div>
+                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">Niagara</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $466 CAD</div>
                 </div>
             </div>
             <!-- Box 2 -->
@@ -151,24 +156,42 @@
                     <div><span class="fw-medium">Toronto</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
                             class="fw-medium">Montreal</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $1707 CAD</div>
                 </div>
             </div>
             <!-- Box 3 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Toronto</span><i
+                    <div><span class="fw-medium">Hamilton</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Oakville</span></div>
+                            class="fw-medium">Brampton</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $285 CAD</div>
                 </div>
             </div>
             <!-- Box 4 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Toronto</span><i
+                    <div><span class="fw-medium">London</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">London</span></div>
+                            class="fw-medium">Mississauga</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $591 CAD</div>
                 </div>
             </div>
 
@@ -176,36 +199,59 @@
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Toronto</span><i
-                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">Thunder
-                            Bay</span></div>
+                    <div><span class="fw-medium">Ottawa</span><i
+                            class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span class="fw-medium">Toronto</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $1431 CAD</div>
                 </div>
             </div>
             <!-- Box 6 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Toronto</span><i
+                    <div><span class="fw-medium">Kitchener</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Windsor</span></div>
+                            class="fw-medium">Markham</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $433 CAD</div>
                 </div>
             </div>
             <!-- Box 7 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Toronto</span><i
+                    <div><span class="fw-medium">Kingston</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Kitchener</span></div>
+                            class="fw-medium">Mississauga</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $934 CAD</div>
                 </div>
             </div>
             <!-- Box 8 -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div
                     class="thumbnail p-3 bg-white shadow-sm rounded d-flex flex-column justify-content-center align-items-center align-items-md-start">
-                    <div><span class="fw-medium">Toronto</span><i
+                    <div><span class="fw-medium">Barrie</span><i
                             class="fa-solid fa-arrow-right mx-3 text-secondary"></i><span
-                            class="fw-medium">Ottawa</span></div>
+                            class="fw-medium">Milton</span></div>
+                            <div class="cityPricing" style="
+    text-align: right !important;
+    width: 100%;
+    margin-top: 15px;
+    color: grey;
+">From $536 CAD</div>
                 </div>
             </div>
 
@@ -218,7 +264,7 @@
                         <p class="fw-light">Enter your pick-up and drop-off locations to see the price.</p>
                     </div>
                     <div class="col-12 col-sm-6 col-md-5 col-lg-3">
-                        <a href='#' class="btn custom-gradient text-white py-3 fw-medium w-100">
+                        <a href='#' class="centerButton btn btn-success w-100 py-2">
                             Book a city-to-city
                             ride
                         </a>
