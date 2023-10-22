@@ -26,6 +26,7 @@ class BookingComponent extends Component
     ];
 
     public $disabled = false;
+    public $apply_coupon = false;
     public $updateMode = false;
     public $successGoogleMap = false;
 
@@ -363,8 +364,12 @@ class BookingComponent extends Component
             if ($coupon->type === 'fixed') {
                 $this->discount_amount = $coupon->value;
             }
+
+            $this->alert('success', 'Success', 'The coupon applied successfully.');
+            $this->apply_coupon = true;
+
         } else {
-            $this->alert('warning', 'Invalid Coupon!', 'The coupon code you entered is invalid.');
+            $this->alert('warning', 'Invalid Coupon', 'The coupon code you entered is invalid.');
         }
 
         $this->calculateGrandTotal();

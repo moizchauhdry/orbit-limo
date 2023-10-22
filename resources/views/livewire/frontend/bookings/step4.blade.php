@@ -5,7 +5,7 @@
             <div class="chbs-summary">
                 <div class="chbs-summary-header">
                     <h4>Contact &amp; Billing Info</h4>
-                   </div>
+                </div>
                 <div class="chbs-summary-field">
                     <div class="chbs-layout-50x50 chbs-clear-fix">
                         <div class="chbs-layout-column-left">
@@ -45,14 +45,17 @@
                 </div>
             </div>
             <div class="chbs-clear-fix chbs-coupon-code-section">
-                <div class="chbs-form-field">
+                <div class="chbs-form-field mb-2">
                     <label>Do you have a discount code?</label>
                     <input maxlength="12" wire:model="coupon_code" type="text">
                 </div>
-                <a href="#" class="chbs-button chbs-button-style-2" wire:click='applyCoupon'>
-                    Apply code
+                
+                @if (!$apply_coupon)
+                <button class="chbs-button chbs-button-style-2" wire:click='applyCoupon'>
+                    Apply Coupon
                     <span class="chbs-meta-icon-arrow-horizontal"></span>
-                </a>
+                </button>
+                @endif
             </div>
             <div class="chbs-summary-price-element">
                 @include('livewire.frontend.bookings.summary-price-element')
