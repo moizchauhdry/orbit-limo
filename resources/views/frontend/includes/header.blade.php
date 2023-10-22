@@ -3,25 +3,39 @@
     <div class="container px-md-5 h-100">
         <!-- Header Navbar  -->
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#"><img src="{{asset('website/images/orbit-logo--189x84.png')}}"
-                    alt="logo"></a>
+            <a class="navbar-brand" href="#"><img src="{{asset('website/images/updatedFinalLogo.png')}}"
+                    alt="logo" style="height: 75px;/* margin-left: -28px; */margin-top: -4px;margin-left: 14px;">
+                    <p style="
+    display: inline;
+    font-family: 'POPPINS';
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 30px;
+    margin-left: -21px;
+">Orbit Limo</p>
+                    </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse justify-content-end navbar-collapse z-3" id="navbarSupportedContent">
-                <ul class="navbar-nav pb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link text-white active" aria-current="page"
+            <div class="collapse justify-content-end navbar-collapse z-3" id="navbarSupportedContent" style="
+    padding-top: 5px;
+    font-weight: 300;
+">
+                <ul class="navbar-nav pb-2 mb-lg-0" style="
+    margin-top: 10px;
+">
+                    <li class="nav-item" style="padding-right: 16px;"><a class="nav-link text-white active" aria-current="page"
                             href="https://orbitlimo.ca/">Home</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">About
+                    <li class="nav-item" style="padding-right: 16px;"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">About
                             Us</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">Our
+                    <li class="nav-item" style="padding-right: 16px;"><a class="nav-link text-white" href="https://app.orbitlimo.ca/about-us/">Our
                             Fleet</a></li>
-                    <li class="nav-item"><a class="nav-link text-white"
-                            href="https://app.orbitlimo.ca/for-corporates/">For Corporate</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="https://app.orbitlimo.ca/contact/">Contact
+                    <li class="nav-item" style="padding-right: 16px;"><a class="nav-link text-white"
+                            href="https://app.orbitlimo.ca/for-corporates/">For Corporates</a></li>
+                    <li class="nav-item" style="padding-right: 16px;"><a class="nav-link text-white" href="https://app.orbitlimo.ca/contact/">Contact
                             us</a></li>
                 </ul>
             </div>
@@ -112,7 +126,7 @@
                 </form>
 
             </div>
-
+<!-- 
             <div class='qr-code-content'>
                 <img src="{{asset('website/images/qrcode.png')}}" alt="img" class='h-100'>
                 <div>
@@ -121,6 +135,7 @@
                 </div>
             </div>
         </div>
+        -->
 
     </div>
 </header>
