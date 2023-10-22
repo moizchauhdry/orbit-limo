@@ -157,7 +157,7 @@ class BookingComponent extends Component
     {
         $booking = Booking::create([
             'pickup_date' => Carbon::parse($this->pickup_date)->format('Y-m-d'),
-            'pickup_time' => $this->pickup_time,
+            'pickup_time' => Carbon::parse($this->pickup_time)->format('h:i:s'),
             'pickup_location' => $this->pickup_location,
             'drop_location' => $this->drop_location,
             'total_distance' => $this->total_distance,
@@ -241,7 +241,7 @@ class BookingComponent extends Component
             $this->total_distance = $distance;
             $this->total_time = $duration;
         } else {
-            $this->alert('warning', 'Warning', 'The distance and duration is not set, please try again later.');
+            dd('The distance and duration is not set, please try again later.');
         }
 
         curl_close($ch);
