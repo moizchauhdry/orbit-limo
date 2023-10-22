@@ -241,7 +241,7 @@ class BookingComponent extends Component
             $this->total_distance = $distance;
             $this->total_time = $duration;
         } else {
-            dd('The distance and duration is not set, please try again later.');
+            $this->alert('warning', 'Warning', 'The distance and duration is not set, please try again later.');
         }
 
         curl_close($ch);
