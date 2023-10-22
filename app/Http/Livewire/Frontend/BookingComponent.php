@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Frontend;
 use App\Models\Booking;
 use App\Models\BookingExtra;
 use App\Models\BookingItem;
+use App\Models\Coupon;
 use App\Models\User;
 use App\Models\Vehicle;
 use App\Notifications\AdminBookingNotification;
@@ -35,6 +36,7 @@ class BookingComponent extends Component
     public $booking_extra_total = 0;
     public $vehicle_total = 0;
     public $grand_total = 0;
+    public $discount_amount = 0;
     public $hst_amount = 0;
     public $payment_method = 1;
     public $service_type = 1;
@@ -56,7 +58,8 @@ class BookingComponent extends Component
         $phone,
         $comments,
         $booking_status,
-        $payment_status;
+        $payment_status,
+        $coupon_code;
 
     public function mount()
     {
@@ -318,7 +321,7 @@ class BookingComponent extends Component
         $total = $this->vehicle_total + $this->booking_extra_total;
         $hst = $total * 13 / 100;
         $this->hst_amount = number_format((float)$hst, 2, '.', '');
-        $this->grand_total = $total + $this->hst_amount;
+        $this->grand_total = ($total + $this->hst_amount) - $this->discount_amount;
     }
 
     public function changeLocation()
@@ -345,5 +348,25 @@ class BookingComponent extends Component
             'title' => $title,
             'text' =>  $text
         ]);
+    }
+
+    public function applyCoupon()
+    {
+        $this->discount_amount = 0;
+        $coupon = Coupon::where('name', $this->coupon_code)->first();
+
+        if (isset($coupon)) {
+            if ($coupon->type === 'percentage') {
+                $this->discount_amount = ($coupon->value / 100) * $this->grand_total;
+            }
+
+            if ($coupon->type === 'fixed') {
+                $this->discount_amount = $coupon->value;
+            }
+        } else {
+            $this->alert('warning', 'Invalid Coupon!', 'The coupon code you entered is invalid.');
+        }
+
+        $this->calculateGrandTotal();
     }
 }
